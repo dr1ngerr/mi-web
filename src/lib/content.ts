@@ -76,6 +76,16 @@ export const aboutContent = {
       description: "Conozco procesos empresariales y ERP. Diseño pensando en resultados, no solo en estética.",
       icon: "zap" as const,
     },
+    {
+      title: "Python + IA aplicada",
+      description: "Formación en Python e inteligencia artificial. El puente hacia automatización inteligente.",
+      icon: "code" as const,
+    },
+    {
+      title: "Git & GitHub",
+      description: "Control de versiones y metodología profesional para entregas organizadas y escalables.",
+      icon: "git" as const,
+    },
   ],
 };
 

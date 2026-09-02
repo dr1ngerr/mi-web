@@ -1,9 +1,11 @@
-import { Briefcase, Zap, type LucideIcon } from "lucide-react";
+import { Briefcase, Code2, GitBranch, Zap, type LucideIcon } from "lucide-react";
 import { aboutContent } from "@/lib/content";
 
 const iconMap: Record<(typeof aboutContent.highlights)[number]["icon"], LucideIcon> = {
   briefcase: Briefcase,
   zap: Zap,
+  code: Code2,
+  git: GitBranch,
 };
 
 export function About() {
