@@ -25,7 +25,7 @@ export const navLinks = [
 export const heroContent = {
   title: "Tu negocio en internet, más rápido y profesional que nunca.",
   subtitle:
-    "Webs que convierten visitas en clientes. Para empresas en La Rioja y en toda España que quieren dejar de perder oportunidades en Google.",
+    "Webs profesionales para negocios en La Rioja y toda España. Más clientes, menos complicaciones.",
   badge: "Desarrollo web · Python · IA · La Rioja",
   primaryCta: "Solicitar Presupuesto",
   secondaryCta: "Ver mis servicios",
@@ -33,8 +33,7 @@ export const heroContent = {
 
 export const servicesContent = {
   title: "Mis Servicios",
-  subtitle:
-    "No vendo código: vendo presencia digital que genera contactos, confianza y ventas.",
+  subtitle: "Webs y soluciones digitales orientadas a resultados.",
 };
 
 export const services = [
@@ -42,21 +41,21 @@ export const services = [
     id: "web-ia",
     title: "Desarrollo Web Asistido por IA",
     description:
-      "Páginas corporativas modernas, rápidas y optimizadas para captar clientes desde el primer día — con tiempos de entrega que la competencia no suele igualar.",
+      "Páginas modernas y rápidas, listas para captar clientes desde el primer día.",
     icon: "sparkles" as const,
   },
   {
     id: "diseno-negocio",
     title: "Diseño Orientado a Negocio",
     description:
-      "Cada sección tiene un objetivo: que te escriban, te llamen o compren. Estructura, mensaje y diseño alineados con lo que tu cliente necesita ver para decidirse.",
+      "Cada sección con un objetivo claro: que te contacten o compren.",
     icon: "target" as const,
   },
   {
     id: "soluciones-ia",
     title: "Automatización e IA",
     description:
-      "Asistentes inteligentes y flujos automatizados con Python e IA. Una línea de servicio en crecimiento, apoyada en formación especializada y experiencia con procesos empresariales reales.",
+      "Automatización y asistentes inteligentes para simplificar tareas repetitivas de tu negocio.",
     icon: "bot" as const,
     comingSoon: true,
     badge: "Nueva línea",
@@ -64,32 +63,18 @@ export const services = [
 ] as const;
 
 export const aboutContent = {
-  title: "Experiencia real. Stack en expansión.",
-  text: "Soy desarrollador con titulación oficial (DAM) y trayectoria construyendo software que ya se usa cada día en el entorno empresarial: plataformas de gestión de personal con fichajes, horarios, vacaciones y distintos niveles de permiso según el rol del usuario.\n\nEsa experiencia en producción — junto con el trabajo en procesos de negocio y entornos ERP como Business Central — me da una ventaja que muchos freelancers no tienen: entiendo cómo opera una empresa por dentro, no solo cómo se ve una landing page.\n\nAhora amplío ese perfil con Python — formación orientada a la certificación PCEP y aplicación directa en inteligencia artificial con DeepLearning.ai — y un flujo de trabajo profesional con Git y GitHub. Más herramientas, mismo objetivo: entregar soluciones que generen resultados.",
+  title: "Experiencia real. Resultados concretos.",
+  text: "Desarrollador con titulación oficial (DAM) y experiencia construyendo software que ya usan equipos reales cada día — plataformas de gestión, fichajes, horarios y procesos de negocio. Entiendo cómo opera una empresa por dentro, no solo cómo se ve una web.",
   highlights: [
     {
       title: "Software en producción",
-      description:
-        "Plataformas web activas, con usuarios reales, roles diferenciados y flujos de trabajo que simplifican la operativa diaria.",
+      description: "Apps web activas con usuarios reales y flujos de trabajo que simplifican la operativa diaria.",
       icon: "briefcase" as const,
     },
     {
-      title: "Visión de negocio + ERP",
-      description:
-        "Conocimiento de procesos empresariales y sistemas de gestión: la base para integrar automatización e IA donde de verdad aporta valor.",
+      title: "Enfoque de negocio",
+      description: "Conozco procesos empresariales y ERP. Diseño pensando en resultados, no solo en estética.",
       icon: "zap" as const,
-    },
-    {
-      title: "Python + IA aplicada",
-      description:
-        "Formación en Python (certificación PCEP) e inteligencia artificial práctica. El puente entre desarrollo web y automatización inteligente.",
-      icon: "code" as const,
-    },
-    {
-      title: "Git & GitHub",
-      description:
-        "Control de versiones y metodología profesional para entregas organizadas, trazables y preparadas para escalar en equipo.",
-      icon: "git" as const,
     },
   ],
 };
@@ -131,8 +116,7 @@ export const portfolioContent = {
 
 export const contactContent = {
   title: "¿Listo para modernizar tu negocio?",
-  subtitle:
-    "Cuéntame qué necesitas. En una conversación de 15 minutos vemos si encajo contigo y qué enfoque te daría más retorno.",
+  subtitle: "Escríbeme y vemos qué necesita tu negocio.",
   emailButton: "Enviar email",
   whatsappButton: "Escribir por WhatsApp",
   formLabels: {

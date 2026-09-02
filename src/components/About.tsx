@@ -1,16 +1,12 @@
-import { Briefcase, Code2, GitBranch, Zap, type LucideIcon } from "lucide-react";
+import { Briefcase, Zap, type LucideIcon } from "lucide-react";
 import { aboutContent } from "@/lib/content";
 
 const iconMap: Record<(typeof aboutContent.highlights)[number]["icon"], LucideIcon> = {
   briefcase: Briefcase,
   zap: Zap,
-  code: Code2,
-  git: GitBranch,
 };
 
 export function About() {
-  const paragraphs = aboutContent.text.split("\n\n");
-
   return (
     <section id="enfoque" className="border-y border-slate-200 bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -19,11 +15,7 @@ export function About() {
             <h2 className="text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
               {aboutContent.title}
             </h2>
-            <div className="mt-6 space-y-4 text-lg leading-relaxed text-slate-700">
-              {paragraphs.map((paragraph) => (
-                <p key={paragraph.slice(0, 40)}>{paragraph}</p>
-              ))}
-            </div>
+            <p className="mt-6 text-lg leading-relaxed text-slate-700">{aboutContent.text}</p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
