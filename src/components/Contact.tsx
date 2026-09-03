@@ -2,7 +2,7 @@
 
 import { FormEvent, useEffect, useState } from "react";
 import { MessageCircle } from "lucide-react";
-import { contactContent, siteConfig } from "@/lib/content";
+import { contactContent, getWhatsAppUrl } from "@/lib/content";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -44,18 +44,17 @@ export function Contact() {
     }
   }
 
-  const whatsappUrl = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
-    "Hola, me gustaría hablar sobre un proyecto web para mi negocio.",
-  )}`;
+  const whatsappUrl = getWhatsAppUrl();
 
   return (
-    <section id="contacto" className="border-t border-slate-200 bg-white py-20 sm:py-28">
+    <section id="contacto" className="border-t border-slate-200/70 bg-white/60 py-14 pb-28 backdrop-blur-[2px] sm:py-28 sm:pb-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+          <h2 className="text-2xl font-bold tracking-tight text-slate-950 sm:text-4xl">
             {contactContent.title}
           </h2>
-          <p className="mt-4 text-lg text-slate-700">{contactContent.subtitle}</p>
+          <p className="mt-3 text-base text-slate-700 sm:mt-4 sm:text-lg">{contactContent.subtitle}</p>
+          <p className="mt-3 text-lg font-semibold text-indigo-900 sm:text-xl">{contactContent.closing}</p>
         </div>
 
         <div className="mx-auto mt-12 max-w-xl">
@@ -71,7 +70,7 @@ export function Contact() {
                   required
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="mt-1.5 w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-2.5 text-slate-950 transition-colors placeholder:text-slate-500 focus:border-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600/25"
+                  className="mt-1.5 min-h-12 w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base text-slate-950 placeholder:text-slate-500 focus:border-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600/25"
                   placeholder="Tu nombre"
                 />
               </div>
@@ -86,7 +85,7 @@ export function Contact() {
                   required
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="mt-1.5 w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-2.5 text-slate-950 transition-colors placeholder:text-slate-500 focus:border-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600/25"
+                  className="mt-1.5 min-h-12 w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base text-slate-950 placeholder:text-slate-500 focus:border-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600/25"
                   placeholder="tu@email.com"
                 />
               </div>
@@ -101,15 +100,15 @@ export function Contact() {
                   rows={4}
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="mt-1.5 w-full resize-none rounded-lg border-2 border-slate-300 bg-white px-4 py-2.5 text-slate-950 transition-colors placeholder:text-slate-500 focus:border-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600/25"
-                  placeholder="Cuéntame sobre tu proyecto..."
+                  className="mt-1.5 w-full resize-none rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base text-slate-950 placeholder:text-slate-500 focus:border-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600/25"
+                  placeholder={contactContent.messagePlaceholder}
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="w-full rounded-lg bg-indigo-700 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-indigo-800 disabled:cursor-not-allowed disabled:opacity-70"
+                className="min-h-12 w-full rounded-lg bg-indigo-700 px-5 py-3.5 text-base font-semibold text-white hover:bg-indigo-800 disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {status === "loading" ? "Enviando..." : contactContent.formLabels.submit}
               </button>
@@ -141,13 +140,14 @@ export function Contact() {
           )}
 
           <div className="mt-8">
+            <p className="mb-3 text-center text-sm text-slate-600">¿Prefieres escribir por chat?</p>
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-full items-center justify-center gap-2 rounded-lg bg-emerald-700 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-emerald-800"
+              className="flex min-h-12 w-full items-center justify-center gap-2 rounded-lg border-2 border-slate-300 bg-white px-5 py-3.5 text-base font-semibold text-slate-950 hover:border-emerald-400 hover:bg-emerald-50"
             >
-              <MessageCircle className="h-4 w-4" />
+              <MessageCircle className="h-4 w-4 text-emerald-700" />
               {contactContent.whatsappButton}
             </a>
           </div>

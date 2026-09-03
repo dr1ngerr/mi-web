@@ -1,4 +1,5 @@
-import { siteConfig } from "@/lib/content";
+import Link from "next/link";
+import { footerContent, localLandings, servicePages, siteConfig } from "@/lib/content";
 
 function LinkedInIcon({ className }: { className?: string }) {
   return (
@@ -18,31 +19,72 @@ function GitHubIcon({ className }: { className?: string }) {
 
 export function Footer() {
   return (
-    <footer className="border-t-2 border-slate-200 bg-slate-100 py-10">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-4 sm:flex-row sm:px-6 lg:px-8">
-        <p className="text-sm font-medium text-slate-700">
-          © {siteConfig.year} {siteConfig.name}. Todos los derechos reservados.
-        </p>
+    <footer className="border-t-2 border-slate-200/80 bg-slate-900/[0.04] py-10 backdrop-blur-[2px]">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <p className="text-lg font-bold text-slate-950">{siteConfig.name}</p>
+            <p className="mt-1 text-sm font-semibold text-indigo-900">{siteConfig.positioning}</p>
+            <p className="mt-3 text-sm text-slate-600">
+              © {siteConfig.year} {siteConfig.name}. Todos los derechos reservados.
+            </p>
+            <p className="mt-2 text-sm text-slate-600">
+              Basado en {siteConfig.location}. Trabajo con empresas de toda España.
+            </p>
+          </div>
 
-        <div className="flex items-center gap-4">
-          <a
-            href={siteConfig.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-lg p-2 text-slate-800 transition-colors hover:bg-white hover:text-indigo-800"
-            aria-label="LinkedIn"
-          >
-            <LinkedInIcon className="h-5 w-5" />
-          </a>
-          <a
-            href={siteConfig.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-lg p-2 text-slate-800 transition-colors hover:bg-white hover:text-indigo-800"
-            aria-label="GitHub"
-          >
-            <GitHubIcon className="h-5 w-5" />
-          </a>
+          <div>
+            <p className="text-sm font-semibold text-slate-900">{footerContent.servicesTitle}</p>
+            <ul className="mt-3 space-y-2">
+              {servicePages.map((page) => (
+                <li key={page.slug}>
+                  <Link
+                    href={`/${page.slug}`}
+                    className="text-sm text-slate-700 transition-colors hover:text-indigo-800"
+                  >
+                    {page.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="text-sm font-semibold text-slate-900">{footerContent.localLinksTitle}</p>
+            <ul className="mt-3 space-y-2">
+              {localLandings.map((page) => (
+                <li key={page.slug}>
+                  <Link
+                    href={`/${page.slug}`}
+                    className="text-sm text-slate-700 transition-colors hover:text-indigo-800"
+                  >
+                    {page.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="flex items-start gap-4">
+            <a
+              href={siteConfig.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg p-2 text-slate-800 transition-colors hover:bg-white hover:text-indigo-800"
+              aria-label="LinkedIn"
+            >
+              <LinkedInIcon className="h-5 w-5" />
+            </a>
+            <a
+              href={siteConfig.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg p-2 text-slate-800 transition-colors hover:bg-white hover:text-indigo-800"
+              aria-label="GitHub"
+            >
+              <GitHubIcon className="h-5 w-5" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
