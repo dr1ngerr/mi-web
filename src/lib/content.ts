@@ -6,7 +6,7 @@
 export const siteConfig = {
   name: "Andrei Benedec",
   tagline: "Desarrollo Web de Alto Impacto",
-  email: "benedecandrei24@gmail.com",
+  email: "contacto@andreibenedec.com",
   whatsapp: "34642407524",
   linkedin: "https://www.linkedin.com/in/andrei-benedec-634859162/",
   github: "https://github.com/dr1ngerr",
