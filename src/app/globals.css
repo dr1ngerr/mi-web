@@ -48,12 +48,12 @@ body {
   }
 }
 
-/* Rejilla suave + atmósfera fija */
+/* Rejilla suave detrás del contenido (sin romper position:fixed del header) */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
   opacity: 0.55;
   background-image:
@@ -61,11 +61,6 @@ body::before {
     linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, black 20%, transparent 75%);
-}
-
-body > * {
-  position: relative;
-  z-index: 1;
 }
 
 /* Textos largos sin provocar scroll horizontal */
