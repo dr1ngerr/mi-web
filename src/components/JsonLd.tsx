@@ -9,7 +9,7 @@ export function JsonLd() {
     name: siteConfig.name,
     url: siteUrl,
     email: siteConfig.email,
-    jobTitle: "Desarrollo web, automatización e IA para empresas",
+    jobTitle: "Desarrollo web, automatización con IA para empresas",
     address: {
       "@type": "PostalAddress",
       addressRegion: "La Rioja",
@@ -21,7 +21,7 @@ export function JsonLd() {
   const professionalService = {
     "@type": "ProfessionalService",
     "@id": `${siteUrl}/#business`,
-    name: "Andrei Benedec — Desarrollo web, automatización e IA para empresas",
+    name: "Andrei Benedec — Desarrollo web, automatización con IA para empresas",
     url: siteUrl,
     image: `${siteUrl}/icon`,
     email: siteConfig.email,
@@ -47,7 +47,7 @@ export function JsonLd() {
     url: siteUrl,
     name: siteConfig.name,
     description:
-      "Desarrollo web, automatización e IA para empresas que quieren trabajar mejor.",
+      "Desarrollo web, automatización con IA para empresas que quieren trabajar mejor.",
     publisher: { "@id": `${siteUrl}/#person` },
     inLanguage: "es-ES",
   };

@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { existsSync } from "fs";
+import path from "path";
 import { ArrowRight } from "lucide-react";
 import { getWhatsAppUrl, type CaseStudy } from "@/lib/content";
 import { Button } from "./Button";
@@ -8,6 +10,7 @@ import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import { Contact } from "./Contact";
 import { WhatsAppFloat } from "./WhatsAppFloat";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 function Section({
   title,
@@ -24,7 +27,15 @@ function Section({
   );
 }
 
+function hasAvailableScreenshots(study: CaseStudy) {
+  return study.screenshots.some((shot) =>
+    existsSync(path.join(process.cwd(), "public", shot.src.replace(/^\//, ""))),
+  );
+}
+
 export function CaseStudyPage({ study }: { study: CaseStudy }) {
+  const showCapturas = hasAvailableScreenshots(study);
+
   return (
     <>
       <Navbar />
@@ -98,9 +109,11 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
             </div>
           </Section>
 
-          <Section title="Capturas">
-            <CaseStudyGallery screenshots={study.screenshots} />
-          </Section>
+          {showCapturas ? (
+            <Section title="Capturas">
+              <CaseStudyGallery screenshots={study.screenshots} />
+            </Section>
+          ) : null}
 
           <Section title="Resultado">
             <p>{study.result}</p>
@@ -125,6 +138,7 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
                 <ArrowRight className="h-4 w-4" />
               </Button>
               <Button href={getWhatsAppUrl()} variant="secondary" external className="px-8 py-3 text-base">
+                <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
                 WhatsApp
               </Button>
             </div>

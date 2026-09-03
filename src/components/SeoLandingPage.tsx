@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { getWhatsAppUrl, servicePages, type SeoLanding, siteConfig } from "@/lib/content";
 import { Button } from "./Button";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import { Contact } from "./Contact";
 import { WhatsAppFloat } from "./WhatsAppFloat";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 export function SeoLandingPage({ page }: { page: SeoLanding }) {
   const relatedServices = servicePages.filter((item) => item.slug !== page.slug).slice(0, 3);
@@ -46,7 +47,7 @@ export function SeoLandingPage({ page }: { page: SeoLanding }) {
                 external
                 className="px-8 py-3 text-base"
               >
-                <MessageCircle className="h-4 w-4 text-emerald-700" />
+                <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
                 WhatsApp
               </Button>
             </div>

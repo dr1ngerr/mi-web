@@ -1,8 +1,8 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
-import { MessageCircle } from "lucide-react";
 import { contactContent, getWhatsAppUrl } from "@/lib/content";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -47,17 +47,19 @@ export function Contact() {
   const whatsappUrl = getWhatsAppUrl();
 
   return (
-    <section id="contacto" className="border-t border-slate-200/70 bg-white/60 py-14 pb-28 backdrop-blur-[2px] sm:py-28 sm:pb-28">
+    <section id="contacto" className="border-t-2 border-slate-300 bg-slate-100 py-14 pb-28 sm:py-20 sm:pb-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+          <h2 className="text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl">
             {contactContent.title}
           </h2>
-          <p className="mt-3 text-base text-slate-700 sm:mt-4 sm:text-lg">{contactContent.subtitle}</p>
-          <p className="mt-3 text-lg font-semibold text-indigo-900 sm:text-xl">{contactContent.closing}</p>
+          <p className="mt-2 text-base text-slate-700">{contactContent.subtitle}</p>
+          {contactContent.closing ? (
+            <p className="mt-2 text-lg font-semibold text-sky-900">{contactContent.closing}</p>
+          ) : null}
         </div>
 
-        <div className="mx-auto mt-12 max-w-xl">
+        <div className="mx-auto mt-8 max-w-xl">
           {mounted ? (
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
@@ -147,7 +149,7 @@ export function Contact() {
               rel="noopener noreferrer"
               className="flex min-h-12 w-full items-center justify-center gap-2 rounded-lg border-2 border-slate-300 bg-white px-5 py-3.5 text-base font-semibold text-slate-950 hover:border-emerald-400 hover:bg-emerald-50"
             >
-              <MessageCircle className="h-4 w-4 text-emerald-700" />
+              <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
               {contactContent.whatsappButton}
             </a>
           </div>

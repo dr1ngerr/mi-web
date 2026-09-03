@@ -120,7 +120,7 @@ export const caseStudies: CaseStudy[] = [
       "Si el proceso real no se entiende (quién valida qué, en qué centro), el software falla aunque “se vea bien”.",
       "Una herramienta interna solo vale si el equipo la usa cada día — por eso el foco fue operativa, no marketing del producto.",
     ],
-    cta: "¿Tu equipo también improvisa con turnos o fichajes? Hablemos.",
+    cta: "¿Tu equipo también improvisa con procesos internos? Hablemos.",
   },
   {
     slug: "presencia-digital",

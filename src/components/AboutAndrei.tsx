@@ -10,22 +10,22 @@ export function AboutAndrei() {
   const hasPhoto = existsSync(photoPath);
 
   return (
-    <section id="sobre-mi" className="bg-white/50 py-14 backdrop-blur-[2px] sm:py-28">
+    <section id="sobre-mi" className="border-b-2 border-slate-200 bg-white py-14 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-10 lg:grid-cols-[240px_1fr] lg:gap-14">
+        <div className="grid items-center gap-8 lg:grid-cols-[200px_1fr] lg:gap-12">
           <div className="mx-auto">
             {hasPhoto ? (
               <Image
                 src={aboutAndreiContent.photo}
                 alt={aboutAndreiContent.photoAlt}
-                width={240}
-                height={240}
-                className="h-56 w-56 rounded-2xl border-2 border-slate-200 object-cover shadow-md sm:h-60 sm:w-60"
+                width={200}
+                height={200}
+                className="h-44 w-44 rounded-2xl border-2 border-slate-200 object-cover shadow-md sm:h-48 sm:w-48"
                 priority
               />
             ) : (
               <div
-                className="flex h-56 w-56 items-center justify-center rounded-2xl border-2 border-indigo-200 bg-indigo-100 text-5xl font-bold text-indigo-900 sm:h-60 sm:w-60"
+                className="flex h-44 w-44 items-center justify-center rounded-2xl border-2 border-sky-200 bg-sky-100 text-4xl font-bold text-sky-900 sm:h-48 sm:w-48"
                 aria-label={aboutAndreiContent.photoAlt}
               >
                 AB
@@ -34,29 +34,29 @@ export function AboutAndrei() {
           </div>
 
           <div>
-            <p className="text-sm font-bold uppercase tracking-wider text-indigo-800">
+            <p className="text-sm font-bold uppercase tracking-wider text-sky-900">
               {aboutAndreiContent.eyebrow}
             </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+            <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl">
               {aboutAndreiContent.name}
             </h2>
-            <p className="mt-2 text-lg font-semibold text-indigo-900">{aboutAndreiContent.role}</p>
+            <p className="mt-1 text-base font-semibold text-sky-900">{aboutAndreiContent.role}</p>
             <p className="mt-1 text-sm text-slate-600">{aboutAndreiContent.location}</p>
-            <p className="mt-6 text-base leading-relaxed text-slate-700 sm:text-lg">
+            <p className="mt-4 text-base leading-relaxed text-slate-700">
               {aboutAndreiContent.story}
             </p>
 
-            <ul className="mt-8 space-y-3">
+            <ul className="mt-5 space-y-2">
               {aboutAndreiContent.credentials.map((item) => (
-                <li key={item} className="flex gap-3 text-sm text-slate-800 sm:text-base">
-                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-indigo-700" />
+                <li key={item} className="flex gap-2.5 text-sm text-slate-800">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-sky-800" />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href="/#contacto" variant="primary" className="min-h-12 px-8 py-3 text-base">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <Button href="/#contacto" variant="primary" className="min-h-11 px-6 py-2.5 text-base">
                 {aboutAndreiContent.cta}
                 <ArrowRight className="h-4 w-4" />
               </Button>
@@ -64,7 +64,7 @@ export function AboutAndrei() {
                 href={siteConfig.linkedin}
                 variant="secondary"
                 external
-                className="min-h-12 px-8 py-3 text-base"
+                className="min-h-11 px-6 py-2.5 text-base"
               >
                 {aboutAndreiContent.linkedinCta}
               </Button>

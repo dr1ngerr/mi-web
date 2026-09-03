@@ -10,7 +10,7 @@ export { caseStudies, getCaseStudy } from "./caseStudies";
 
 export const siteConfig = {
   name: "Andrei Benedec",
-  positioning: "Desarrollo web, automatización e IA para empresas",
+  positioning: "Desarrollo web, automatización con IA para empresas",
   tagline: "Para empresas que quieren trabajar mejor",
   email: "contacto@andreibenedec.com",
   whatsapp: "34642407524",
@@ -31,9 +31,9 @@ export const navLinks = [
 export const heroContent = {
   name: "Andrei Benedec",
   headline:
-    "Desarrollo web, automatización e IA para empresas que quieren trabajar mejor.",
+    "Desarrollo web, automatización con IA para empresas que quieren trabajar mejor.",
   support:
-    "Creo webs orientadas a conseguir clientes y soluciones digitales que automatizan procesos, ahorran tiempo y hacen crecer tu empresa.",
+    "Webs pensadas para conseguir clientes. Automatización con IA que ahorra tiempo de verdad.",
   primaryCta: "Cuéntame tu proyecto",
   secondaryCta: "WhatsApp",
 };
@@ -51,7 +51,7 @@ export const problemContent = {
 
 export const servicesContent = {
   title: "Cómo te ayudo",
-  subtitle: "Cuatro caminos. Empezamos por lo que tu empresa necesita ahora — yo al otro lado.",
+  subtitle: "Empezamos por lo que más te frena hoy.",
   primaryCta: "Cuéntame tu proyecto",
   secondaryCta: "WhatsApp",
 };
@@ -60,32 +60,24 @@ export const services = [
   {
     id: "web",
     title: "Web",
-    offer: "Presencia digital + conversión.",
-    description: "Landings y webs pensadas para que te escriban, no solo para “estar online”.",
+    offer: "Que te escriban.",
+    description: "Landings y webs con un camino claro al contacto.",
     icon: "globe" as const,
     href: "/desarrollo-web",
   },
   {
     id: "automatizacion",
-    title: "Automatización",
-    offer: "Menos tareas manuales.",
-    description: "Conecto herramientas y quito pasos a mano en el día a día.",
+    title: "Automatización con IA",
+    offer: "Menos trabajo a mano.",
+    description: "Conecto herramientas y automatizo procesos con IA cuando aporta.",
     icon: "workflow" as const,
     href: "/automatizacion",
   },
   {
-    id: "ia",
-    title: "Menos repetición",
-    offer: "Que el equipo deje de hacer lo mismo a mano.",
-    description: "Resumir, clasificar, avisar o rellenar — cuando ahorra tiempo de verdad.",
-    icon: "bot" as const,
-    href: "/inteligencia-artificial",
-  },
-  {
     id: "software",
     title: "Software",
-    offer: "Herramientas hechas a medida.",
-    description: "Para lo que hoy vivís en Excel, WhatsApp o procesos improvisados.",
+    offer: "A medida.",
+    description: "Cuando lo que usáis hoy se os queda corto.",
     icon: "building" as const,
     href: "/desarrollo-software",
   },
@@ -94,13 +86,13 @@ export const services = [
 export const differentiationContent = {
   eyebrow: "Por qué yo",
   title: "Desarrollo con mentalidad empresarial",
-  text: "No solo me preocupo de cómo se ve una solución. Me preocupo de cómo funciona dentro de tu empresa.",
+  text: "Me importa cómo funciona dentro de tu empresa, no solo cómo se ve.",
   detail:
-    "He construido software empresarial en producción: empleados, jefes, turnos, fichajes, vacaciones y roles. Ese contexto cambia lo que te propongo — y lo que evito venderte.",
+    "He construido software que equipos reales usan cada día. Parto de cómo trabajáis vosotros — cada empresa es distinta.",
   proofs: [
-    { label: "En producción", value: "Software usado por equipos reales" },
-    { label: "Operativa", value: "Turnos, fichajes, roles" },
-    { label: "Enfoque", value: "Proceso primero, solución después" },
+    { label: "En producción", value: "Uso diario real" },
+    { label: "Operativa", value: "Según tu empresa" },
+    { label: "Enfoque", value: "Proceso primero" },
   ],
 };
 
@@ -122,8 +114,8 @@ export const trustContent = {
   clients: [
     {
       name: "Gestión de Personal",
-      project: "Software interno multi-centro",
-      result: "En producción · Uso diario · Roles reales",
+      project: "Software interno",
+      result: "En producción · Uso diario",
       href: "/proyectos/gestion-personal",
     },
     {
@@ -135,7 +127,7 @@ export const trustContent = {
     {
       name: "Menos trabajo a mano",
       project: "Automatización de procesos",
-      result: "Menos copiar · Menos errores",
+      result: "Menos fricción · Menos errores",
       href: "/proyectos/procesos-inteligentes",
     },
   ] as {
@@ -148,22 +140,20 @@ export const trustContent = {
 };
 
 export const aboutAndreiContent = {
-  eyebrow: "La persona detrás del trabajo",
+  eyebrow: "Sobre mí",
   name: "Andrei Benedec",
-  role: "Desarrollo web, automatización e IA para empresas",
-  location: "La Rioja · Trabajo en toda España",
+  role: "Desarrollo web, automatización con IA para empresas",
+  location: "La Rioja · Toda España",
   story:
-    "No soy una agencia anónima. Soy Andrei: alguien que ha construido herramientas que usa gente de verdad cada día. Me interesa entender cómo opera tu empresa por dentro — quién hace qué, dónde se pierde tiempo — y proponerte algo que encaje, no una plantilla genérica.",
+    "No soy una agencia anónima. Entiendo cómo opera una empresa por dentro y propongo lo que encaja — no una plantilla genérica.",
   credentials: [
     "Titulación oficial DAM",
-    "Software en producción (turnos, fichajes, vacaciones, roles)",
-    "Experiencia con procesos empresariales",
-    "Webs, automatización y herramientas internas para el día a día",
+    "Software en producción, usado a diario",
   ],
-  linkedinCta: "Ver perfil en LinkedIn",
+  linkedinCta: "LinkedIn",
   photo: "/about/andrei.jpg",
   photoAlt: "Andrei Benedec",
-  cta: "Hablemos de tu proyecto",
+  cta: "Hablemos",
 };
 
 /** @deprecated usar differentiationContent — se mantiene para páginas que aún importan aboutContent */
@@ -173,8 +163,8 @@ export const aboutContent = {
   proofs: differentiationContent.proofs,
   highlights: [
     {
-      title: "Empleados y operativa",
-      description: "Sé lo que pasa entre “tenemos una web” y “el equipo pierde media mañana con Excel”.",
+      title: "Operativa real",
+      description: "Sé lo que pasa entre “tenemos una web” y “el equipo pierde tiempo cada día”.",
       icon: "briefcase" as const,
     },
     {
@@ -184,7 +174,7 @@ export const aboutContent = {
     },
     {
       title: "Procesos y costes",
-      description: "Si un proceso se hace igual cada día y falla a menudo, ahí hay dinero y tiempo escondidos.",
+      description: "Si un proceso se repite y frena al equipo, ahí hay tiempo y dinero escondidos.",
       icon: "workflow" as const,
     },
     {
@@ -197,7 +187,7 @@ export const aboutContent = {
 
 export const portfolioContent = {
   title: "Proyectos",
-  subtitle: "Tres casos reales. Aquí el escaparate; dentro de cada uno, el detalle completo.",
+  subtitle: "Casos reales, con resultado.",
   projects: caseStudies.map((study) => ({
     slug: study.slug,
     title: study.title,
@@ -208,7 +198,7 @@ export const portfolioContent = {
     teaser: study.teaser,
     proof: study.proof,
     href: `/proyectos/${study.slug}`,
-    ctaLabel: "Ver caso completo",
+    ctaLabel: "Ver caso",
   })),
 };
 
@@ -246,7 +236,7 @@ export const pricingContent = {
       name: "Herramientas internas y automatización",
       price: "Según alcance",
       description:
-        "De Excel y WhatsApp a un sistema más simple: software interno, conexiones entre herramientas o automatización. El precio sale de mapear tu operativa.",
+        "De procesos manuales o herramientas sueltas a un sistema más simple: software interno, conexiones o automatización. El precio sale de mapear cómo trabajáis.",
       includes: [
         "Análisis de cómo trabajáis hoy",
         "Propuesta con alcance cerrado",
@@ -331,15 +321,15 @@ export const serviceLadderContent = {
     },
     {
       stage: "Mayor ticket",
-      title: "Automatización",
-      description: "Quitar pasos a mano: conectar herramientas y ordenar procesos repetitivos.",
+      title: "Automatización con IA",
+      description: "Quitar pasos a mano conectando herramientas y usando IA cuando aporta.",
       href: "/automatizacion",
       ticket: "Más valor",
     },
     {
       stage: "Mayor ticket todavía",
       title: "Software interno",
-      description: "Herramientas a medida cuando Excel y WhatsApp se os quedan cortos.",
+      description: "Herramientas a medida cuando lo actual se os queda corto.",
       href: "/desarrollo-software",
       ticket: "Proyecto grande",
     },
@@ -378,7 +368,7 @@ export const continuityContent = {
     },
     {
       title: "Integraciones",
-      description: "Conectar formularios, WhatsApp, email, hojas o herramientas que ya usáis.",
+      description: "Conectar formularios, email, chat o las herramientas que ya usáis.",
     },
     {
       title: "Nuevas automatizaciones",
@@ -392,54 +382,34 @@ export const continuityContent = {
 
 export const faqContent = {
   title: "Preguntas frecuentes",
-  subtitle: "Lo esencial antes de escribirme.",
+  subtitle: "Lo esencial.",
   items: [
     {
-      question: "¿Cuánto cuesta una página web?",
+      question: "¿Cuánto cuesta una web?",
       answer:
-        "Una landing para conseguir contactos parte desde 600 €. Webs más grandes, automatizaciones o software se presupuestan según alcance.",
+        "Una landing parte desde 600 €. Proyectos mayores se presupuestan según alcance.",
     },
     {
       question: "¿Cuánto tarda?",
       answer:
-        "Una landing suele ir en días o pocas semanas. Proyectos mayores se planifican antes. Te lo confirmo en la propuesta.",
+        "Una landing suele ir en días o pocas semanas. Te lo confirmo en la propuesta.",
     },
     {
       question: "¿Trabajas fuera de La Rioja?",
-      answer: "Sí. Estoy en La Rioja y trabajo con empresas de toda España, en remoto — independientemente del tamaño.",
-    },
-    {
-      question: "¿Puedo empezar solo con una web?",
-      answer:
-        "Sí. Es lo habitual. Después, si encaja, seguimos con optimización, automatización, software o mantenimiento.",
+      answer: "Sí. Trabajo con empresas de toda España, en remoto.",
     },
     {
       question: "¿Haces mantenimiento?",
       answer:
-        "Sí. Soporte, mejoras, SEO, integraciones o nuevas automatizaciones — para no quedarte solo tras el lanzamiento.",
-    },
-    {
-      question: "¿Puedes mejorar una web que ya tengo?",
-      answer:
-        "Sí. A veces basta aclarar el mensaje y el contacto; otras hace falta rediseñar. Lo vemos juntos.",
-    },
-    {
-      question: "¿Automatizas procesos internos?",
-      answer:
-        "Sí. Entiendo cómo trabajáis y quito lo repetitivo o frágil: Excel, WhatsApp, listas, avisos.",
-    },
-    {
-      question: "¿Qué pasa después de publicar?",
-      answer:
-        "Comprobamos que todo funcione y te dejo el acceso. Si quieres continuidad, lo acordamos.",
+        "Sí. Soporte, mejoras e integraciones después del lanzamiento.",
     },
   ],
 };
 
 export const contactContent = {
   title: "¿Tienes un proyecto en mente?",
-  subtitle: "Cuéntamelo. Da igual si aún no sabes si es una web, una automatización o otra cosa.",
-  closing: "Hablemos.",
+  subtitle: "Cuéntamelo. Aunque aún no sepas cómo categorizarlo.",
+  closing: "",
   emailButton: "Enviar email",
   whatsappButton: "WhatsApp",
   formLabels: {
@@ -448,7 +418,7 @@ export const contactContent = {
     message: "Mensaje",
     submit: "Enviar mensaje",
   },
-  messagePlaceholder: "Cuéntame tu proyecto — aunque aún no sepas cómo categorizarlo.",
+  messagePlaceholder: "Qué quieres mejorar.",
 };
 
 export const footerContent = {
@@ -501,17 +471,17 @@ export const servicePages: SeoLanding[] = [
   },
   {
     slug: "automatizacion",
-    title: "Automatización",
-    metaTitle: "Automatización de procesos para empresas | Andrei Benedec",
+    title: "Automatización con IA",
+    metaTitle: "Automatización con IA para empresas | Andrei Benedec",
     metaDescription:
-      "Automatiza las tareas que te hacen perder tiempo: conecto herramientas, elimino pasos a mano y reduzco errores al pasar datos.",
-    headline: "Automatiza las tareas que te hacen perder tiempo.",
+      "Automatización con IA: conecto herramientas, elimino pasos a mano y aplico IA solo cuando ahorra tiempo de verdad.",
+    headline: "Automatización con IA para las tareas que te hacen perder tiempo.",
     intro:
-      "Conecto tus herramientas, elimino procesos manuales y dejo el flujo ordenado: menos copiar de Excel a WhatsApp, menos listas sueltas y menos errores cuando la información salta de un sitio a otro. Primero entiendo quién hace qué; luego automatizamos lo repetible.",
+      "Conecto tus herramientas y quito lo repetitivo. Cuando tiene sentido, uso IA — el criterio es el tiempo que recuperáis, no poner IA de adorno.",
     points: [
-      "Mapear el proceso real (quién, cuándo, dónde falla)",
-      "Conectar herramientas que ya usáis",
-      "Quitar pasos a mano y avisos olvidados",
+      "Mapear el proceso real de tu equipo",
+      "Conectar las herramientas que ya usáis",
+      "IA solo cuando el ahorro es claro",
       "Propuesta con alcance, precio y plazos cerrados",
     ],
     cta: "Hablar de automatizar tu empresa",
@@ -521,35 +491,37 @@ export const servicePages: SeoLanding[] = [
   },
   {
     slug: "inteligencia-artificial",
-    title: "Menos trabajo repetitivo",
-    metaTitle: "Menos trabajo repetitivo en tu empresa | Andrei Benedec",
+    title: "Automatización con IA",
+    metaTitle: "Automatización con IA | Andrei Benedec",
     metaDescription:
-      "Deja de hacer a mano lo que se puede ordenar: resumir, clasificar, rellenar o avisar — cuando ahorra tiempo de verdad.",
-    headline: "Que tu equipo dedique menos tiempo a lo repetitivo.",
+      "Automatización con IA para empresas: resumir, clasificar, rellenar o avisar — cuando ahorra tiempo de verdad.",
+    headline: "Automatización con IA: menos repetición, más tiempo útil.",
     intro:
-      "Si alguien pierde horas resumiendo, clasificando, rellenando o avisando, lo miramos. El criterio es el tiempo que recuperáis — no colgar un chatbot de adorno.",
+      "Si el equipo pierde horas en tareas repetitivas, lo miramos. Forma parte de automatizar el proceso — con IA cuando aporta, no como escaparate.",
     points: [
       "Partir de una tarea concreta que hoy se hace a mano",
-      "Automatizar o asistir solo cuando el ahorro es claro",
-      "Medir horas y errores, no “innovación”",
+      "Automatizar con IA solo cuando el ahorro es claro",
+      "Medir tiempo y errores, no “innovación”",
       "Propuesta con alcance y precio cerrados",
     ],
     cta: "Consultar tu caso",
     eyebrow: "Servicio",
+    relatedHref: "/automatizacion",
+    relatedLabel: "Ver automatización con IA",
   },
   {
     slug: "desarrollo-software",
     title: "Herramientas internas",
     metaTitle: "Herramientas internas para empresas | Andrei Benedec",
     metaDescription:
-      "¿Tu empresa depende de Excel, WhatsApp y tareas manuales? Las convierto en herramientas digitales más simples, conectadas y usables.",
-    headline: "¿Tu empresa todavía depende de Excel, WhatsApp y tareas manuales?",
+      "¿Las herramientas actuales se os quedan cortas? Las convierto en software más simple, conectado y usable para el día a día.",
+    headline: "¿Las herramientas actuales se os quedan cortas?",
     intro:
-      "Puedo ayudarte a convertir esos procesos en herramientas digitales más simples, conectadas y automatizadas. He construido software en producción con turnos, fichajes, vacaciones y roles: el punto de partida es cómo trabajáis, no una plantilla genérica.",
+      "Puedo ayudarte a convertir procesos manuales o improvisados en herramientas digitales más claras. El punto de partida es cómo trabajáis vosotros — no una plantilla genérica.",
     points: [
       "Mapear el proceso real del equipo",
-      "Sustituir hojas y chats por una herramienta clara",
-      "Turnos, fichajes, solicitudes, roles… según tu caso",
+      "Sustituir lo improvisado por una herramienta clara",
+      "Adaptado a cómo operáis, no al revés",
       "Alcance, precio y plazos antes de empezar",
     ],
     cta: "Hablar de tu operativa",
@@ -600,13 +572,13 @@ export const localLandings: SeoLanding[] = [
   },
   {
     slug: "automatizacion-empresas-la-rioja",
-    title: "Automatización para empresas en La Rioja",
-    metaTitle: "Automatización para empresas en La Rioja | Andrei Benedec",
+    title: "Automatización con IA en La Rioja",
+    metaTitle: "Automatización con IA en La Rioja | Andrei Benedec",
     metaDescription:
-      "Automatización en La Rioja: conecto herramientas, elimino pasos a mano y reduzco errores en administración y operativa.",
-    headline: "Automatiza las tareas que te hacen perder tiempo (La Rioja).",
+      "Automatización con IA en La Rioja: conecto herramientas, elimino pasos a mano y aplico IA cuando ahorra tiempo.",
+    headline: "Automatización con IA para las tareas que te hacen perder tiempo (La Rioja).",
     intro:
-      "Para empresas riojanas: conecto lo que ya usáis, corto el trabajo a mano (Excel, WhatsApps, listas) y dejo el proceso más claro para el equipo.",
+      "Para empresas riojanas: conecto lo que ya usáis, corto el trabajo a mano y uso IA cuando aporta.",
     points: [
       "Menos copiar y pegar entre herramientas",
       "Menos errores al pasar datos",
@@ -623,13 +595,13 @@ export const localLandings: SeoLanding[] = [
     title: "Herramientas internas en La Rioja",
     metaTitle: "Herramientas internas en La Rioja | Andrei Benedec",
     metaDescription:
-      "¿Tu empresa en La Rioja depende de Excel y WhatsApp? Las convierto en herramientas digitales más simples y usables.",
-    headline: "¿Todavía dependéis de Excel, WhatsApp y tareas manuales?",
+      "¿Tu empresa en La Rioja necesita herramientas internas más claras? Las adapto a cómo trabajáis.",
+    headline: "¿Las herramientas actuales se os quedan cortas?",
     intro:
-      "Para empresas en La Rioja: convierto esos procesos en herramientas digitales más simples, conectadas y pensadas para el día a día del equipo.",
+      "Para empresas en La Rioja: convierto procesos manuales o improvisados en herramientas digitales más simples, conectadas y pensadas para el día a día del equipo.",
     points: [
       "Mapear cómo trabajáis hoy",
-      "De hojas y chats a una herramienta clara",
+      "De lo improvisado a una herramienta clara",
       "Pensado para uso diario",
       "Menos fricción, más control",
     ],

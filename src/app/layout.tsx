@@ -12,7 +12,7 @@ const inter = Inter({
 
 const siteUrl = "https://andreibenedec.com";
 const title =
-  "Andrei Benedec | Desarrollo web, automatización e IA para empresas";
+  "Andrei Benedec | Desarrollo web, automatización con IA para empresas";
 const description =
   "Creo webs orientadas a conseguir clientes y soluciones digitales que automatizan procesos, ahorran tiempo y hacen crecer tu empresa.";
 

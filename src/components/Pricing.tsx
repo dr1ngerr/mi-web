@@ -1,7 +1,8 @@
-import { ArrowRight, Check, MessageCircle } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { getWhatsAppUrl, pricingContent } from "@/lib/content";
 import { Button } from "./Button";
 import { cn } from "@/lib/utils";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 export function Pricing() {
   return (
@@ -62,7 +63,7 @@ export function Pricing() {
             external
             className="w-full sm:w-auto px-8 py-3 text-base"
           >
-            <MessageCircle className="h-4 w-4 text-emerald-700" />
+            <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
             {pricingContent.secondaryCta}
           </Button>
         </div>
