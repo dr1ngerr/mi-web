@@ -1,24 +1,47 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
-import { Mail, MessageCircle } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { contactContent, siteConfig } from "@/lib/content";
+
+type Status = "idle" | "loading" | "success" | "error";
 
 export function Contact() {
   const [mounted, setMounted] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    const subject = encodeURIComponent(`Consulta de ${form.name}`);
-    const body = encodeURIComponent(
-      `Nombre: ${form.name}\nEmail: ${form.email}\n\n${form.message}`,
-    );
-    window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`;
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        setStatus("error");
+        setErrorMessage(data.error ?? "No se pudo enviar el mensaje.");
+        return;
+      }
+
+      setStatus("success");
+      setForm({ name: "", email: "", message: "" });
+    } catch {
+      setStatus("error");
+      setErrorMessage("Error de conexión. Inténtalo de nuevo.");
+    }
   }
 
   const whatsappUrl = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
@@ -85,10 +108,23 @@ export function Contact() {
 
               <button
                 type="submit"
-                className="w-full rounded-lg bg-indigo-700 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-indigo-800"
+                disabled={status === "loading"}
+                className="w-full rounded-lg bg-indigo-700 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-indigo-800 disabled:cursor-not-allowed disabled:opacity-70"
               >
-                {contactContent.formLabels.submit}
+                {status === "loading" ? "Enviando..." : contactContent.formLabels.submit}
               </button>
+
+              {status === "success" && (
+                <p className="rounded-lg border-2 border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800">
+                  Mensaje enviado. Te responderé lo antes posible.
+                </p>
+              )}
+
+              {status === "error" && (
+                <p className="rounded-lg border-2 border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-800">
+                  {errorMessage}
+                </p>
+              )}
             </form>
           ) : (
             <div className="space-y-5" aria-hidden>
@@ -104,19 +140,12 @@ export function Contact() {
             </div>
           )}
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href={`mailto:${siteConfig.email}`}
-              className="flex flex-1 items-center justify-center gap-2 rounded-lg border-2 border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition-all hover:border-indigo-400 hover:bg-indigo-50"
-            >
-              <Mail className="h-4 w-4 text-indigo-800" />
-              {contactContent.emailButton}
-            </a>
+          <div className="mt-8">
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-emerald-700 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-emerald-800"
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-emerald-700 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-emerald-800"
             >
               <MessageCircle className="h-4 w-4" />
               {contactContent.whatsappButton}
