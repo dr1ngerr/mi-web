@@ -8,9 +8,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Andrei Benedec | Desarrollo Web Freelance",
+  title: "Andrei Benedec | Webs y automatizaciones",
   description:
-    "Desarrollador web freelance en La Rioja. Webs de alta conversión, Python, IA aplicada y experiencia en software empresarial.",
+    "Desarrollo web y automatizaciones para empresas que quieren vender más y trabajar mejor. Freelance en La Rioja.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

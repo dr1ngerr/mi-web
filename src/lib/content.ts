@@ -5,7 +5,7 @@
 
 export const siteConfig = {
   name: "Andrei Benedec",
-  tagline: "Desarrollo Web de Alto Impacto",
+  tagline: "Webs y automatizaciones para vender más y trabajar mejor",
   email: "contacto@andreibenedec.com",
   whatsapp: "34642407524",
   linkedin: "https://www.linkedin.com/in/andrei-benedec-634859162/",
@@ -23,17 +23,17 @@ export const navLinks = [
 ] as const;
 
 export const heroContent = {
-  title: "Tu negocio en internet, más rápido y profesional que nunca.",
+  title: "Desarrollo web y automatizaciones para empresas que quieren vender más y trabajar mejor.",
   subtitle:
-    "Webs profesionales para negocios en La Rioja y toda España. Más clientes, menos complicaciones.",
-  badge: "Desarrollo web · Python · IA · La Rioja",
+    "Webs profesionales y soluciones digitales para negocios en La Rioja y toda España.",
+  badge: "Desarrollo web · Automatización · IA · La Rioja",
   primaryCta: "Solicitar Presupuesto",
   secondaryCta: "Ver mis servicios",
 };
 
 export const servicesContent = {
   title: "Mis Servicios",
-  subtitle: "Webs y soluciones digitales orientadas a resultados.",
+  subtitle: "Más ventas en internet. Menos trabajo manual en el día a día.",
 };
 
 export const services = [
