@@ -1,17 +1,22 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { portfolioContent } from "@/lib/content";
+import { useLanguage } from "./LanguageProvider";
 
 export function Portfolio() {
+  const { t } = useLanguage();
+
   return (
     <section id="proyectos" className="border-b-2 border-slate-200 bg-sky-50 py-14 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl">
-            {portfolioContent.title}
+            {t.portfolio.title}
           </h2>
-          <p className="mt-2 text-base text-slate-700">{portfolioContent.subtitle}</p>
+          <p className="mt-2 text-base text-slate-700">{t.portfolio.subtitle}</p>
         </div>
 
         <div className="mt-8 grid gap-4 sm:mt-10 lg:grid-cols-3">
@@ -42,7 +47,7 @@ export function Portfolio() {
                   <p className="mt-2 text-xs font-bold text-emerald-800">{project.proof}</p>
                 )}
                 <span className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-bold text-sky-900">
-                  {project.ctaLabel}
+                  {t.portfolio.viewCase}
                   <ArrowRight className="h-4 w-4" />
                 </span>
               </div>
@@ -55,7 +60,7 @@ export function Portfolio() {
             href="/proyectos"
             className="inline-flex min-h-11 items-center text-sm font-semibold text-sky-900 underline-offset-2 hover:underline"
           >
-            Ver todos
+            {t.portfolio.viewAll}
           </Link>
         </p>
       </div>

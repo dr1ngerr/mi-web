@@ -1,6 +1,10 @@
-import { differentiationContent } from "@/lib/content";
+"use client";
+
+import { useLanguage } from "./LanguageProvider";
 
 export function Differentiation() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="diferenciacion"
@@ -13,17 +17,17 @@ export function Differentiation() {
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-bold uppercase tracking-wider text-sky-300">
-            {differentiationContent.eyebrow}
+            {t.differentiation.eyebrow}
           </p>
           <h2 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl">
-            {differentiationContent.title}
+            {t.differentiation.title}
           </h2>
           <p className="mt-3 text-base leading-relaxed text-slate-200 sm:text-lg">
-            {differentiationContent.text} {differentiationContent.detail}
+            {t.differentiation.text} {t.differentiation.detail}
           </p>
 
           <div className="mt-8 grid gap-2 sm:grid-cols-3 sm:gap-3">
-            {differentiationContent.proofs.map((proof) => (
+            {t.differentiation.proofs.map((proof) => (
               <div
                 key={proof.label}
                 className="rounded-xl border border-white/10 bg-white/5 px-3 py-3 text-center"

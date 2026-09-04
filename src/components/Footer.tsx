@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
-import { footerContent, localLandings, servicePages, siteConfig } from "@/lib/content";
+import { localLandings, servicePages, siteConfig } from "@/lib/content";
+import { useLanguage } from "./LanguageProvider";
 
 function LinkedInIcon({ className }: { className?: string }) {
   return (
@@ -18,23 +21,23 @@ function GitHubIcon({ className }: { className?: string }) {
 }
 
 export function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="border-t-2 border-slate-900 bg-slate-950 py-10 text-slate-300">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <p className="text-lg font-bold text-white">{siteConfig.name}</p>
-            <p className="mt-1 text-sm font-semibold text-sky-300">{siteConfig.positioning}</p>
+            <p className="mt-1 text-sm font-semibold text-sky-300">{t.positioning}</p>
             <p className="mt-3 text-sm text-slate-400">
-              © {siteConfig.year} {siteConfig.name}. Todos los derechos reservados.
+              © {siteConfig.year} {siteConfig.name}. {t.footer.rights}
             </p>
-            <p className="mt-2 text-sm text-slate-400">
-              Basado en {siteConfig.location}. Trabajo con empresas de toda España.
-            </p>
+            <p className="mt-2 text-sm text-slate-400">{t.footer.basedIn}</p>
           </div>
 
           <div>
-            <p className="text-sm font-semibold text-white">{footerContent.servicesTitle}</p>
+            <p className="text-sm font-semibold text-white">{t.footer.servicesTitle}</p>
             <ul className="mt-3 space-y-2">
               {servicePages.map((page) => (
                 <li key={page.slug}>
@@ -50,7 +53,7 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="text-sm font-semibold text-white">{footerContent.localLinksTitle}</p>
+            <p className="text-sm font-semibold text-white">{t.footer.localLinksTitle}</p>
             <ul className="mt-3 space-y-2">
               {localLandings.map((page) => (
                 <li key={page.slug}>
