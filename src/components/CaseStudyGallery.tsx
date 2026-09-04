@@ -1,27 +1,22 @@
-import { existsSync } from "fs";
-import path from "path";
-import Image from "next/image";
-import type { CaseStudyScreenshot } from "@/lib/caseStudies";
+"use client";
 
-function screenshotExists(src: string) {
-  const relative = src.replace(/^\//, "");
-  return existsSync(path.join(process.cwd(), "public", relative));
-}
+import Image from "next/image";
+import type { ProjectScreenshotCopy } from "@/lib/i18n/projects";
 
 export function CaseStudyGallery({
   screenshots,
+  screenshotLabel,
 }: {
-  screenshots: CaseStudyScreenshot[];
+  screenshots: (ProjectScreenshotCopy & { src: string })[];
+  screenshotLabel: string;
 }) {
-  const available = screenshots.filter((shot) => screenshotExists(shot.src));
-
-  if (available.length === 0) {
+  if (screenshots.length === 0) {
     return null;
   }
 
   return (
     <div className="space-y-10">
-      {available.map((shot, index) => {
+      {screenshots.map((shot, index) => {
         const number = String(index + 1).padStart(2, "0");
 
         return (
@@ -31,7 +26,7 @@ export function CaseStudyGallery({
           >
             <div className="border-b border-slate-200 bg-slate-50 px-5 py-4 sm:px-6">
               <p className="text-xs font-bold uppercase tracking-wider text-sky-900">
-                Captura {number}
+                {screenshotLabel} {number}
               </p>
               <h3 className="mt-1 text-lg font-bold text-slate-950">{shot.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-700">{shot.explanation}</p>

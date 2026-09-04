@@ -1,4 +1,14 @@
 import type { Locale } from "./config";
+import {
+  caseStudyUiEn,
+  caseStudyUiEs,
+  caseStudyUiRo,
+  projectsEn,
+  projectsEs,
+  projectsRo,
+  type CaseStudyUiCopy,
+  type ProjectsDictionary,
+} from "./projects";
 
 export type Dictionary = {
   positioning: string;
@@ -41,7 +51,9 @@ export type Dictionary = {
     subtitle: string;
     viewCase: string;
     viewAll: string;
+    projects: ProjectsDictionary;
   };
+  caseStudy: CaseStudyUiCopy;
   about: {
     eyebrow: string;
     role: string;
@@ -136,7 +148,9 @@ const es: Dictionary = {
     subtitle: "Casos reales, con resultado.",
     viewCase: "Ver caso",
     viewAll: "Ver todos",
+    projects: projectsEs,
   },
+  caseStudy: caseStudyUiEs,
   about: {
     eyebrow: "Sobre mí",
     role: "Desarrollo web, automatización con IA para empresas",
@@ -235,7 +249,9 @@ const en: Dictionary = {
     subtitle: "Real cases, with results.",
     viewCase: "View case",
     viewAll: "View all",
+    projects: projectsEn,
   },
+  caseStudy: caseStudyUiEn,
   about: {
     eyebrow: "About me",
     role: "Web development and AI-powered automation for businesses",
@@ -334,7 +350,9 @@ const ro: Dictionary = {
     subtitle: "Cazuri reale, cu rezultat.",
     viewCase: "Vezi cazul",
     viewAll: "Vezi toate",
+    projects: projectsRo,
   },
+  caseStudy: caseStudyUiRo,
   about: {
     eyebrow: "Despre mine",
     role: "Dezvoltare web și automatizare cu AI pentru companii",
