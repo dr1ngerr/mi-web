@@ -1,7 +1,6 @@
 export type Locale = "es" | "en" | "ro";
 
 export const DEFAULT_LOCALE: Locale = "es";
-export const LOCALE_STORAGE_KEY = "ab-locale";
 
 export const localeOptions: { code: Locale; label: string }[] = [
   { code: "es", label: "Español" },

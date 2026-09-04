@@ -9,12 +9,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import {
-  DEFAULT_LOCALE,
-  LOCALE_STORAGE_KEY,
-  isLocale,
-  type Locale,
-} from "@/lib/i18n/config";
+import { DEFAULT_LOCALE, type Locale } from "@/lib/i18n/config";
 import { dictionaries, type Dictionary } from "@/lib/i18n/dictionaries";
 
 type LanguageContextValue = {
@@ -29,19 +24,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE);
 
   useEffect(() => {
-    const saved = window.localStorage.getItem(LOCALE_STORAGE_KEY);
-    if (isLocale(saved) && saved !== DEFAULT_LOCALE) {
-      setLocaleState(saved);
-    }
-  }, []);
-
-  useEffect(() => {
     document.documentElement.lang = locale;
   }, [locale]);
 
   const setLocale = useCallback((next: Locale) => {
     setLocaleState(next);
-    window.localStorage.setItem(LOCALE_STORAGE_KEY, next);
   }, []);
 
   const value = useMemo(
