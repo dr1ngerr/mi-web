@@ -4,11 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { caseStudies } from "@/lib/caseStudies";
-import { isProjectSlug } from "@/lib/i18n/projects";
+import { isProjectSlug, projectDictionaries } from "@/lib/i18n/projects";
 import { useLanguage } from "./LanguageProvider";
 
 export function Portfolio() {
-  const { t } = useLanguage();
+  const { locale, t } = useLanguage();
+  const projects = projectDictionaries[locale];
 
   return (
     <section id="proyectos" className="border-b-2 border-slate-200 bg-sky-50 py-14 sm:py-20">
@@ -23,7 +24,7 @@ export function Portfolio() {
         <div className="mt-8 grid gap-4 sm:mt-10 lg:grid-cols-3">
           {caseStudies.map((study) => {
             if (!isProjectSlug(study.slug)) return null;
-            const copy = t.portfolio.projects[study.slug];
+            const copy = projects[study.slug];
 
             return (
               <Link
@@ -39,7 +40,7 @@ export function Portfolio() {
                     height={750}
                     className="h-full w-full object-cover object-top"
                     sizes="(max-width: 1024px) 100vw, 33vw"
-                    priority={study.slug === "gestion-personal"}
+                    loading="lazy"
                   />
                 </div>
 

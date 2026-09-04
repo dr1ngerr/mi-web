@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { getWhatsAppUrl, type CaseStudy } from "@/lib/content";
-import { isProjectSlug } from "@/lib/i18n/projects";
+import { isProjectSlug, projectDictionaries } from "@/lib/i18n/projects";
 import { Button } from "./Button";
 import { CaseStudyGallery } from "./CaseStudyGallery";
 import { useLanguage } from "./LanguageProvider";
@@ -32,9 +32,9 @@ export function CaseStudyContent({
   study: CaseStudy;
   availableScreenshotSrcs: string[];
 }) {
-  const { t } = useLanguage();
+  const { locale, t } = useLanguage();
   const copy = isProjectSlug(study.slug)
-    ? t.portfolio.projects[study.slug]
+    ? projectDictionaries[locale][study.slug]
     : null;
 
   if (!copy) {

@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
   },
   poweredByHeader: false,
+  experimental: {
+    optimizePackageImports: ["lucide-react"],
+  },
 };
 
 export default nextConfig;

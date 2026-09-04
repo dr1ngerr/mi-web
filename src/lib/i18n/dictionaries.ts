@@ -3,12 +3,8 @@ import {
   caseStudyUiEn,
   caseStudyUiEs,
   caseStudyUiRo,
-  projectsEn,
-  projectsEs,
-  projectsRo,
   type CaseStudyUiCopy,
-  type ProjectsDictionary,
-} from "./projects";
+} from "./caseStudyUi";
 
 export type Dictionary = {
   positioning: string;
@@ -51,7 +47,6 @@ export type Dictionary = {
     subtitle: string;
     viewCase: string;
     viewAll: string;
-    projects: ProjectsDictionary;
   };
   caseStudy: CaseStudyUiCopy;
   about: {
@@ -148,7 +143,6 @@ const es: Dictionary = {
     subtitle: "Casos reales, con resultado.",
     viewCase: "Ver caso",
     viewAll: "Ver todos",
-    projects: projectsEs,
   },
   caseStudy: caseStudyUiEs,
   about: {
@@ -249,7 +243,6 @@ const en: Dictionary = {
     subtitle: "Real cases, with results.",
     viewCase: "View case",
     viewAll: "View all",
-    projects: projectsEn,
   },
   caseStudy: caseStudyUiEn,
   about: {
@@ -350,7 +343,6 @@ const ro: Dictionary = {
     subtitle: "Cazuri reale, cu rezultat.",
     viewCase: "Vezi cazul",
     viewAll: "Vezi toate",
-    projects: projectsRo,
   },
   caseStudy: caseStudyUiRo,
   about: {

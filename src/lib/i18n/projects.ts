@@ -1,3 +1,5 @@
+import type { Locale } from "./config";
+
 export const PROJECT_SLUGS = [
   "gestion-personal",
   "presencia-digital",
@@ -32,63 +34,11 @@ export type ProjectCopy = {
   cta: string;
 };
 
-export type CaseStudyUiCopy = {
-  backToProjects: string;
-  context: string;
-  problem: string;
-  solution: string;
-  architecture: string;
-  stack: string;
-  screenshots: string;
-  result: string;
-  learnings: string;
-  screenshotLabel: string;
-};
-
 export type ProjectsDictionary = Record<ProjectSlug, ProjectCopy>;
 
 export function isProjectSlug(value: string): value is ProjectSlug {
   return (PROJECT_SLUGS as readonly string[]).includes(value);
 }
-
-export const caseStudyUiEs: CaseStudyUiCopy = {
-  backToProjects: "← Todos los proyectos",
-  context: "Contexto",
-  problem: "Problema",
-  solution: "Solución",
-  architecture: "Arquitectura",
-  stack: "Qué incluye / capacidades",
-  screenshots: "Capturas",
-  result: "Resultado",
-  learnings: "Aprendizajes",
-  screenshotLabel: "Captura",
-};
-
-export const caseStudyUiEn: CaseStudyUiCopy = {
-  backToProjects: "← All projects",
-  context: "Context",
-  problem: "Problem",
-  solution: "Solution",
-  architecture: "Architecture",
-  stack: "What's included / capabilities",
-  screenshots: "Screenshots",
-  result: "Result",
-  learnings: "Learnings",
-  screenshotLabel: "Screenshot",
-};
-
-export const caseStudyUiRo: CaseStudyUiCopy = {
-  backToProjects: "← Toate proiectele",
-  context: "Context",
-  problem: "Problema",
-  solution: "Soluție",
-  architecture: "Arhitectură",
-  stack: "Ce include / capabilități",
-  screenshots: "Capturi",
-  result: "Rezultat",
-  learnings: "Învățăminte",
-  screenshotLabel: "Captură",
-};
 
 export const projectsEs: ProjectsDictionary = {
   "gestion-personal": {
@@ -763,4 +713,10 @@ export const projectsRo: ProjectsDictionary = {
     ],
     cta: "Ce proces vă mănâncă timpul în fiecare săptămână? Hai să vorbim.",
   },
+};
+
+export const projectDictionaries: Record<Locale, ProjectsDictionary> = {
+  es: projectsEs,
+  en: projectsEn,
+  ro: projectsRo,
 };

@@ -39,13 +39,6 @@ body {
     radial-gradient(ellipse 70% 45% at 92% 5%, rgba(3, 105, 161, 0.12), transparent 50%),
     radial-gradient(ellipse 55% 40% at 50% 95%, rgba(15, 118, 110, 0.1), transparent 55%),
     linear-gradient(165deg, #f8fafc 0%, #eef3f9 42%, #e8eef6 100%);
-  background-attachment: fixed;
-}
-
-@media (max-width: 768px) {
-  body {
-    background-attachment: scroll;
-  }
 }
 
 /* Rejilla suave detrás del contenido (sin romper position:fixed del header) */
