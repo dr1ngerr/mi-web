@@ -56,12 +56,12 @@ export function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <LanguageSwitcher className="hidden sm:inline-flex" />
           <div className="hidden md:block">
             <Button href="/contacto" variant="primary">
               {t.nav.cta}
             </Button>
           </div>
+          <LanguageSwitcher className="hidden sm:inline-flex" />
           <button
             type="button"
             className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg text-slate-800 hover:bg-slate-100 md:hidden"
