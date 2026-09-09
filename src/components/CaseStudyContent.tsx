@@ -50,8 +50,14 @@ export function CaseStudyContent({
   return (
     <article className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
       <p className="text-sm">
+        <Link href="/" className="font-medium text-indigo-800 hover:underline">
+          {t.caseStudy.backToHome}
+        </Link>
+        <span className="mx-2 text-slate-300" aria-hidden>
+          /
+        </span>
         <Link href="/proyectos" className="font-medium text-indigo-800 hover:underline">
-          {t.caseStudy.backToProjects}
+          {t.caseStudy.backToProjects.replace(/^←\s*/, "")}
         </Link>
       </p>
 

@@ -142,8 +142,6 @@ export function Contact() {
             <p className="mb-3 text-center text-sm text-slate-600">{t.contact.preferChat}</p>
             <a
               href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
               className="flex min-h-12 w-full items-center justify-center gap-2 rounded-lg border-2 border-slate-300 bg-white px-5 py-3.5 text-base font-semibold text-slate-950 hover:border-emerald-400 hover:bg-emerald-50"
             >
               <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />

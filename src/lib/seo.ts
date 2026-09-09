@@ -18,6 +18,7 @@ export function buildPageMetadata(input: {
       url: input.path,
       type: "website",
       locale: "es_ES",
+      siteName: "Andrei Benedec",
     },
     twitter: {
       card: "summary_large_image",

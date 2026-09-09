@@ -60,10 +60,14 @@ export const metadata: Metadata = {
   category: "technology",
   keywords: [
     "Andrei Benedec",
-    "desarrollo digital para empresas",
     "desarrollo web La Rioja",
+    "desarrollo web para empresas",
+    "automatización con IA",
     "automatización para empresas",
     "software interno",
+    "landing page para conseguir clientes",
+    "SEO La Rioja",
+    "freelance desarrollo web España",
   ],
 };
 

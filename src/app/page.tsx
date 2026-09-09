@@ -12,6 +12,10 @@ const Differentiation = dynamic(() =>
 const Portfolio = dynamic(() =>
   import("@/components/Portfolio").then((mod) => mod.Portfolio),
 );
+const Testimonials = dynamic(() =>
+  import("@/components/Testimonials").then((mod) => mod.Testimonials),
+);
+const FAQ = dynamic(() => import("@/components/FAQ").then((mod) => mod.FAQ));
 const AboutAndrei = dynamic(() =>
   import("@/components/AboutAndrei").then((mod) => mod.AboutAndrei),
 );
@@ -52,6 +56,8 @@ export default function Home() {
         <Services />
         <Differentiation />
         <Portfolio />
+        <Testimonials />
+        <FAQ />
         <AboutAndrei />
         <Contact />
       </main>

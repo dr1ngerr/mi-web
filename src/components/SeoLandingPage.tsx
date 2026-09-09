@@ -8,8 +8,36 @@ import { Contact } from "./Contact";
 import { WhatsAppFloat } from "./WhatsAppFloat";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
+const relatedProjectsByService: Record<string, { href: string; label: string }[]> = {
+  "desarrollo-web": [
+    { href: "/proyectos/presencia-digital", label: "Caso: presencia digital que genera contactos" },
+  ],
+  automatizacion: [
+    { href: "/proyectos/procesos-inteligentes", label: "Caso: menos trabajo a mano" },
+  ],
+  "desarrollo-software": [
+    { href: "/proyectos/gestion-personal", label: "Caso: gestión de personal en producción" },
+  ],
+  "inteligencia-artificial": [
+    { href: "/proyectos/procesos-inteligentes", label: "Caso: automatización de procesos" },
+  ],
+  "desarrollo-web-la-rioja": [
+    { href: "/desarrollo-web", label: "Servicio: desarrollo web" },
+    { href: "/proyectos/presencia-digital", label: "Caso: presencia digital" },
+  ],
+  "automatizacion-empresas-la-rioja": [
+    { href: "/automatizacion", label: "Servicio: automatización con IA" },
+    { href: "/proyectos/procesos-inteligentes", label: "Caso: automatización" },
+  ],
+  "desarrollo-software-la-rioja": [
+    { href: "/desarrollo-software", label: "Servicio: desarrollo de software" },
+    { href: "/proyectos/gestion-personal", label: "Caso: software interno" },
+  ],
+};
+
 export function SeoLandingPage({ page }: { page: SeoLanding }) {
   const relatedServices = servicePages.filter((item) => item.slug !== page.slug).slice(0, 3);
+  const relatedProjects = relatedProjectsByService[page.slug] ?? [];
 
   return (
     <>
@@ -17,12 +45,19 @@ export function SeoLandingPage({ page }: { page: SeoLanding }) {
       <main>
         <section className="border-b border-slate-200/70 pt-28 pb-16 sm:pt-32 sm:pb-20">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+            <p className="text-sm">
+              <Link href="/" className="font-medium text-indigo-800 hover:underline">
+                ← Inicio
+              </Link>
+            </p>
             {page.eyebrow && (
-              <p className="text-sm font-bold uppercase tracking-wider text-indigo-800">
+              <p className="mt-6 text-sm font-bold uppercase tracking-wider text-indigo-800">
                 {page.eyebrow}
               </p>
             )}
-            <h1 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl">
+            <h1
+              className={`${page.eyebrow ? "mt-3" : "mt-6"} text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl`}
+            >
               {page.headline}
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-slate-700">{page.intro}</p>
@@ -60,8 +95,27 @@ export function SeoLandingPage({ page }: { page: SeoLanding }) {
               </p>
             )}
 
+            {relatedProjects.length > 0 && (
+              <div className="mt-8">
+                <p className="text-sm font-semibold text-slate-800">Relacionado</p>
+                <ul className="mt-3 space-y-2">
+                  {relatedProjects.map((item) => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className="text-sm font-medium text-indigo-800 underline-offset-2 hover:underline"
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             <p className="mt-4 text-sm text-slate-600">
-              Estoy en {siteConfig.location}. Trabajo con empresas de aquí y de toda España, independientemente del tamaño.
+              Estoy en {siteConfig.location}. Trabajo con empresas de aquí y de toda España,
+              independientemente del tamaño.
             </p>
           </div>
         </section>

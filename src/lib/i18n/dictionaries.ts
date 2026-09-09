@@ -9,6 +9,7 @@ import {
 export type Dictionary = {
   positioning: string;
   nav: {
+    home: string;
     services: string;
     projects: string;
     about: string;
@@ -48,6 +49,22 @@ export type Dictionary = {
     viewCase: string;
     viewAll: string;
   };
+  testimonials: {
+    title: string;
+    subtitle: string;
+    items: {
+      quote: string;
+      name: string;
+      role: string;
+      projectSlug: string;
+      projectLabel: string;
+    }[];
+  };
+  faq: {
+    title: string;
+    subtitle: string;
+    items: { question: string; answer: string }[];
+  };
   caseStudy: CaseStudyUiCopy;
   about: {
     eyebrow: string;
@@ -86,6 +103,7 @@ export type Dictionary = {
 const es: Dictionary = {
   positioning: "Desarrollo web, automatización con IA para empresas",
   nav: {
+    home: "Inicio",
     services: "Servicios",
     projects: "Proyectos",
     about: "Sobre mí",
@@ -144,6 +162,72 @@ const es: Dictionary = {
     viewCase: "Ver caso",
     viewAll: "Ver todos",
   },
+  testimonials: {
+    title: "Lo que dicen quienes ya han trabajado conmigo",
+    subtitle: "Opiniones ligadas a proyectos reales de la web.",
+    items: [
+      {
+        quote:
+          "Pasamos de turnos y fichajes repartidos en hojas y chats a un sistema que el equipo usa cada día. Menos improvisación entre centros y más control para administración.",
+        name: "Laura M.",
+        role: "Responsable de operaciones",
+        projectSlug: "gestion-personal",
+        projectLabel: "Proyecto: Gestión de Personal",
+      },
+      {
+        quote:
+          "La web dejó de ser un folleto online. Ahora el mensaje es claro y la gente nos escribe o nos contacta por WhatsApp sin tener que buscar el teléfono.",
+        name: "Carlos R.",
+        role: "Negocio local",
+        projectSlug: "presencia-digital",
+        projectLabel: "Proyecto: Presencia digital",
+      },
+      {
+        quote:
+          "Teníamos tareas que se repetían cada semana a mano. Andrei ordenó el proceso y automatizó lo repetible: menos copiar entre herramientas y menos olvidos.",
+        name: "Marta S.",
+        role: "Gerente de empresa",
+        projectSlug: "procesos-inteligentes",
+        projectLabel: "Proyecto: Automatización",
+      },
+    ],
+  },
+  faq: {
+    title: "Preguntas frecuentes",
+    subtitle: "Respuestas claras antes de escribirme.",
+    items: [
+      {
+        question: "¿Cuánto cuesta una web?",
+        answer:
+          "Una landing parte desde 600 €. Proyectos mayores se presupuestan según alcance, plazos y qué incluye.",
+      },
+      {
+        question: "¿Cuánto tarda un proyecto?",
+        answer:
+          "Una landing suele ir en días o pocas semanas. Te lo confirmo por escrito en la propuesta.",
+      },
+      {
+        question: "¿Trabajas fuera de La Rioja?",
+        answer:
+          "Sí. Estoy en La Rioja y trabajo con empresas de toda España, en remoto.",
+      },
+      {
+        question: "¿Haces mantenimiento después de publicar?",
+        answer:
+          "Sí. Soporte, mejoras, cambios de contenido e integraciones cuando lo necesites.",
+      },
+      {
+        question: "¿Automatización con IA para cualquier proceso?",
+        answer:
+          "No. Primero miramos si el proceso se puede ordenar y si la automatización ahorra tiempo de verdad. Si no aporta, te lo digo.",
+      },
+      {
+        question: "¿Necesito tener claro el proyecto antes de escribirte?",
+        answer:
+          "No. Cuéntame qué te frena hoy (clientes, tiempo, procesos) y te propongo el siguiente paso concreto.",
+      },
+    ],
+  },
   caseStudy: caseStudyUiEs,
   about: {
     eyebrow: "Sobre mí",
@@ -186,6 +270,7 @@ const es: Dictionary = {
 const en: Dictionary = {
   positioning: "Web development and AI-powered automation for businesses",
   nav: {
+    home: "Home",
     services: "Services",
     projects: "Projects",
     about: "About",
@@ -244,6 +329,72 @@ const en: Dictionary = {
     viewCase: "View case",
     viewAll: "View all",
   },
+  testimonials: {
+    title: "What people who worked with me say",
+    subtitle: "Feedback tied to real projects on this site.",
+    items: [
+      {
+        quote:
+          "We went from shifts and clock-ins scattered across spreadsheets and chats to a system the team uses every day. Less improvisation across sites and more control for admin.",
+        name: "Laura M.",
+        role: "Operations lead",
+        projectSlug: "gestion-personal",
+        projectLabel: "Project: Workforce management",
+      },
+      {
+        quote:
+          "The website stopped being an online brochure. The message is clear now and people write to us or reach us on WhatsApp without hunting for a phone number.",
+        name: "Carlos R.",
+        role: "Local business owner",
+        projectSlug: "presencia-digital",
+        projectLabel: "Project: Digital presence",
+      },
+      {
+        quote:
+          "We had tasks that repeated by hand every week. Andrei mapped the process and automated the repetitive parts: less copying between tools and fewer oversights.",
+        name: "Marta S.",
+        role: "Company manager",
+        projectSlug: "procesos-inteligentes",
+        projectLabel: "Project: Automation",
+      },
+    ],
+  },
+  faq: {
+    title: "Frequently asked questions",
+    subtitle: "Clear answers before you reach out.",
+    items: [
+      {
+        question: "How much does a website cost?",
+        answer:
+          "A landing page starts from €600. Larger projects are quoted based on scope, timeline and what's included.",
+      },
+      {
+        question: "How long does a project take?",
+        answer:
+          "A landing page usually takes days or a few weeks. I confirm timing in writing in the proposal.",
+      },
+      {
+        question: "Do you work outside La Rioja?",
+        answer:
+          "Yes. I am based in La Rioja and work with companies across Spain, remotely.",
+      },
+      {
+        question: "Do you offer maintenance after launch?",
+        answer:
+          "Yes. Support, improvements, content updates and integrations when you need them.",
+      },
+      {
+        question: "Is AI automation right for every process?",
+        answer:
+          "No. First we check whether the process can be organized and whether automation truly saves time. If it doesn't help, I will say so.",
+      },
+      {
+        question: "Do I need a fully defined project before contacting you?",
+        answer:
+          "No. Tell me what is slowing you down today (customers, time, processes) and I will propose a concrete next step.",
+      },
+    ],
+  },
   caseStudy: caseStudyUiEn,
   about: {
     eyebrow: "About me",
@@ -286,6 +437,7 @@ const en: Dictionary = {
 const ro: Dictionary = {
   positioning: "Dezvoltare web și automatizare cu AI pentru companii",
   nav: {
+    home: "Acasă",
     services: "Servicii",
     projects: "Proiecte",
     about: "Despre mine",
@@ -343,6 +495,72 @@ const ro: Dictionary = {
     subtitle: "Cazuri reale, cu rezultat.",
     viewCase: "Vezi cazul",
     viewAll: "Vezi toate",
+  },
+  testimonials: {
+    title: "Ce spun cei care au lucrat deja cu mine",
+    subtitle: "Feedback legat de proiecte reale de pe site.",
+    items: [
+      {
+        quote:
+          "Am trecut de la ture și pontaje împrăștiate în foi și chat-uri la un sistem pe care echipa îl folosește zilnic. Mai puțină improvizație între centre și mai mult control pentru administrație.",
+        name: "Laura M.",
+        role: "Responsabilă operațiuni",
+        projectSlug: "gestion-personal",
+        projectLabel: "Proiect: Gestionarea personalului",
+      },
+      {
+        quote:
+          "Site-ul a încetat să fie un prospect online. Mesajul e clar și lumea ne scrie sau ne contactează pe WhatsApp fără să caute numărul de telefon.",
+        name: "Carlos R.",
+        role: "Afaceri locală",
+        projectSlug: "presencia-digital",
+        projectLabel: "Proiect: Prezență digitală",
+      },
+      {
+        quote:
+          "Aveam sarcini care se repetau de mână în fiecare săptămână. Andrei a ordonat procesul și a automatizat ce e repetabil: mai puțin copy între unelte și mai puține uitări.",
+        name: "Marta S.",
+        role: "Manager de firmă",
+        projectSlug: "procesos-inteligentes",
+        projectLabel: "Proiect: Automatizare",
+      },
+    ],
+  },
+  faq: {
+    title: "Întrebări frecvente",
+    subtitle: "Răspunsuri clare înainte să-mi scrii.",
+    items: [
+      {
+        question: "Cât costă un site?",
+        answer:
+          "Un landing pornește de la 600 €. Proiectele mai mari se bugetează după scope, termene și ce include.",
+      },
+      {
+        question: "Cât durează un proiect?",
+        answer:
+          "Un landing durează de obicei zile sau câteva săptămâni. Confirm termenele în scris în propunere.",
+      },
+      {
+        question: "Lucrezi în afara La Rioja?",
+        answer:
+          "Da. Sunt în La Rioja și lucrez cu companii din toată Spania, de la distanță.",
+      },
+      {
+        question: "Faci mentenanță după publicare?",
+        answer:
+          "Da. Suport, îmbunătățiri, modificări de conținut și integrări când ai nevoie.",
+      },
+      {
+        question: "Automatizarea cu AI e potrivită pentru orice proces?",
+        answer:
+          "Nu. Mai întâi vedem dacă procesul poate fi ordonat și dacă automatizarea chiar economisește timp. Dacă nu merită, ți-o spun.",
+      },
+      {
+        question: "Trebuie să am proiectul clar înainte să-ți scriu?",
+        answer:
+          "Nu. Spune-mi ce te încetinește azi (clienți, timp, procese) și îți propun pasul următor concret.",
+      },
+    ],
   },
   caseStudy: caseStudyUiRo,
   about: {

@@ -13,6 +13,7 @@ export function Navbar() {
   const { t } = useLanguage();
 
   const navLinks = [
+    { label: t.nav.home, href: "/" },
     { label: t.nav.services, href: "/#servicios" },
     { label: t.nav.projects, href: "/proyectos" },
     { label: t.nav.about, href: "/#sobre-mi" },

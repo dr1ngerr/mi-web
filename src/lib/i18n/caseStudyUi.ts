@@ -1,4 +1,5 @@
 export type CaseStudyUiCopy = {
+  backToHome: string;
   backToProjects: string;
   context: string;
   problem: string;
@@ -12,6 +13,7 @@ export type CaseStudyUiCopy = {
 };
 
 export const caseStudyUiEs: CaseStudyUiCopy = {
+  backToHome: "← Inicio",
   backToProjects: "← Todos los proyectos",
   context: "Contexto",
   problem: "Problema",
@@ -25,6 +27,7 @@ export const caseStudyUiEs: CaseStudyUiCopy = {
 };
 
 export const caseStudyUiEn: CaseStudyUiCopy = {
+  backToHome: "← Home",
   backToProjects: "← All projects",
   context: "Context",
   problem: "Problem",
@@ -38,6 +41,7 @@ export const caseStudyUiEn: CaseStudyUiCopy = {
 };
 
 export const caseStudyUiRo: CaseStudyUiCopy = {
+  backToHome: "← Acasă",
   backToProjects: "← Toate proiectele",
   context: "Context",
   problem: "Problema",

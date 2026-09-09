@@ -23,7 +23,6 @@ export function AboutAndrei() {
                 width={200}
                 height={200}
                 className="h-44 w-44 rounded-2xl border-2 border-slate-200 object-cover shadow-md sm:h-48 sm:w-48"
-                priority
                 onError={() => setShowPhoto(false)}
               />
             ) : (
@@ -65,6 +64,7 @@ export function AboutAndrei() {
                 href={siteConfig.linkedin}
                 variant="secondary"
                 external
+                newTab
                 className="min-h-11 px-6 py-2.5 text-base"
               >
                 {t.about.linkedinCta}

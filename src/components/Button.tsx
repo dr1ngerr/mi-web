@@ -8,7 +8,10 @@ interface ButtonProps {
   children: React.ReactNode;
   variant?: ButtonVariant;
   className?: string;
+  /** Use a plain <a> (for WhatsApp, mailto, etc.). Does not open a new tab by itself. */
   external?: boolean;
+  /** Only for truly external sites (LinkedIn, GitHub). Opens in a new tab. */
+  newTab?: boolean;
   onClick?: () => void;
 }
 
@@ -26,6 +29,7 @@ export function Button({
   variant = "primary",
   className,
   external,
+  newTab,
   onClick,
 }: ButtonProps) {
   const classes = cn(
@@ -34,9 +38,16 @@ export function Button({
     className,
   );
 
-  if (external) {
+  if (external || newTab) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
+      <a
+        href={href}
+        className={classes}
+        onClick={onClick}
+        {...(newTab
+          ? { target: "_blank", rel: "noopener noreferrer" }
+          : {})}
+      >
         {children}
       </a>
     );
