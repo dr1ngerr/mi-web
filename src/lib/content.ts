@@ -547,6 +547,46 @@ export const servicePages: SeoLanding[] = [
     cta: "Hablar de continuidad",
     eyebrow: "Continuidad",
   },
+  {
+    slug: "landing-page-para-empresas",
+    title: "Landing page para empresas",
+    metaTitle: "Landing page para conseguir clientes | Andrei Benedec",
+    metaDescription:
+      "Landing page para empresas: una sola página clara, con oferta y WhatsApp o formulario a la vista, pensada para convertir visitas en contactos.",
+    headline: "Una landing page que convierta visitas en clientes.",
+    intro:
+      "No hace falta una web enorme. Una landing bien hecha explica qué ofreces, para quién y cómo contactarte — en una sola pantalla, sin rodeos. Ideal si estás lanzando un servicio, una campaña o quieres medir si tu oferta funciona.",
+    points: [
+      "Una página, un mensaje, una llamada a la acción",
+      "Formulario o WhatsApp visibles desde el primer scroll",
+      "Desde 600 €, con publicación si la necesitas",
+      "Enfocada en contactos, no en relleno",
+    ],
+    cta: "Pedir presupuesto para tu landing",
+    eyebrow: "Servicio",
+    relatedHref: "/desarrollo-web",
+    relatedLabel: "¿Necesitas una web más completa? Ver desarrollo web",
+  },
+  {
+    slug: "automatizacion-whatsapp-empresas",
+    title: "Automatización con WhatsApp",
+    metaTitle: "Automatización WhatsApp para empresas | Andrei Benedec",
+    metaDescription:
+      "Automatiza WhatsApp en tu empresa: avisos, seguimientos y datos entre herramientas sin copiar a mano. Menos olvidos, más respuestas a tiempo.",
+    headline: "WhatsApp dejando de ser un caos manual.",
+    intro:
+      "Si el equipo responde, avisa o apunta cosas a mano por WhatsApp, se pierden mensajes y tiempo. Conecto WhatsApp (o tus formularios) con el resto de herramientas para que los avisos y seguimientos salgan solos — o casi.",
+    points: [
+      "Avisos y recordatorios sin depender de memoria",
+      "Conectar formularios, CRM o hojas con WhatsApp",
+      "Menos copiar pegar y menos mensajes perdidos",
+      "Propuesta cerrada según tu flujo real",
+    ],
+    cta: "Hablar de automatizar WhatsApp",
+    eyebrow: "Servicio",
+    relatedHref: "/automatizacion",
+    relatedLabel: "Ver automatización con IA en general",
+  },
 ];
 
 export const localLandings: SeoLanding[] = [
@@ -609,6 +649,26 @@ export const localLandings: SeoLanding[] = [
     eyebrow: "La Rioja",
     relatedHref: "/desarrollo-software",
     relatedLabel: "Ver servicio de herramientas internas",
+  },
+  {
+    slug: "desarrollo-web-logrono",
+    title: "Desarrollo web en Logroño",
+    metaTitle: "Desarrollo web en Logroño | Andrei Benedec",
+    metaDescription:
+      "Desarrollo web en Logroño: landings y webs claras para empresas locales. Mensaje nítido, contacto fácil y página pensada para que te escriban.",
+    headline: "Webs en Logroño para empresas que quieren más contactos.",
+    intro:
+      "Si tu negocio está en Logroño y la web no te trae llamadas ni mensajes, la rediseñamos alrededor del contacto: qué haces, para quién y cómo pedirte presupuesto — sin plantillas genéricas.",
+    points: [
+      "Landing o web comercial para tu empresa en Logroño",
+      "WhatsApp o formulario a la vista",
+      "Texto y estructura pensados para convertir",
+      "Trabajo cercano, plazos y precio cerrados",
+    ],
+    cta: "Pedir presupuesto para tu web en Logroño",
+    eyebrow: "Logroño",
+    relatedHref: "/desarrollo-web-la-rioja",
+    relatedLabel: "También: desarrollo web en La Rioja",
   },
 ];
 
