@@ -147,7 +147,7 @@ export function CaseStudyContent({
         </ul>
       </Section>
 
-      <div className="mt-14 rounded-2xl border-2 border-indigo-200 bg-indigo-50 px-6 py-8 text-center">
+      <div className="mt-14 mb-4 rounded-2xl border-2 border-indigo-200 bg-indigo-50 px-6 pt-8 pb-10 text-center sm:px-8 sm:pt-10 sm:pb-12">
         <p className="text-lg font-semibold text-indigo-950 sm:text-xl">{copy.cta}</p>
         <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Button href="/contacto" variant="primary" className="px-8 py-3 text-base">

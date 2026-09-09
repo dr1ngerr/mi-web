@@ -103,55 +103,68 @@ export function SeoLandingPage({ page }: { page: SeoLanding }) {
               </Button>
             </div>
 
-            {page.relatedHref && page.relatedLabel && (
-              <p className="mt-8 text-sm text-slate-600">
-                <Link href={page.relatedHref} className="font-medium text-indigo-800 hover:underline">
-                  {page.relatedLabel}
-                </Link>
-              </p>
-            )}
-
-            {relatedProjects.length > 0 && (
-              <div className="mt-8">
-                <p className="text-sm font-semibold text-slate-800">Relacionado</p>
-                <ul className="mt-3 space-y-2">
-                  {relatedProjects.map((item) => (
-                    <li key={item.href}>
-                      <Link
-                        href={item.href}
-                        className="text-sm font-medium text-indigo-800 underline-offset-2 hover:underline"
-                      >
-                        {item.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            <p className="mt-4 text-sm text-slate-600">
+            <p className="mt-10 text-sm leading-relaxed text-slate-600">
               Estoy en {siteConfig.location}. Trabajo con empresas de aquí y de toda España,
               independientemente del tamaño.
             </p>
           </div>
         </section>
 
-        {relatedServices.length > 0 && (
-          <section className="bg-slate-50 py-12">
-            <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-              <p className="text-sm font-semibold text-slate-800">Otros servicios</p>
-              <ul className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-4">
-                {relatedServices.map((item) => (
-                  <li key={item.slug}>
-                    <Link
-                      href={`/${item.slug}`}
-                      className="text-sm font-medium text-indigo-800 underline-offset-2 hover:underline"
-                    >
-                      {item.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+        {(page.relatedHref || relatedProjects.length > 0 || relatedServices.length > 0) && (
+          <section className="border-t border-slate-200/70 bg-slate-50/80 py-14 sm:py-16">
+            <div className="mx-auto grid max-w-3xl gap-10 px-4 sm:px-6 lg:px-8">
+              {(page.relatedHref || relatedProjects.length > 0) && (
+                <div>
+                  <h2 className="text-base font-bold tracking-tight text-slate-950">
+                    Relacionado
+                  </h2>
+                  <ul className="mt-4 divide-y divide-slate-200 border-y border-slate-200">
+                    {page.relatedHref && page.relatedLabel && (
+                      <li>
+                        <Link
+                          href={page.relatedHref}
+                          className="flex items-center justify-between gap-4 py-3.5 text-sm font-medium text-indigo-800 underline-offset-2 hover:underline"
+                        >
+                          <span>{page.relatedLabel}</span>
+                          <ArrowRight className="h-4 w-4 shrink-0 opacity-60" aria-hidden />
+                        </Link>
+                      </li>
+                    )}
+                    {relatedProjects.map((item) => (
+                      <li key={item.href}>
+                        <Link
+                          href={item.href}
+                          className="flex items-center justify-between gap-4 py-3.5 text-sm font-medium text-indigo-800 underline-offset-2 hover:underline"
+                        >
+                          <span>{item.label}</span>
+                          <ArrowRight className="h-4 w-4 shrink-0 opacity-60" aria-hidden />
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {relatedServices.length > 0 && (
+                <div>
+                  <h2 className="text-base font-bold tracking-tight text-slate-950">
+                    Otros servicios
+                  </h2>
+                  <ul className="mt-4 divide-y divide-slate-200 border-y border-slate-200">
+                    {relatedServices.map((item) => (
+                      <li key={item.slug}>
+                        <Link
+                          href={`/${item.slug}`}
+                          className="flex items-center justify-between gap-4 py-3.5 text-sm font-medium text-indigo-800 underline-offset-2 hover:underline"
+                        >
+                          <span>{item.title}</span>
+                          <ArrowRight className="h-4 w-4 shrink-0 opacity-60" aria-hidden />
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           </section>
         )}
