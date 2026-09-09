@@ -589,6 +589,11 @@ export const servicePages: SeoLanding[] = [
   },
 ];
 
+/** Servicios para menús/footer (sin aliases SEO duplicados). */
+export const navServicePages = servicePages.filter(
+  (page) => page.slug !== "inteligencia-artificial",
+);
+
 export const localLandings: SeoLanding[] = [
   {
     slug: "desarrollo-web-la-rioja",

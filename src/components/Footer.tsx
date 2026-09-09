@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { localLandings, servicePages, siteConfig } from "@/lib/content";
+import { localLandings, navServicePages, siteConfig } from "@/lib/content";
 import { useLanguage } from "./LanguageProvider";
 
 function LinkedInIcon({ className }: { className?: string }) {
@@ -39,7 +39,7 @@ export function Footer() {
           <div>
             <p className="text-sm font-semibold text-white">{t.footer.servicesTitle}</p>
             <ul className="mt-3 space-y-2">
-              {servicePages.map((page) => (
+              {navServicePages.map((page) => (
                 <li key={page.slug}>
                   <Link
                     href={`/${page.slug}`}

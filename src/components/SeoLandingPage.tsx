@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { getWhatsAppUrl, servicePages, type SeoLanding, siteConfig } from "@/lib/content";
+import { getWhatsAppUrl, navServicePages, type SeoLanding, siteConfig } from "@/lib/content";
 import { Button } from "./Button";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
@@ -52,7 +52,7 @@ const relatedProjectsByService: Record<string, { href: string; label: string }[]
 };
 
 export function SeoLandingPage({ page }: { page: SeoLanding }) {
-  const relatedServices = servicePages.filter((item) => item.slug !== page.slug).slice(0, 3);
+  const relatedServices = navServicePages.filter((item) => item.slug !== page.slug).slice(0, 3);
   const relatedProjects = relatedProjectsByService[page.slug] ?? [];
 
   return (
