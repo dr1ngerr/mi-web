@@ -1,39 +1,9 @@
 import { siteConfig, servicePages } from "@/lib/content";
+import { dictionaries } from "@/lib/i18n/dictionaries";
 
-const siteUrl = "https://andreibenedec.com";
+const siteUrl = "https://www.andreibenedec.com";
 
-const faqItems = [
-  {
-    question: "¿Cuánto cuesta una web?",
-    answer:
-      "Una landing parte desde 600 €. Proyectos mayores se presupuestan según alcance, plazos y qué incluye.",
-  },
-  {
-    question: "¿Cuánto tarda un proyecto?",
-    answer:
-      "Una landing suele ir en días o pocas semanas. Te lo confirmo por escrito en la propuesta.",
-  },
-  {
-    question: "¿Trabajas fuera de La Rioja?",
-    answer:
-      "Sí. Estoy en La Rioja y trabajo con empresas de toda España, en remoto.",
-  },
-  {
-    question: "¿Haces mantenimiento después de publicar?",
-    answer:
-      "Sí. Soporte, mejoras, cambios de contenido e integraciones cuando lo necesites.",
-  },
-  {
-    question: "¿Automatización con IA para cualquier proceso?",
-    answer:
-      "No. Primero miramos si el proceso se puede ordenar y si la automatización ahorra tiempo de verdad. Si no aporta, te lo digo.",
-  },
-  {
-    question: "¿Necesito tener claro el proyecto antes de escribirte?",
-    answer:
-      "No. Cuéntame qué te frena hoy (clientes, tiempo, procesos) y te propongo el siguiente paso concreto.",
-  },
-];
+const faqItems = dictionaries.es.faq.items;
 
 export function JsonLd() {
   const person = {
@@ -42,7 +12,7 @@ export function JsonLd() {
     name: siteConfig.name,
     url: siteUrl,
     email: siteConfig.email,
-    jobTitle: "Desarrollo web, automatización con IA para empresas",
+    jobTitle: "Desarrollo web y automatización con IA para empresas",
     image: `${siteUrl}/about/andrei.jpg`,
     address: {
       "@type": "PostalAddress",
@@ -55,14 +25,14 @@ export function JsonLd() {
   const professionalService = {
     "@type": "ProfessionalService",
     "@id": `${siteUrl}/#business`,
-    name: "Andrei Benedec — Desarrollo web, automatización con IA para empresas",
+    name: "Andrei Benedec — Desarrollo web y automatización con IA para empresas",
     url: siteUrl,
     image: `${siteUrl}/about/andrei.jpg`,
     logo: `${siteUrl}/icon`,
     email: siteConfig.email,
     telephone: `+${siteConfig.whatsapp}`,
     description:
-      "Creo webs orientadas a conseguir clientes y soluciones digitales que automatizan procesos, ahorran tiempo y hacen crecer tu empresa.",
+      "Webs pensadas para conseguir clientes y automatizaciones que ahorran horas a tu equipo. Trato directo y precio cerrado. La Rioja y toda España.",
     areaServed: [
       { "@type": "AdministrativeArea", name: "La Rioja" },
       { "@type": "Country", name: "Spain" },
@@ -110,7 +80,7 @@ export function JsonLd() {
     url: siteUrl,
     name: siteConfig.name,
     description:
-      "Desarrollo web, automatización con IA para empresas que quieren trabajar mejor.",
+      "Desarrollo web y automatización con IA para empresas que quieren trabajar mejor.",
     publisher: { "@id": `${siteUrl}/#person` },
     inLanguage: "es-ES",
   };

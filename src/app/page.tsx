@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import { siteConfig } from "@/lib/content";
 
 const Services = dynamic(() =>
   import("@/components/Services").then((mod) => mod.Services),
@@ -11,6 +12,9 @@ const Differentiation = dynamic(() =>
 );
 const Portfolio = dynamic(() =>
   import("@/components/Portfolio").then((mod) => mod.Portfolio),
+);
+const Process = dynamic(() =>
+  import("@/components/Process").then((mod) => mod.Process),
 );
 const Testimonials = dynamic(() =>
   import("@/components/Testimonials").then((mod) => mod.Testimonials),
@@ -31,17 +35,17 @@ const WhatsAppFloat = dynamic(() =>
 
 export const metadata: Metadata = {
   title:
-    "Andrei Benedec | Desarrollo web, automatización con IA para empresas",
+    "Andrei Benedec | Desarrollo web y automatización con IA para empresas",
   description:
-    "Creo webs orientadas a conseguir clientes y soluciones digitales que automatizan procesos, ahorran tiempo y hacen crecer tu empresa.",
+    "Webs pensadas para conseguir clientes y automatizaciones que ahorran horas a tu equipo. Trato directo y precio cerrado. La Rioja y toda España.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title:
-      "Andrei Benedec | Desarrollo web, automatización con IA para empresas",
+      "Andrei Benedec | Desarrollo web y automatización con IA para empresas",
     description:
-      "Creo webs orientadas a conseguir clientes y soluciones digitales que automatizan procesos, ahorran tiempo y hacen crecer tu empresa.",
+      "Webs pensadas para conseguir clientes y automatizaciones que ahorran horas a tu equipo. Trato directo y precio cerrado. La Rioja y toda España.",
     url: "/",
     type: "website",
   },
@@ -54,11 +58,12 @@ export default function Home() {
       <main>
         <Hero />
         <Services />
-        <Differentiation />
         <Portfolio />
-        <Testimonials />
-        <FAQ />
+        <Differentiation />
+        <Process />
+        {siteConfig.showTestimonials && <Testimonials />}
         <AboutAndrei />
+        <FAQ />
         <Contact />
       </main>
       <Footer />

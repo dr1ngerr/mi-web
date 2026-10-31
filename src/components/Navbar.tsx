@@ -17,7 +17,7 @@ export function Navbar() {
     { label: t.nav.services, href: "/#servicios" },
     { label: t.nav.projects, href: "/proyectos" },
     { label: t.nav.about, href: "/#sobre-mi" },
-    { label: t.nav.contact, href: "/#contacto" },
+    { label: t.nav.contact, href: "/contacto" },
   ];
 
   useEffect(() => {
@@ -65,7 +65,7 @@ export function Navbar() {
           <LanguageSwitcher className="hidden sm:inline-flex" />
           <button
             type="button"
-            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg text-slate-800 hover:bg-slate-100 md:hidden"
+            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg text-slate-800 hover:bg-slate-100 lg:hidden"
             onClick={() => setOpen(!open)}
             aria-expanded={open}
             aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
@@ -76,7 +76,7 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div className="max-h-[calc(100dvh-3.5rem)] overflow-y-auto border-t border-slate-200 bg-white px-4 py-3 md:hidden">
+        <div className="max-h-[calc(100dvh-3.5rem)] overflow-y-auto border-t border-slate-200 bg-white px-4 py-3 lg:hidden">
           <div className="mb-3 flex items-center justify-between gap-3 border-b border-slate-200 pb-3 sm:hidden">
             <span className="text-sm font-semibold text-slate-700">{t.nav.language}</span>
             <LanguageSwitcher />

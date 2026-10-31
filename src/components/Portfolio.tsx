@@ -13,63 +13,65 @@ export function Portfolio() {
 
   return (
     <section id="proyectos" className="border-b-2 border-slate-200 bg-sky-50 py-14 sm:py-20">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl">
-            {t.portfolio.title}
-          </h2>
-          <p className="mt-2 text-base text-slate-700">{t.portfolio.subtitle}</p>
-        </div>
+      <div className="mx-auto max-w-6xl space-y-10 px-4 sm:px-6 lg:px-8">
+        {caseStudies.map((study) => {
+          if (!isProjectSlug(study.slug)) return null;
+          const copy = projects[study.slug];
 
-        <div className="mt-8 grid gap-4 sm:mt-10 lg:grid-cols-3">
-          {caseStudies.map((study) => {
-            if (!isProjectSlug(study.slug)) return null;
-            const copy = projects[study.slug];
+          return (
+            <article
+              key={study.slug}
+              className="grid items-center gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-12"
+            >
+              <div>
+                <p className="text-sm font-bold tracking-wider text-sky-900 uppercase">
+                  {t.portfolio.eyebrow} · {copy.category}
+                </p>
+                <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+                  {t.portfolio.title}
+                </h2>
+                <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
+                  {t.portfolio.subtitle}
+                </p>
 
-            return (
+                <dl className="mt-6 grid grid-cols-3 gap-3">
+                  {copy.stats.map((stat) => (
+                    <div key={stat.label} className="rounded-xl border-2 border-slate-200 bg-white p-3">
+                      <dd className="text-2xl font-bold text-slate-950 sm:text-3xl">{stat.value}</dd>
+                      <dt className="mt-1 text-xs leading-snug font-medium text-slate-600">
+                        {stat.label}
+                      </dt>
+                    </div>
+                  ))}
+                </dl>
+
+                <Link
+                  href={`/proyectos/${study.slug}`}
+                  className="mt-6 inline-flex min-h-11 items-center gap-1.5 text-base font-bold text-sky-900 underline-offset-2 hover:underline"
+                >
+                  {t.portfolio.viewCase}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <p className="mt-1 text-sm text-slate-600">{t.portfolio.note}</p>
+              </div>
+
               <Link
-                key={study.slug}
                 href={`/proyectos/${study.slug}`}
-                className="group flex flex-col overflow-hidden rounded-2xl border-2 border-slate-300 bg-white shadow-sm sm:hover:border-sky-400 sm:hover:shadow-md"
+                className="block overflow-hidden rounded-2xl border-2 border-slate-300 bg-white shadow-md transition-colors hover:border-sky-400"
               >
-                <div className="relative aspect-[16/10] overflow-hidden bg-slate-200">
-                  <Image
-                    src={study.coverImage}
-                    alt={copy.imageAlt}
-                    width={1200}
-                    height={750}
-                    className="h-full w-full object-cover object-top"
-                    sizes="(max-width: 1024px) 100vw, 33vw"
-                    loading="lazy"
-                  />
-                </div>
-
-                <div className="flex flex-1 flex-col p-4 sm:p-5">
-                  <span className="text-xs font-bold uppercase tracking-wider text-sky-900">
-                    {copy.category}
-                  </span>
-                  <h3 className="mt-1 text-lg font-bold text-slate-950">{copy.title}</h3>
-                  {copy.proof && (
-                    <p className="mt-2 text-xs font-bold text-emerald-800">{copy.proof}</p>
-                  )}
-                  <span className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-bold text-sky-900">
-                    {t.portfolio.viewCase}
-                    <ArrowRight className="h-4 w-4" />
-                  </span>
-                </div>
+                <Image
+                  src={study.coverImage}
+                  alt={copy.imageAlt}
+                  width={1024}
+                  height={721}
+                  className="h-auto w-full"
+                  sizes="(max-width: 1024px) 100vw, 600px"
+                  loading="lazy"
+                />
               </Link>
-            );
-          })}
-        </div>
-
-        <p className="mt-6 text-center">
-          <Link
-            href="/proyectos"
-            className="inline-flex min-h-11 items-center text-sm font-semibold text-sky-900 underline-offset-2 hover:underline"
-          >
-            {t.portfolio.viewAll}
-          </Link>
-        </p>
+            </article>
+          );
+        })}
       </div>
     </section>
   );

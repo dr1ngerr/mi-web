@@ -10,7 +10,7 @@ export { caseStudies, getCaseStudy } from "./caseStudies";
 
 export const siteConfig = {
   name: "Andrei Benedec",
-  positioning: "Desarrollo web, automatización con IA para empresas",
+  positioning: "Desarrollo web y automatización con IA para empresas",
   tagline: "Para empresas que quieren trabajar mejor",
   email: "contacto@andreibenedec.com",
   whatsapp: "34642407524",
@@ -19,19 +19,34 @@ export const siteConfig = {
   location: "La Rioja",
   locationShort: "La Rioja",
   year: 2026,
+  /** Actívalo solo con permiso escrito de cada cliente (ver testimonials en i18n/dictionaries.ts). */
+  showTestimonials: false,
+};
+
+/**
+ * Datos del titular para Aviso legal y Privacidad (LSSI art. 10 y RGPD art. 13).
+ * Rellena nif y address: aparecen solos en las páginas legales.
+ */
+export const legalConfig = {
+  holder: "Andrei Benedec",
+  nif: "",
+  address: "",
+  email: "contacto@andreibenedec.com",
+  phone: "+34 642 407 524",
+  updated: "31 de octubre de 2026",
 };
 
 export const navLinks = [
   { label: "Servicios", href: "/#servicios" },
   { label: "Proyectos", href: "/proyectos" },
   { label: "Sobre mí", href: "/#sobre-mi" },
-  { label: "Contacto", href: "/#contacto" },
+  { label: "Contacto", href: "/contacto" },
 ] as const;
 
 export const heroContent = {
   name: "Andrei Benedec",
   headline:
-    "Desarrollo web, automatización con IA para empresas que quieren trabajar mejor.",
+    "Desarrollo web y automatización con IA para empresas que quieren trabajar mejor.",
   support:
     "Webs pensadas para conseguir clientes. Automatización con IA que ahorra tiempo de verdad.",
   primaryCta: "Cuéntame tu proyecto",
@@ -98,51 +113,22 @@ export const differentiationContent = {
 
 export const trustContent = {
   eyebrow: "Confianza",
-  title: "Pruebas que puedes verificar",
-  subtitle: "No solo digas “profesional”. Muestra por qué confiar.",
+  title: "Lo que hay detrás",
+  subtitle: "Hechos que puedes comprobar antes de escribirme.",
   items: [
     { label: "Titulación oficial DAM" },
     { label: "Software en producción" },
-    { label: "Experiencia con procesos empresariales" },
-    { label: "Webs que generan contactos" },
-    { label: "Automatización de tareas manuales" },
-    { label: "Herramientas internas a medida" },
+    { label: "191 personas en un sistema que desarrollé" },
+    { label: "Procesos de empresa desde dentro" },
+    { label: "Trato directo, sin intermediarios" },
+    { label: "Precio y plazos antes de empezar" },
   ],
-  clientsTitle: "Proyectos con resultado",
-  clientsNote:
-    "Nombres y logos de clientes solo cuando haya permiso explícito. Mientras tanto, enlazo a casos reales con resultado medible.",
-  clients: [
-    {
-      name: "Gestión de Personal",
-      project: "Software interno",
-      result: "En producción · Uso diario",
-      href: "/proyectos/gestion-personal",
-    },
-    {
-      name: "Web que genera contactos",
-      project: "Landing / web comercial",
-      result: "Foco: que escriban o llamen",
-      href: "/proyectos/presencia-digital",
-    },
-    {
-      name: "Menos trabajo a mano",
-      project: "Automatización de procesos",
-      result: "Menos fricción · Menos errores",
-      href: "/proyectos/procesos-inteligentes",
-    },
-  ] as {
-    name: string;
-    project: string;
-    result: string;
-    href: string;
-    logo?: string;
-  }[],
 };
 
 export const aboutAndreiContent = {
   eyebrow: "Sobre mí",
   name: "Andrei Benedec",
-  role: "Desarrollo web, automatización con IA para empresas",
+  role: "Desarrollo web y automatización con IA para empresas",
   location: "La Rioja · Toda España",
   story:
     "No soy una agencia anónima. Entiendo cómo opera una empresa por dentro y propongo lo que encaja — no una plantilla genérica.",
@@ -261,47 +247,10 @@ export const pricingContent = {
   secondaryCta: "WhatsApp",
 };
 
-export const processContent = {
-  title: "Proceso",
-  subtitle: "De la conversación a la mejora continua.",
-  steps: [
-    {
-      number: "01",
-      title: "Hablamos",
-      description: "Me cuentas qué quieres mejorar y cómo trabajáis hoy.",
-    },
-    {
-      number: "02",
-      title: "Analizo",
-      description: "Miro el problema real: contactos, procesos, herramientas, fricción.",
-    },
-    {
-      number: "03",
-      title: "Propongo",
-      description: "Te digo qué haría, con alcance, precio y plazos claros.",
-    },
-    {
-      number: "04",
-      title: "Desarrollo",
-      description: "Construyo y te voy enseñando avances.",
-    },
-    {
-      number: "05",
-      title: "Lanzamos",
-      description: "Publicamos, comprobamos y dejamos todo funcionando.",
-    },
-    {
-      number: "06",
-      title: "Mejoramos",
-      description: "Mantenimiento, ajustes y siguientes pasos si encaja seguir.",
-    },
-  ],
-};
-
 export const serviceLadderContent = {
   title: "Una relación que puede crecer contigo",
   subtitle:
-    "Muchos clientes empiezan por una web. Si encaja, podemos seguir: más contactos, menos trabajo a mano y soporte en el tiempo.",
+    "Lo normal es empezar por una web. Si encaja, podemos seguir: más contactos, menos trabajo a mano y soporte en el tiempo.",
   note: "No hace falta contratarlo todo de golpe. Empezamos por lo que más te frena hoy.",
   primaryCta: "Empezar por lo que más te frena",
   steps: [
@@ -490,26 +439,6 @@ export const servicePages: SeoLanding[] = [
     relatedLabel: "También: automatización para empresas en La Rioja",
   },
   {
-    slug: "inteligencia-artificial",
-    title: "Automatización con IA",
-    metaTitle: "Automatización con IA | Andrei Benedec",
-    metaDescription:
-      "Automatización con IA para empresas: resumir, clasificar, rellenar o avisar — cuando ahorra tiempo de verdad.",
-    headline: "Automatización con IA: menos repetición, más tiempo útil.",
-    intro:
-      "Si el equipo pierde horas en tareas repetitivas, lo miramos. Forma parte de automatizar el proceso — con IA cuando aporta, no como escaparate.",
-    points: [
-      "Partir de una tarea concreta que hoy se hace a mano",
-      "Automatizar con IA solo cuando el ahorro es claro",
-      "Medir tiempo y errores, no “innovación”",
-      "Propuesta con alcance y precio cerrados",
-    ],
-    cta: "Consultar tu caso",
-    eyebrow: "Servicio",
-    relatedHref: "/automatizacion",
-    relatedLabel: "Ver automatización con IA",
-  },
-  {
     slug: "desarrollo-software",
     title: "Herramientas internas",
     metaTitle: "Herramientas internas para empresas | Andrei Benedec",
@@ -589,10 +518,7 @@ export const servicePages: SeoLanding[] = [
   },
 ];
 
-/** Servicios para menús/footer (sin aliases SEO duplicados). */
-export const navServicePages = servicePages.filter(
-  (page) => page.slug !== "inteligencia-artificial",
-);
+export const navServicePages = servicePages;
 
 export const localLandings: SeoLanding[] = [
   {

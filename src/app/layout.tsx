@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
+import { CookieConsent } from "@/components/CookieConsent";
 import { JsonLd } from "@/components/JsonLd";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import "./globals.css";
-
-const GTM_ID = "GTM-TRJJDHW5";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -16,11 +14,11 @@ const inter = Inter({
   adjustFontFallback: true,
 });
 
-const siteUrl = "https://andreibenedec.com";
+const siteUrl = "https://www.andreibenedec.com";
 const title =
-  "Andrei Benedec | Desarrollo web, automatización con IA para empresas";
+  "Andrei Benedec | Desarrollo web y automatización con IA para empresas";
 const description =
-  "Creo webs orientadas a conseguir clientes y soluciones digitales que automatizan procesos, ahorran tiempo y hacen crecer tu empresa.";
+  "Webs pensadas para conseguir clientes y automatizaciones que ahorran horas a tu equipo. Trato directo y precio cerrado. La Rioja y toda España.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -78,24 +76,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         className="min-h-screen overflow-x-clip pb-20 font-sans text-slate-950 antialiased md:pb-0"
         suppressHydrationWarning
       >
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-            height={0}
-            width={0}
-            style={{ display: "none", visibility: "hidden" }}
-            title="Google Tag Manager"
-          />
-        </noscript>
-        <Script id="google-tag-manager" strategy="afterInteractive">{`
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','${GTM_ID}');
-        `}</Script>
         <JsonLd />
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider>
+          {children}
+          <CookieConsent />
+        </LanguageProvider>
         <Analytics />
       </body>
     </html>

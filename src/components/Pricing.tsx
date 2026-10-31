@@ -28,7 +28,7 @@ export function Pricing() {
             >
               {item.featured && (
                 <span className="mb-4 inline-flex self-start rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-bold text-indigo-900">
-                  Referencia clara
+                  Punto de partida
                 </span>
               )}
 

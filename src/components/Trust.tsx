@@ -1,14 +1,5 @@
-import { existsSync } from "fs";
-import path from "path";
-import Image from "next/image";
-import Link from "next/link";
-import { Check, ArrowRight } from "lucide-react";
+import { Check } from "lucide-react";
 import { trustContent } from "@/lib/content";
-
-function logoExists(logo?: string) {
-  if (!logo) return false;
-  return existsSync(path.join(process.cwd(), "public", logo.replace(/^\//, "")));
-}
 
 export function Trust() {
   return (
@@ -38,45 +29,6 @@ export function Trust() {
           ))}
         </ul>
 
-        <div className="mt-14">
-          <h3 className="text-center text-lg font-bold text-slate-950">{trustContent.clientsTitle}</h3>
-          <p className="mx-auto mt-2 max-w-2xl text-center text-sm text-slate-600">
-            {trustContent.clientsNote}
-          </p>
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-3">
-            {trustContent.clients.map((client) => {
-              const hasLogo = logoExists(client.logo);
-
-              return (
-                <Link
-                  key={client.name}
-                  href={client.href}
-                  className="group flex flex-col rounded-2xl border-2 border-slate-200 bg-slate-50 p-5 transition-all hover:border-indigo-300 hover:bg-white hover:shadow-md"
-                >
-                  <div className="flex h-14 items-center">
-                    {hasLogo && client.logo ? (
-                      <Image
-                        src={client.logo}
-                        alt={client.name}
-                        width={140}
-                        height={40}
-                        className="h-10 w-auto max-w-[140px] object-contain"
-                      />
-                    ) : (
-                      <span className="text-sm font-bold text-slate-800">{client.name}</span>
-                    )}
-                  </div>
-                  <p className="mt-3 text-sm text-slate-600">{client.project}</p>
-                  <p className="mt-2 text-sm font-semibold text-emerald-800">{client.result}</p>
-                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-indigo-800">
-                    Ver caso <ArrowRight className="h-3.5 w-3.5" />
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
       </div>
     </section>
   );

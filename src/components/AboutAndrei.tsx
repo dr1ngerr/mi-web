@@ -56,7 +56,7 @@ export function AboutAndrei() {
             </ul>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <Button href="/#contacto" variant="primary" className="min-h-11 px-6 py-2.5 text-base">
+              <Button href="/contacto" variant="primary" className="min-h-11 px-6 py-2.5 text-base">
                 {t.about.cta}
                 <ArrowRight className="h-4 w-4" />
               </Button>

@@ -42,6 +42,7 @@ export function CaseStudyContent({
   }
 
   const screenshots = availableScreenshotSrcs.flatMap((src) => {
+    if (src === study.coverImage) return [];
     const index = study.screenshots.findIndex((shot) => shot.src === src);
     if (index < 0 || !copy.screenshots[index]) return [];
     return [{ src, ...copy.screenshots[index] }];
@@ -84,6 +85,15 @@ export function CaseStudyContent({
           priority
         />
       </div>
+
+      <dl className="mt-8 grid grid-cols-3 gap-3">
+        {copy.stats.map((stat) => (
+          <div key={stat.label} className="rounded-xl border-2 border-slate-200 bg-slate-50 p-3 text-center sm:p-4">
+            <dd className="text-2xl font-bold text-slate-950 sm:text-3xl">{stat.value}</dd>
+            <dt className="mt-1 text-xs font-medium text-slate-600 sm:text-sm">{stat.label}</dt>
+          </div>
+        ))}
+      </dl>
 
       <Section title={t.caseStudy.context}>
         <p>{copy.context}</p>

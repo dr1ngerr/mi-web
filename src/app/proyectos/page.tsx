@@ -8,7 +8,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata = buildPageMetadata({
   title: "Proyectos | Andrei Benedec",
   description:
-    "Casos reales: software de personal en producción, webs pensadas para contacto y automatización de lo repetitivo.",
+    "Caso real: software de gestión de personal en producción, con 191 personas, turnos, fichajes y varios centros.",
   path: "/proyectos",
 });
 

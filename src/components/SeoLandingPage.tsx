@@ -10,27 +10,20 @@ import { WhatsAppIcon } from "./WhatsAppIcon";
 
 const relatedProjectsByService: Record<string, { href: string; label: string }[]> = {
   "desarrollo-web": [
-    { href: "/proyectos/presencia-digital", label: "Caso: presencia digital que genera contactos" },
     { href: "/landing-page-para-empresas", label: "Landing page para conseguir clientes" },
   ],
   automatizacion: [
-    { href: "/proyectos/procesos-inteligentes", label: "Caso: menos trabajo a mano" },
     { href: "/automatizacion-whatsapp-empresas", label: "Automatización con WhatsApp" },
   ],
   "desarrollo-software": [
     { href: "/proyectos/gestion-personal", label: "Caso: gestión de personal en producción" },
   ],
-  "inteligencia-artificial": [
-    { href: "/proyectos/procesos-inteligentes", label: "Caso: automatización de procesos" },
-  ],
   "desarrollo-web-la-rioja": [
     { href: "/desarrollo-web", label: "Servicio: desarrollo web" },
     { href: "/desarrollo-web-logrono", label: "También: desarrollo web en Logroño" },
-    { href: "/proyectos/presencia-digital", label: "Caso: presencia digital" },
   ],
   "automatizacion-empresas-la-rioja": [
     { href: "/automatizacion", label: "Servicio: automatización con IA" },
-    { href: "/proyectos/procesos-inteligentes", label: "Caso: automatización" },
   ],
   "desarrollo-software-la-rioja": [
     { href: "/desarrollo-software", label: "Servicio: desarrollo de software" },
@@ -38,16 +31,13 @@ const relatedProjectsByService: Record<string, { href: string; label: string }[]
   ],
   "landing-page-para-empresas": [
     { href: "/desarrollo-web", label: "Servicio: desarrollo web" },
-    { href: "/proyectos/presencia-digital", label: "Caso: presencia digital" },
   ],
   "automatizacion-whatsapp-empresas": [
     { href: "/automatizacion", label: "Servicio: automatización con IA" },
-    { href: "/proyectos/procesos-inteligentes", label: "Caso: menos trabajo a mano" },
   ],
   "desarrollo-web-logrono": [
     { href: "/desarrollo-web", label: "Servicio: desarrollo web" },
     { href: "/desarrollo-web-la-rioja", label: "También: desarrollo web en La Rioja" },
-    { href: "/proyectos/presencia-digital", label: "Caso: presencia digital" },
   ],
 };
 
@@ -105,7 +95,14 @@ export function SeoLandingPage({ page }: { page: SeoLanding }) {
 
             <p className="mt-10 text-sm leading-relaxed text-slate-600">
               Estoy en {siteConfig.location}. Trabajo con empresas de aquí y de toda España,
-              independientemente del tamaño.
+              independientemente del tamaño. Mi referencia:{" "}
+              <Link
+                href="/proyectos/gestion-personal"
+                className="font-medium text-indigo-800 underline-offset-2 hover:underline"
+              >
+                un sistema de personal en producción con 191 personas
+              </Link>
+              .
             </p>
           </div>
         </section>

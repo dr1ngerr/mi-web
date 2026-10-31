@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { localLandings, navServicePages, siteConfig } from "@/lib/content";
+import { CookieSettingsButton } from "./CookieSettingsButton";
 import { useLanguage } from "./LanguageProvider";
 
 function LinkedInIcon({ className }: { className?: string }) {
@@ -68,7 +69,34 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="flex items-start gap-4">
+          <div>
+            <p className="text-sm font-semibold text-white">{t.footer.legalTitle}</p>
+            <ul className="mt-3 space-y-2 text-sm text-slate-400">
+              <li>
+                <Link href="/aviso-legal" className="transition-colors hover:text-sky-300">
+                  {t.footer.legalNotice}
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacidad" className="transition-colors hover:text-sky-300">
+                  {t.footer.privacy}
+                </Link>
+              </li>
+              <li>
+                <Link href="/cookies" className="transition-colors hover:text-sky-300">
+                  {t.footer.cookies}
+                </Link>
+              </li>
+              <li>
+                <CookieSettingsButton className="transition-colors hover:text-sky-300" />
+              </li>
+              <li>
+                <a href={`mailto:${siteConfig.email}`} className="transition-colors hover:text-sky-300">
+                  {siteConfig.email}
+                </a>
+              </li>
+            </ul>
+            <div className="mt-3 flex items-start gap-2">
             <a
               href={siteConfig.linkedin}
               target="_blank"
@@ -87,6 +115,7 @@ export function Footer() {
             >
               <GitHubIcon className="h-5 w-5" />
             </a>
+            </div>
           </div>
         </div>
       </div>

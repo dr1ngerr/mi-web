@@ -11,7 +11,14 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
   overflow-x: clip;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -73,22 +80,3 @@ code {
   word-break: break-all;
 }
 
-@keyframes hero-scroll-hint {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(6px);
-  }
-}
-
-.hero-scroll-hint {
-  animation: hero-scroll-hint 1.6s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-scroll-hint {
-    animation: none;
-  }
-}

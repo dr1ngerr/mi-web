@@ -7,6 +7,7 @@ type ContactBody = {
   name?: string;
   email?: string;
   message?: string;
+  website?: string;
 };
 
 const DEFAULT_CONTACT_TO = "contacto@andreibenedec.com";
@@ -93,6 +94,12 @@ async function sendWithFormSubmit(options: {
 export async function POST(request: Request) {
   try {
     const body = (await request.json()) as ContactBody;
+
+    // Campo trampa: solo lo rellenan los bots. Fingimos éxito para no darles pistas.
+    if (body.website) {
+      return NextResponse.json({ ok: true });
+    }
+
     const name = body.name?.trim() ?? "";
     const email = body.email?.trim() ?? "";
     const message = body.message?.trim() ?? "";
@@ -125,11 +132,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error("Error enviando formulario de contacto:", error);
-    const message =
-      error instanceof Error && error.message
-        ? error.message
-        : "No se pudo enviar el mensaje. Inténtalo de nuevo.";
-    return NextResponse.json({ error: message }, { status: 500 });
+    return NextResponse.json({ error: "No se pudo enviar el mensaje." }, { status: 500 });
   }
 }
 

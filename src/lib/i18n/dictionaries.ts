@@ -20,11 +20,15 @@ export type Dictionary = {
     language: string;
   };
   hero: {
+    eyebrow: string;
     headline: string;
     support: string;
     primaryCta: string;
     secondaryCta: string;
-    scrollHint: string;
+    trust: string[];
+    proofValue: string;
+    proofLabel: string;
+    proofCta: string;
   };
   services: {
     title: string;
@@ -44,10 +48,16 @@ export type Dictionary = {
     proofs: { label: string; value: string }[];
   };
   portfolio: {
+    eyebrow: string;
     title: string;
     subtitle: string;
     viewCase: string;
-    viewAll: string;
+    note: string;
+  };
+  process: {
+    title: string;
+    subtitle: string;
+    steps: { title: string; description: string }[];
   };
   testimonials: {
     title: string;
@@ -84,83 +94,122 @@ export type Dictionary = {
     submit: string;
     sending: string;
     success: string;
+    error: string;
     whatsapp: string;
     namePlaceholder: string;
     emailPlaceholder: string;
     messagePlaceholder: string;
     preferChat: string;
+    privacy: string;
+    privacyLink: string;
+    nextTitle: string;
+    nextSteps: string[];
   };
   footer: {
     rights: string;
     basedIn: string;
     servicesTitle: string;
     localLinksTitle: string;
+    legalTitle: string;
+    legalNotice: string;
+    privacy: string;
+    cookies: string;
+    cookieSettings: string;
   };
+  cookies: { text: string; accept: string; reject: string; more: string };
   whatsappFloat: string;
   whatsappMessage: string;
 };
 
 const es: Dictionary = {
-  positioning: "Desarrollo web, automatización con IA para empresas",
+  positioning: "Desarrollo web y automatización con IA para empresas",
   nav: {
     home: "Inicio",
     services: "Servicios",
     projects: "Proyectos",
     about: "Sobre mí",
     contact: "Contacto",
-    cta: "Cuéntame tu proyecto",
+    cta: "Pedir propuesta",
     openMenu: "Abrir menú",
     closeMenu: "Cerrar menú",
     language: "Idioma",
   },
   hero: {
-    headline:
-      "Desarrollo web, automatización con IA para empresas que quieren trabajar mejor.",
-    support:
-      "Webs pensadas para conseguir clientes. Automatización con IA que ahorra tiempo de verdad.",
-    primaryCta: "Cuéntame tu proyecto",
-    secondaryCta: "WhatsApp",
-    scrollHint: "Descubre más",
+    eyebrow: "Desarrollo web y automatización con IA · La Rioja y toda España",
+    headline: "Webs que te traen clientes. Automatizaciones que te devuelven horas.",
+    support: "Para empresas que quieren vender más y perder menos tiempo. Hablas directamente conmigo y sabes el precio antes de empezar.",
+    primaryCta: "Pedir propuesta",
+    secondaryCta: "Escríbeme por WhatsApp",
+    trust: [
+      "Landing desde 600 €",
+      "Precio y plazos cerrados",
+      "Trato directo, sin agencia",
+    ],
+    proofValue: "191 personas",
+    proofLabel: "en el sistema de gestión que desarrollé, en producción",
+    proofCta: "Ver el caso",
   },
   services: {
-    title: "Cómo te ayudo",
-    subtitle: "Empezamos por lo que más te frena hoy.",
-    see: "Ver",
+    title: "¿Qué te está frenando hoy?",
+    subtitle: "Empezamos por lo que más te cuesta. No hace falta contratarlo todo.",
+    see: "Ver cómo lo resuelvo",
     items: {
       web: {
-        title: "Web",
-        offer: "Que te escriban.",
-        description: "Landings y webs con un camino claro al contacto.",
+        title: "Mi web no me trae clientes",
+        offer: "Web o landing, desde 600 €",
+        description: "Mensaje claro, pensada para móvil y con el contacto siempre a mano, para que quien entre sepa qué haces y te escriba.",
       },
       automatizacion: {
-        title: "Automatización con IA",
-        offer: "Menos trabajo a mano.",
-        description: "Conecto herramientas y automatizo procesos con IA cuando aporta.",
+        title: "Mi equipo pierde horas copiando datos",
+        offer: "Automatización con IA",
+        description: "Conecto las herramientas que ya usáis y quito lo repetitivo. Si la IA no ahorra tiempo de verdad, no la pongo.",
       },
       software: {
-        title: "Software",
-        offer: "A medida.",
-        description: "Cuando lo que usáis hoy se os queda corto.",
+        title: "Nuestras herramientas se quedan cortas",
+        offer: "Software a medida",
+        description: "De hojas de cálculo y chats sueltos a una aplicación hecha para cómo trabaja tu equipo.",
       },
     },
   },
   differentiation: {
-    eyebrow: "Por qué yo",
-    title: "Desarrollo con mentalidad empresarial",
-    text: "Me importa cómo funciona dentro de tu empresa, no solo cómo se ve.",
-    detail:
-      "He construido software que equipos reales usan cada día. Parto de cómo trabajáis vosotros — cada empresa es distinta.",
+    eyebrow: "Por qué trabajar conmigo",
+    title: "Sin agencia de por medio",
+    text: "Quien escucha tu problema es quien lo resuelve.",
+    detail: "He construido software que un equipo real usa cada día, así que empiezo por cómo trabajáis, no por la tecnología.",
     proofs: [
-      { label: "En producción", value: "Uso diario real" },
-      { label: "Operativa", value: "Según tu empresa" },
-      { label: "Enfoque", value: "Proceso primero" },
+      { label: "Trato directo", value: "Hablas con quien lo construye" },
+      { label: "Precio cerrado", value: "Alcance y plazos por escrito" },
+      { label: "Sin humo", value: "Si no compensa, te lo digo" },
     ],
   },
   portfolio: {
-    title: "Proyectos",
-    subtitle: "Casos reales, con resultado.",
-    viewCase: "Ver caso",
-    viewAll: "Ver todos",
+    eyebrow: "Caso real",
+    title: "De hojas y chats a un sistema que se usa cada día",
+    subtitle: "Una empresa con varios centros gestionaba turnos, fichajes y vacaciones entre hojas y mensajes. Diseñé y construí la aplicación que hoy lo centraliza.",
+    viewCase: "Leer el caso completo",
+    note: "Esta web también la he hecho yo.",
+  },
+  process: {
+    title: "Cómo trabajamos",
+    subtitle: "Sabes qué vas a recibir y cuánto cuesta antes de empezar.",
+    steps: [
+      {
+        title: "Me cuentas qué te frena",
+        description: "Por WhatsApp o formulario. No hace falta tenerlo todo claro.",
+      },
+      {
+        title: "Te envío una propuesta",
+        description: "Con precio, plazos y qué incluye. Tú decides si seguimos.",
+      },
+      {
+        title: "Construyo y te enseño avances",
+        description: "Ves cómo va el proyecto y lo ajustamos sobre la marcha.",
+      },
+      {
+        title: "Publicamos y sigo contigo",
+        description: "Lo dejamos funcionando. Si quieres, seguimos con mejoras y soporte.",
+      },
+    ],
   },
   testimonials: {
     title: "Lo que dicen quienes ya han trabajado conmigo",
@@ -197,6 +246,11 @@ const es: Dictionary = {
     subtitle: "Respuestas claras antes de escribirme.",
     items: [
       {
+        question: "¿Qué pasa después de escribirte?",
+        answer:
+          "Hablamos de lo que necesitas y te envío una propuesta con precio, plazos y qué incluye. Sin compromiso: decides después de verla.",
+      },
+      {
         question: "¿Cuánto cuesta una web?",
         answer:
           "Una landing parte desde 600 €. Proyectos mayores se presupuestan según alcance, plazos y qué incluye.",
@@ -231,7 +285,7 @@ const es: Dictionary = {
   caseStudy: caseStudyUiEs,
   about: {
     eyebrow: "Sobre mí",
-    role: "Desarrollo web, automatización con IA para empresas",
+    role: "Desarrollo web y automatización con IA para empresas",
     location: "La Rioja · Toda España",
     story:
       "No soy una agencia anónima. Entiendo cómo opera una empresa por dentro y propongo lo que encaja — no una plantilla genérica.",
@@ -243,25 +297,45 @@ const es: Dictionary = {
     cta: "Hablemos",
   },
   contact: {
-    title: "¿Tienes un proyecto en mente?",
-    subtitle: "Cuéntamelo. Aunque aún no sepas cómo categorizarlo.",
+    title: "Cuéntame qué te frena",
+    subtitle: "Con dos líneas me basta. Aunque aún no sepas qué necesitas.",
     name: "Nombre",
     email: "Email",
     message: "Mensaje",
     submit: "Enviar mensaje",
     sending: "Enviando...",
     success: "Mensaje enviado. Te respondo pronto.",
+    error: "No se ha podido enviar. Inténtalo de nuevo o escríbeme por WhatsApp.",
     whatsapp: "WhatsApp",
     namePlaceholder: "Tu nombre",
     emailPlaceholder: "tu@email.com",
-    messagePlaceholder: "Qué quieres mejorar.",
+    messagePlaceholder: "Qué quieres mejorar en tu empresa.",
     preferChat: "¿Prefieres escribir por chat?",
+    privacy: "Usaré tus datos solo para responderte. Más información en la",
+    privacyLink: "política de privacidad",
+    nextTitle: "Qué pasa después",
+    nextSteps: [
+      "Leo tu mensaje y te respondo yo, no un equipo comercial.",
+      "Hablamos de lo que necesitas.",
+      "Te envío una propuesta con precio, plazos y qué incluye.",
+    ],
   },
   footer: {
     rights: "Todos los derechos reservados.",
     basedIn: "Basado en La Rioja. Trabajo con empresas de toda España.",
     servicesTitle: "Servicios",
     localLinksTitle: "Servicios en La Rioja",
+    legalTitle: "Legal",
+    legalNotice: "Aviso legal",
+    privacy: "Privacidad",
+    cookies: "Cookies",
+    cookieSettings: "Configurar cookies",
+  },
+  cookies: {
+    text: "Uso cookies opcionales de medición para saber cómo se usa la web. Solo se activan si aceptas.",
+    accept: "Aceptar",
+    reject: "Rechazar",
+    more: "Más información",
   },
   whatsappFloat: "WhatsApp",
   whatsappMessage: "Hola Andrei, quiero contarte qué me gustaría mejorar en mi empresa.",
@@ -275,59 +349,90 @@ const en: Dictionary = {
     projects: "Projects",
     about: "About",
     contact: "Contact",
-    cta: "Tell me about your project",
+    cta: "Get a proposal",
     openMenu: "Open menu",
     closeMenu: "Close menu",
     language: "Language",
   },
   hero: {
-    headline:
-      "Web development and AI-powered automation for businesses that want to work better.",
-    support:
-      "Websites built to win customers. AI-powered automation that actually saves time.",
-    primaryCta: "Tell me about your project",
-    secondaryCta: "WhatsApp",
-    scrollHint: "Discover more",
+    eyebrow: "Web development and AI automation · La Rioja and all of Spain",
+    headline: "Websites that bring you customers. Automations that give you hours back.",
+    support: "For companies that want to sell more and waste less time. You deal with me directly and know the price before we start.",
+    primaryCta: "Get a proposal",
+    secondaryCta: "Message me on WhatsApp",
+    trust: [
+      "Landing pages from €600",
+      "Fixed price and timeline",
+      "Direct contact, no agency",
+    ],
+    proofValue: "191 people",
+    proofLabel: "in the management system I built, live in production",
+    proofCta: "See the case",
   },
   services: {
-    title: "How I can help",
-    subtitle: "We start with whatever is slowing you down most today.",
-    see: "View",
+    title: "What is holding you back today?",
+    subtitle: "We start with what costs you most. You don't need to buy everything.",
+    see: "See how I solve it",
     items: {
       web: {
-        title: "Web",
-        offer: "Get more inquiries.",
-        description: "Landings and websites with a clear path to contact you.",
+        title: "My website brings no customers",
+        offer: "Website or landing page, from €600",
+        description: "A clear message, built for mobile and with contact always at hand, so visitors know what you do and reach out.",
       },
       automatizacion: {
-        title: "AI-powered automation",
-        offer: "Less manual work.",
-        description: "I connect tools and automate processes with AI when it helps.",
+        title: "My team loses hours copying data",
+        offer: "AI-powered automation",
+        description: "I connect the tools you already use and remove repetitive work. If AI doesn't really save time, I leave it out.",
       },
       software: {
-        title: "Software",
-        offer: "Custom-built.",
-        description: "When what you use today is no longer enough.",
+        title: "Our tools are no longer enough",
+        offer: "Custom software",
+        description: "From spreadsheets and scattered chats to an application built around how your team works.",
       },
     },
   },
   differentiation: {
-    eyebrow: "Why me",
-    title: "Development with a business mindset",
-    text: "I care about how it works inside your company, not only how it looks.",
-    detail:
-      "I have built software that real teams use every day. I start from how you work — every company is different.",
+    eyebrow: "Why work with me",
+    title: "No agency in the middle",
+    text: "The person who hears your problem is the one who solves it.",
+    detail: "I have built software a real team uses every day, so I start from how you work, not from the technology.",
     proofs: [
-      { label: "In production", value: "Real daily use" },
-      { label: "Operations", value: "Fitted to your company" },
-      { label: "Approach", value: "Process first" },
+      {
+        label: "Direct contact",
+        value: "You talk to the person building it",
+      },
+      { label: "Fixed price", value: "Scope and timeline in writing" },
+      { label: "No hype", value: "If it isn't worth it, I'll say so" },
     ],
   },
   portfolio: {
-    title: "Projects",
-    subtitle: "Real cases, with results.",
-    viewCase: "View case",
-    viewAll: "View all",
+    eyebrow: "Real case",
+    title: "From spreadsheets and chats to a system used every day",
+    subtitle: "A multi-site company managed shifts, clock-ins and holidays across spreadsheets and messages. I designed and built the application that now centralizes it.",
+    viewCase: "Read the full case",
+    note: "I built this website too.",
+  },
+  process: {
+    title: "How we work",
+    subtitle: "You know what you'll get and what it costs before we start.",
+    steps: [
+      {
+        title: "Tell me what's holding you back",
+        description: "On WhatsApp or through the form. It doesn't need to be fully defined.",
+      },
+      {
+        title: "I send you a proposal",
+        description: "With price, timeline and what's included. You decide whether to continue.",
+      },
+      {
+        title: "I build and show you progress",
+        description: "You see how it's going and we adjust along the way.",
+      },
+      {
+        title: "We launch and I stay with you",
+        description: "We leave it running. If you want, we continue with improvements and support.",
+      },
+    ],
   },
   testimonials: {
     title: "What people who worked with me say",
@@ -363,6 +468,11 @@ const en: Dictionary = {
     title: "Frequently asked questions",
     subtitle: "Clear answers before you reach out.",
     items: [
+      {
+        question: "What happens after I contact you?",
+        answer:
+          "We talk about what you need and I send you a proposal with price, timeline and what's included. No commitment: you decide after seeing it.",
+      },
       {
         question: "How much does a website cost?",
         answer:
@@ -410,25 +520,45 @@ const en: Dictionary = {
     cta: "Let's talk",
   },
   contact: {
-    title: "Got a project in mind?",
-    subtitle: "Tell me about it — even if you are not sure how to categorize it yet.",
+    title: "Tell me what's holding you back",
+    subtitle: "A couple of lines is enough, even if you're not sure what you need yet.",
     name: "Name",
     email: "Email",
     message: "Message",
     submit: "Send message",
     sending: "Sending...",
     success: "Message sent. I will get back to you soon.",
+    error: "It could not be sent. Please try again or message me on WhatsApp.",
     whatsapp: "WhatsApp",
     namePlaceholder: "Your name",
     emailPlaceholder: "you@email.com",
-    messagePlaceholder: "What would you like to improve?",
+    messagePlaceholder: "What would you like to improve in your company?",
     preferChat: "Prefer to chat?",
+    privacy: "I will only use your data to reply to you. More details in the",
+    privacyLink: "privacy policy",
+    nextTitle: "What happens next",
+    nextSteps: [
+      "I read your message and reply myself, not a sales team.",
+      "We talk about what you need.",
+      "I send you a proposal with price, timeline and what's included.",
+    ],
   },
   footer: {
     rights: "All rights reserved.",
     basedIn: "Based in La Rioja. I work with companies across Spain.",
     servicesTitle: "Services",
     localLinksTitle: "Services in La Rioja",
+    legalTitle: "Legal",
+    legalNotice: "Legal notice",
+    privacy: "Privacy",
+    cookies: "Cookies",
+    cookieSettings: "Cookie settings",
+  },
+  cookies: {
+    text: "I use optional analytics cookies to understand how the site is used. They only run if you accept.",
+    accept: "Accept",
+    reject: "Reject",
+    more: "Learn more",
   },
   whatsappFloat: "WhatsApp",
   whatsappMessage: "Hi Andrei, I would like to tell you what I want to improve in my company.",
@@ -442,59 +572,90 @@ const ro: Dictionary = {
     projects: "Proiecte",
     about: "Despre mine",
     contact: "Contact",
-    cta: "Spune-mi despre proiectul tău",
+    cta: "Cere o propunere",
     openMenu: "Deschide meniul",
     closeMenu: "Închide meniul",
     language: "Limbă",
   },
   hero: {
-    headline:
-      "Dezvoltare web și automatizare cu AI pentru companii care vor să lucreze mai bine.",
-    support:
-      "Site-uri gândite să aducă clienți. Automatizare cu AI care chiar economisește timp.",
-    primaryCta: "Spune-mi despre proiectul tău",
-    secondaryCta: "WhatsApp",
-    scrollHint: "Descoperă mai mult",
+    eyebrow: "Dezvoltare web și automatizare cu AI · La Rioja și toată Spania",
+    headline: "Site-uri care îți aduc clienți. Automatizări care îți dau înapoi ore.",
+    support: "Pentru companii care vor să vândă mai mult și să piardă mai puțin timp. Vorbești direct cu mine și știi prețul înainte să începem.",
+    primaryCta: "Cere o propunere",
+    secondaryCta: "Scrie-mi pe WhatsApp",
+    trust: [
+      "Landing de la 600 €",
+      "Preț și termene fixe",
+      "Contact direct, fără agenție",
+    ],
+    proofValue: "191 de persoane",
+    proofLabel: "în sistemul de gestiune dezvoltat de mine, în producție",
+    proofCta: "Vezi cazul",
   },
   services: {
-    title: "Cum te pot ajuta",
-    subtitle: "Începem cu ceea ce te încetinește cel mai mult acum.",
-    see: "Vezi",
+    title: "Ce te încetinește azi?",
+    subtitle: "Începem cu ce te costă cel mai mult. Nu trebuie să contractezi totul.",
+    see: "Vezi cum rezolv",
     items: {
       web: {
-        title: "Web",
-        offer: "Să te contacteze.",
-        description: "Landing-uri și site-uri cu un drum clar spre contact.",
+        title: "Site-ul meu nu aduce clienți",
+        offer: "Site sau landing, de la 600 €",
+        description: "Mesaj clar, gândit pentru mobil și cu contactul mereu la îndemână, ca vizitatorul să știe ce faci și să îți scrie.",
       },
       automatizacion: {
-        title: "Automatizare cu AI",
-        offer: "Mai puțină muncă manuală.",
-        description: "Conectez unelte și automatizez procese cu AI când merită.",
+        title: "Echipa pierde ore copiind date",
+        offer: "Automatizare cu AI",
+        description: "Conectez uneltele pe care le folosiți deja și elimin munca repetitivă. Dacă AI nu economisește timp real, nu o folosesc.",
       },
       software: {
-        title: "Software",
-        offer: "La comandă.",
-        description: "Când ce folosiți azi nu mai e suficient.",
+        title: "Uneltele noastre nu mai sunt suficiente",
+        offer: "Software la comandă",
+        description: "De la foi de calcul și chat-uri împrăștiate la o aplicație făcută pentru cum lucrează echipa ta.",
       },
     },
   },
   differentiation: {
-    eyebrow: "De ce eu",
-    title: "Dezvoltare cu mentalitate de business",
-    text: "Mă interesează cum funcționează în interiorul firmei tale, nu doar cum arată.",
-    detail:
-      "Am construit software pe care echipe reale îl folosesc zilnic. Plec de la cum lucrați voi — fiecare firmă e diferită.",
+    eyebrow: "De ce să lucrezi cu mine",
+    title: "Fără agenție la mijloc",
+    text: "Cel care îți ascultă problema este cel care o rezolvă.",
+    detail: "Am construit software pe care o echipă reală îl folosește zilnic, așa că plec de la cum lucrați voi, nu de la tehnologie.",
     proofs: [
-      { label: "În producție", value: "Uz zilnic real" },
-      { label: "Operațional", value: "După firma ta" },
-      { label: "Abordare", value: "Procesul întâi" },
+      {
+        label: "Contact direct",
+        value: "Vorbești cu cel care construiește",
+      },
+      { label: "Preț fix", value: "Scop și termene în scris" },
+      { label: "Fără vorbe goale", value: "Dacă nu merită, îți spun" },
     ],
   },
   portfolio: {
-    title: "Proiecte",
-    subtitle: "Cazuri reale, cu rezultat.",
-    viewCase: "Vezi cazul",
-    viewAll: "Vezi toate",
+    eyebrow: "Caz real",
+    title: "De la foi și chat-uri la un sistem folosit în fiecare zi",
+    subtitle: "O firmă cu mai multe centre gestiona ture, pontaje și concedii în foi și mesaje. Am proiectat și construit aplicația care acum le centralizează.",
+    viewCase: "Citește cazul complet",
+    note: "Și acest site l-am făcut eu.",
+  },
+  process: {
+    title: "Cum lucrăm",
+    subtitle: "Știi ce primești și cât costă înainte să începem.",
+    steps: [
+      {
+        title: "Îmi spui ce te încetinește",
+        description: "Pe WhatsApp sau prin formular. Nu trebuie să ai totul clar.",
+      },
+      {
+        title: "Îți trimit o propunere",
+        description: "Cu preț, termene și ce include. Tu decizi dacă continuăm.",
+      },
+      {
+        title: "Construiesc și îți arăt progresul",
+        description: "Vezi cum merge proiectul și ajustăm pe parcurs.",
+      },
+      {
+        title: "Publicăm și rămân alături de tine",
+        description: "Lăsăm totul funcțional. Dacă vrei, continuăm cu îmbunătățiri și suport.",
+      },
+    ],
   },
   testimonials: {
     title: "Ce spun cei care au lucrat deja cu mine",
@@ -530,6 +691,11 @@ const ro: Dictionary = {
     title: "Întrebări frecvente",
     subtitle: "Răspunsuri clare înainte să-mi scrii.",
     items: [
+      {
+        question: "Ce se întâmplă după ce îți scriu?",
+        answer:
+          "Vorbim despre ce ai nevoie și îți trimit o propunere cu preț, termene și ce include. Fără obligații: decizi după ce o vezi.",
+      },
       {
         question: "Cât costă un site?",
         answer:
@@ -577,25 +743,45 @@ const ro: Dictionary = {
     cta: "Hai să vorbim",
   },
   contact: {
-    title: "Ai un proiect în minte?",
-    subtitle: "Spune-mi. Chiar dacă încă nu știi cum să-l încadrezi.",
+    title: "Spune-mi ce te încetinește",
+    subtitle: "Două rânduri sunt suficiente, chiar dacă încă nu știi de ce ai nevoie.",
     name: "Nume",
     email: "Email",
     message: "Mesaj",
     submit: "Trimite mesajul",
     sending: "Se trimite...",
     success: "Mesaj trimis. Îți răspund în curând.",
+    error: "Nu s-a putut trimite. Încearcă din nou sau scrie-mi pe WhatsApp.",
     whatsapp: "WhatsApp",
     namePlaceholder: "Numele tău",
     emailPlaceholder: "tu@email.com",
-    messagePlaceholder: "Ce vrei să îmbunătățești.",
+    messagePlaceholder: "Ce vrei să îmbunătățești în firma ta.",
     preferChat: "Preferi să scrii pe chat?",
+    privacy: "Îți folosesc datele doar ca să îți răspund. Mai multe detalii în",
+    privacyLink: "politica de confidențialitate",
+    nextTitle: "Ce urmează",
+    nextSteps: [
+      "Îți citesc mesajul și îți răspund personal, nu o echipă de vânzări.",
+      "Vorbim despre ce ai nevoie.",
+      "Îți trimit o propunere cu preț, termene și ce include.",
+    ],
   },
   footer: {
     rights: "Toate drepturile rezervate.",
     basedIn: "Bazat în La Rioja. Lucrez cu companii din toată Spania.",
     servicesTitle: "Servicii",
     localLinksTitle: "Servicii în La Rioja",
+    legalTitle: "Legal",
+    legalNotice: "Mențiuni legale",
+    privacy: "Confidențialitate",
+    cookies: "Cookie-uri",
+    cookieSettings: "Setări cookie-uri",
+  },
+  cookies: {
+    text: "Folosesc cookie-uri opționale de măsurare ca să înțeleg cum e folosit site-ul. Se activează doar dacă accepți.",
+    accept: "Accept",
+    reject: "Refuz",
+    more: "Mai multe",
   },
   whatsappFloat: "WhatsApp",
   whatsappMessage: "Bună Andrei, vreau să-ți spun ce aș vrea să îmbunătățesc în firma mea.",

@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { caseStudies } from "@/lib/caseStudies";
 import { localLandings, servicePages } from "@/lib/content";
 
-const baseUrl = "https://andreibenedec.com";
+const baseUrl = "https://www.andreibenedec.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -26,12 +26,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/mantenimiento`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
     },
   ];
 
