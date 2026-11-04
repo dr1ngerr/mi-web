@@ -67,6 +67,8 @@ export type Dictionary = {
     eyebrow: string;
     title: string;
     subtitle: string;
+    launchTitle: string;
+    launchText: string;
     situationLabel: string;
     stepLabels: [string, string, string];
     startCta: string;
@@ -221,7 +223,7 @@ const es: Dictionary = {
       },
       automatizacion: {
         pain: "«Perdemos horas copiando datos»",
-        offer: "Automatización con IA",
+        offer: "Automatización con IA · desde 200 €",
         description:
           "Conecto las herramientas que ya usáis — formularios, email, hojas, WhatsApp — y quito lo repetitivo. La IA solo entra si ahorra tiempo de verdad.",
         bullets: [
@@ -232,7 +234,7 @@ const es: Dictionary = {
       },
       software: {
         pain: "«Excel y los chats ya no dan más de sí»",
-        offer: "Software a medida",
+        offer: "Software a medida · desde 1.500 €",
         description:
           "Una aplicación hecha para cómo trabaja tu equipo: roles, permisos, informes y un único sitio fiable para la información.",
         bullets: [
@@ -290,6 +292,9 @@ const es: Dictionary = {
     title: "El punto de partida depende de dónde está tu empresa",
     subtitle:
       "No todas las empresas empiezan igual. Elige tu situación y te enseño por dónde empezaríamos, qué vendría después y cuánto cuesta.",
+    launchTitle: "Precios de lanzamiento",
+    launchText:
+      "Estoy sumando mis primeros proyectos como freelance, así que ahora mis precios son más bajos de lo habitual. Irán subiendo con el tiempo, pero el precio que acordemos se respeta. Precios sin IVA.",
     situationLabel: "¿En qué situación estás?",
     stepLabels: ["Punto de partida", "Siguiente paso", "En el tiempo"],
     startCta: "Empezar por aquí",
@@ -313,7 +318,7 @@ const es: Dictionary = {
           },
           {
             name: "Web de varias secciones",
-            price: "Según alcance",
+            price: "desde 450 €",
             description: "Cuando necesitas contar más: servicios, proyectos, quién eres.",
             includes: [
               "Más páginas y secciones",
@@ -323,7 +328,7 @@ const es: Dictionary = {
           },
           {
             name: "Mantenimiento y mejoras",
-            price: "Según acuerdo",
+            price: "desde 25 €/mes",
             description: "Cambios, mejoras y soporte cuando los necesites.",
             includes: ["Soporte y cambios", "Mejoras con el uso real", "SEO e integraciones bajo demanda"],
           },
@@ -344,18 +349,18 @@ const es: Dictionary = {
           },
           {
             name: "Mejoras o rediseño",
-            price: "Presupuesto cerrado",
+            price: "desde 150 €",
             description:
               "Aplicamos las mejoras con más impacto, o rehacemos la web si compensa más.",
             includes: [
+              "Mejoras puntuales desde 150 €",
+              "Rediseño completo desde 450 €",
               "Solo lo que la auditoría justifica",
-              "Conservando lo que ya funciona",
-              "Precio y plazos por escrito",
             ],
           },
           {
             name: "Mantenimiento y mejoras",
-            price: "Según acuerdo",
+            price: "desde 25 €/mes",
             description: "Seguimos afinando con los datos reales de quién te contacta.",
             includes: ["Soporte y cambios", "Mejoras de conversión", "SEO e integraciones bajo demanda"],
           },
@@ -380,7 +385,7 @@ const es: Dictionary = {
           },
           {
             name: "Automatización",
-            price: "Presupuesto cerrado",
+            price: "desde 200 €",
             description:
               "Conecto vuestras herramientas y quito el trabajo repetitivo, con IA solo si aporta.",
             includes: [
@@ -391,7 +396,7 @@ const es: Dictionary = {
           },
           {
             name: "Nuevas automatizaciones",
-            price: "Según acuerdo",
+            price: "desde 40 €/mes",
             description: "Cuando aparece otro proceso que ordenar, seguimos con él.",
             includes: ["Soporte y ajustes", "Mejoras con el uso real", "Nuevos flujos bajo demanda"],
           },
@@ -412,13 +417,13 @@ const es: Dictionary = {
           },
           {
             name: "Software a medida",
-            price: "Presupuesto cerrado",
+            price: "desde 1.500 €",
             description: "Una aplicación para vuestro día a día, por fases si hace falta.",
             includes: ["Paneles por rol", "Informes sin hojas a mano", "Entregas por fases"],
           },
           {
             name: "Soporte y evolución",
-            price: "Según acuerdo",
+            price: "desde 60 €/mes",
             description: "La herramienta crece con la empresa: nuevos módulos, centros o usuarios.",
             includes: ["Soporte y correcciones", "Nuevas funciones", "Acompañamiento al equipo"],
           },
@@ -428,46 +433,17 @@ const es: Dictionary = {
     catalogTitle: "Todos los servicios",
     catalogSubtitle: "Puedes contratar cualquiera por separado.",
     catalog: [
-      {
-        name: "Auditoría de web o de procesos",
-        price: "Gratis",
-        description: "Qué mejorar primero, por escrito y sin compromiso.",
-      },
-      {
-        name: "Landing page",
-        price: "desde 250 €",
-        description: "Una página para captar contactos o lanzar un servicio.",
-      },
-      {
-        name: "Web de varias secciones",
-        price: "Según alcance",
-        description: "Para empresas que necesitan contar más.",
-      },
-      {
-        name: "Mejora o rediseño de tu web",
-        price: "Presupuesto cerrado",
-        description: "Para webs que existen pero no traen clientes.",
-      },
-      {
-        name: "SEO local",
-        price: "Según alcance",
-        description: "Para que te encuentren quienes buscan en tu zona.",
-      },
-      {
-        name: "Automatización con IA y WhatsApp",
-        price: "Presupuesto cerrado",
-        description: "Menos tareas a mano, menos errores y olvidos.",
-      },
-      {
-        name: "Software a medida",
-        price: "Presupuesto cerrado",
-        description: "Herramientas internas hechas para tu equipo.",
-      },
-      {
-        name: "Mantenimiento y mejoras",
-        price: "Cuota según acuerdo",
-        description: "Soporte, cambios y mejoras mes a mes.",
-      },
+      { name: "Auditoría de web o de procesos", price: "Gratis", description: "Qué mejorar primero, por escrito y sin compromiso." },
+      { name: "Landing page", price: "desde 250 €", description: "Una página para captar contactos o lanzar un servicio." },
+      { name: "Web de varias secciones", price: "desde 450 €", description: "Hasta 5 páginas: servicios, proyectos, quién eres." },
+      { name: "Mejoras en tu web", price: "desde 150 €", description: "Mensaje, móvil, velocidad y contacto en tu web actual." },
+      { name: "Rediseño completo", price: "desde 450 €", description: "Tu web rehecha para que traiga clientes." },
+      { name: "SEO local", price: "desde 120 €", description: "Para que te encuentren quienes buscan en tu zona." },
+      { name: "Automatización con IA y WhatsApp", price: "desde 200 €", description: "Por cada flujo: avisos, seguimientos, datos entre herramientas." },
+      { name: "Software a medida", price: "desde 1.500 €", description: "Herramientas internas hechas para tu equipo." },
+      { name: "Mantenimiento web", price: "desde 25 €/mes", description: "Actualizaciones, copias, cambios pequeños y soporte." },
+      { name: "Soporte de automatizaciones y software", price: "desde 40 €/mes", description: "Que todo siga funcionando y mejore con el uso." },
+      { name: "Cambios sueltos", price: "25 €/hora", description: "Sin cuota: pagas solo el tiempo que lleva." },
     ],
     alwaysTitle: "Siempre incluido",
     always: [
@@ -476,8 +452,8 @@ const es: Dictionary = {
       "Hablas siempre con quien lo construye",
       "Puedes empezar por una sola cosa",
     ],
-    noteTitle: "¿Por qué casi todo es «según alcance»?",
-    note: "Porque no cuesta lo mismo una web de 3 páginas que una de 20, ni automatizar un aviso que un proceso entero. Tras hablar te mando un precio cerrado: antes de empezar, no a mitad.",
+    noteTitle: "¿Por qué «desde»?",
+    note: "Porque no cuesta lo mismo una web de 3 páginas que una de 10, ni automatizar un aviso que un proceso entero. Tras hablar te mando un precio cerrado: antes de empezar, no a mitad.",
     cta: "Pedir propuesta",
   },
   process: {
@@ -530,7 +506,7 @@ const es: Dictionary = {
       {
         question: "¿Cuánto cuesta una web?",
         answer:
-          "Una landing parte desde 250 €. Proyectos mayores se presupuestan según alcance, plazos y qué incluye.",
+          "Una landing desde 250 € y una web de varias secciones desde 450 €, sin IVA. Son precios de lanzamiento: te mando el precio cerrado antes de empezar.",
       },
       {
         question: "¿Cuánto tarda un proyecto?",
@@ -687,7 +663,7 @@ const en: Dictionary = {
       },
       automatizacion: {
         pain: "“We lose hours copying data”",
-        offer: "AI automation",
+        offer: "AI automation · from €200",
         description:
           "I connect the tools you already use — forms, email, spreadsheets, WhatsApp — and remove the repetitive work. AI only comes in when it truly saves time.",
         bullets: [
@@ -698,7 +674,7 @@ const en: Dictionary = {
       },
       software: {
         pain: "“Spreadsheets and chats can't keep up”",
-        offer: "Custom software",
+        offer: "Custom software · from €1,500",
         description:
           "An application built around how your team works: roles, permissions, reports and one reliable place for your information.",
         bullets: [
@@ -756,6 +732,9 @@ const en: Dictionary = {
     title: "Where we start depends on where your business is",
     subtitle:
       "Not every business starts in the same place. Pick your situation and I'll show you where we'd begin, what comes next and what it costs.",
+    launchTitle: "Launch pricing",
+    launchText:
+      "I'm taking on my first freelance projects, so my prices are lower than usual right now. They'll go up over time, but the price we agree is the price you pay. Prices exclude VAT.",
     situationLabel: "What's your situation?",
     stepLabels: ["Starting point", "Next step", "Over time"],
     startCta: "Start here",
@@ -775,7 +754,7 @@ const en: Dictionary = {
           },
           {
             name: "Multi-section website",
-            price: "Depends on scope",
+            price: "from €450",
             description: "When you need to say more: services, projects, who you are.",
             includes: [
               "More pages and sections",
@@ -785,7 +764,7 @@ const en: Dictionary = {
           },
           {
             name: "Maintenance and improvements",
-            price: "By agreement",
+            price: "from €25/month",
             description: "Changes, improvements and support whenever you need them.",
             includes: ["Support and changes", "Improvements based on real use", "SEO and integrations on demand"],
           },
@@ -805,17 +784,17 @@ const en: Dictionary = {
           },
           {
             name: "Improvements or redesign",
-            price: "Fixed quote",
+            price: "from €150",
             description: "We apply the changes with the most impact, or rebuild if that pays off more.",
             includes: [
+              "Targeted improvements from €150",
+              "Full redesign from €450",
               "Only what the audit justifies",
-              "Keeping what already works",
-              "Price and timeline in writing",
             ],
           },
           {
             name: "Maintenance and improvements",
-            price: "By agreement",
+            price: "from €25/month",
             description: "We keep refining with real data on who gets in touch.",
             includes: ["Support and changes", "Conversion improvements", "SEO and integrations on demand"],
           },
@@ -835,7 +814,7 @@ const en: Dictionary = {
           },
           {
             name: "Automation",
-            price: "Fixed quote",
+            price: "from €200",
             description: "I connect your tools and remove repetitive work, using AI only when it helps.",
             includes: [
               "Automatic reminders and follow-ups",
@@ -845,7 +824,7 @@ const en: Dictionary = {
           },
           {
             name: "New automations",
-            price: "By agreement",
+            price: "from €40/month",
             description: "When another process needs sorting out, we carry on.",
             includes: ["Support and tweaks", "Improvements based on real use", "New workflows on demand"],
           },
@@ -865,13 +844,13 @@ const en: Dictionary = {
           },
           {
             name: "Custom software",
-            price: "Fixed quote",
+            price: "from €1,500",
             description: "An application for your day-to-day, in phases if needed.",
             includes: ["Role-based dashboards", "Reports without manual spreadsheets", "Delivered in phases"],
           },
           {
             name: "Support and evolution",
-            price: "By agreement",
+            price: "from €60/month",
             description: "The tool grows with the business: new modules, sites or users.",
             includes: ["Support and fixes", "New features", "Help for your team"],
           },
@@ -883,12 +862,15 @@ const en: Dictionary = {
     catalog: [
       { name: "Website or process audit", price: "Free", description: "What to improve first, in writing and with no commitment." },
       { name: "Landing page", price: "from €250", description: "One page to win enquiries or launch a service." },
-      { name: "Multi-section website", price: "Depends on scope", description: "For businesses with more to tell." },
-      { name: "Website improvement or redesign", price: "Fixed quote", description: "For sites that exist but bring no clients." },
-      { name: "Local SEO", price: "Depends on scope", description: "So people searching in your area find you." },
-      { name: "AI and WhatsApp automation", price: "Fixed quote", description: "Fewer manual tasks, fewer errors and things forgotten." },
-      { name: "Custom software", price: "Fixed quote", description: "Internal tools built for your team." },
-      { name: "Maintenance and improvements", price: "Fee by agreement", description: "Support, changes and improvements month by month." },
+      { name: "Multi-section website", price: "from €450", description: "Up to 5 pages: services, projects, who you are." },
+      { name: "Improvements to your site", price: "from €150", description: "Message, mobile, speed and contact on your current site." },
+      { name: "Full redesign", price: "from €450", description: "Your site rebuilt to bring in clients." },
+      { name: "Local SEO", price: "from €120", description: "So people searching in your area find you." },
+      { name: "AI and WhatsApp automation", price: "from €200", description: "Per workflow: reminders, follow-ups, data between tools." },
+      { name: "Custom software", price: "from €1,500", description: "Internal tools built for your team." },
+      { name: "Website maintenance", price: "from €25/month", description: "Updates, backups, small changes and support." },
+      { name: "Automation and software support", price: "from €40/month", description: "Keeping everything running and improving with use." },
+      { name: "One-off changes", price: "€25/hour", description: "No subscription: you only pay for the time it takes." },
     ],
     alwaysTitle: "Always included",
     always: [
@@ -897,8 +879,8 @@ const en: Dictionary = {
       "You always talk to the person who builds it",
       "You can start with just one thing",
     ],
-    noteTitle: "Why is almost everything “depends on scope”?",
-    note: "Because a 3-page site doesn't cost the same as a 20-page one, and automating one reminder isn't the same as a whole process. After we talk I send you a fixed price: before we start, not halfway through.",
+    noteTitle: "Why “from”?",
+    note: "Because a 3-page site doesn't cost the same as a 10-page one, and automating one reminder isn't the same as a whole process. After we talk I send you a fixed price: before we start, not halfway through.",
     cta: "Request a proposal",
   },
   process: {
@@ -951,7 +933,7 @@ const en: Dictionary = {
       {
         question: "How much does a website cost?",
         answer:
-          "A landing page starts from €250. Larger projects are quoted by scope, timeline and what's included.",
+          "A landing page from €250 and a multi-section website from €450, excluding VAT. These are launch prices: I send you a fixed price before we start.",
       },
       {
         question: "How long does a project take?",
@@ -1108,7 +1090,7 @@ const ro: Dictionary = {
       },
       automatizacion: {
         pain: "„Pierdem ore copiind date”",
-        offer: "Automatizare cu AI",
+        offer: "Automatizare cu AI · de la 200 €",
         description:
           "Conectez instrumentele pe care le folosiți deja — formulare, email, tabele, WhatsApp — și elimin munca repetitivă. AI-ul intră doar dacă economisește timp cu adevărat.",
         bullets: [
@@ -1119,7 +1101,7 @@ const ro: Dictionary = {
       },
       software: {
         pain: "„Excelul și chaturile nu mai fac față”",
-        offer: "Software la comandă",
+        offer: "Software la comandă · de la 1.500 €",
         description:
           "O aplicație făcută după cum lucrează echipa ta: roluri, permisiuni, rapoarte și un singur loc de încredere pentru informații.",
         bullets: [
@@ -1177,6 +1159,9 @@ const ro: Dictionary = {
     title: "Punctul de plecare depinde de unde se află firma ta",
     subtitle:
       "Nu toate firmele pornesc la fel. Alege-ți situația și îți arăt de unde am începe, ce ar urma și cât costă.",
+    launchTitle: "Prețuri de lansare",
+    launchText:
+      "Îmi adun primele proiecte ca freelancer, așa că acum prețurile mele sunt mai mici decât de obicei. Vor crește în timp, dar prețul pe care îl stabilim se respectă. Prețuri fără TVA.",
     situationLabel: "În ce situație ești?",
     stepLabels: ["Punct de plecare", "Pasul următor", "În timp"],
     startCta: "Încep de aici",
@@ -1196,7 +1181,7 @@ const ro: Dictionary = {
           },
           {
             name: "Site cu mai multe secțiuni",
-            price: "În funcție de proiect",
+            price: "de la 450 €",
             description: "Când ai mai multe de spus: servicii, proiecte, cine ești.",
             includes: [
               "Mai multe pagini și secțiuni",
@@ -1206,7 +1191,7 @@ const ro: Dictionary = {
           },
           {
             name: "Mentenanță și îmbunătățiri",
-            price: "Conform acordului",
+            price: "de la 25 €/lună",
             description: "Modificări, îmbunătățiri și suport când ai nevoie.",
             includes: ["Suport și modificări", "Îmbunătățiri după utilizarea reală", "SEO și integrări la cerere"],
           },
@@ -1226,17 +1211,17 @@ const ro: Dictionary = {
           },
           {
             name: "Îmbunătățiri sau redesign",
-            price: "Ofertă fixă",
+            price: "de la 150 €",
             description: "Aplicăm schimbările cu cel mai mare impact sau refacem site-ul dacă merită mai mult.",
             includes: [
+              "Îmbunătățiri punctuale de la 150 €",
+              "Redesign complet de la 450 €",
               "Doar ce justifică auditul",
-              "Păstrând ce funcționează deja",
-              "Preț și termene în scris",
             ],
           },
           {
             name: "Mentenanță și îmbunătățiri",
-            price: "Conform acordului",
+            price: "de la 25 €/lună",
             description: "Continuăm să ajustăm pe baza datelor reale despre cine te contactează.",
             includes: ["Suport și modificări", "Îmbunătățiri de conversie", "SEO și integrări la cerere"],
           },
@@ -1256,7 +1241,7 @@ const ro: Dictionary = {
           },
           {
             name: "Automatizare",
-            price: "Ofertă fixă",
+            price: "de la 200 €",
             description: "Conectez instrumentele voastre și elimin munca repetitivă, cu AI doar dacă ajută.",
             includes: [
               "Notificări și follow-up-uri automate",
@@ -1266,7 +1251,7 @@ const ro: Dictionary = {
           },
           {
             name: "Automatizări noi",
-            price: "Conform acordului",
+            price: "de la 40 €/lună",
             description: "Când apare alt proces de ordonat, continuăm cu el.",
             includes: ["Suport și ajustări", "Îmbunătățiri după utilizarea reală", "Fluxuri noi la cerere"],
           },
@@ -1286,13 +1271,13 @@ const ro: Dictionary = {
           },
           {
             name: "Software la comandă",
-            price: "Ofertă fixă",
+            price: "de la 1.500 €",
             description: "O aplicație pentru activitatea de zi cu zi, pe etape dacă e nevoie.",
             includes: ["Panouri pe roluri", "Rapoarte fără tabele de mână", "Livrare pe etape"],
           },
           {
             name: "Suport și evoluție",
-            price: "Conform acordului",
+            price: "de la 60 €/lună",
             description: "Instrumentul crește odată cu firma: module, centre sau utilizatori noi.",
             includes: ["Suport și corecturi", "Funcții noi", "Sprijin pentru echipă"],
           },
@@ -1304,12 +1289,15 @@ const ro: Dictionary = {
     catalog: [
       { name: "Audit de site sau de procese", price: "Gratuit", description: "Ce să îmbunătățești întâi, în scris și fără obligații." },
       { name: "Landing page", price: "de la 250 €", description: "O pagină pentru contacte noi sau lansarea unui serviciu." },
-      { name: "Site cu mai multe secțiuni", price: "În funcție de proiect", description: "Pentru firme care au mai multe de spus." },
-      { name: "Îmbunătățire sau redesign de site", price: "Ofertă fixă", description: "Pentru site-uri care există, dar nu aduc clienți." },
-      { name: "SEO local", price: "În funcție de proiect", description: "Ca să te găsească cei care caută în zona ta." },
-      { name: "Automatizare cu AI și WhatsApp", price: "Ofertă fixă", description: "Mai puțină muncă manuală, mai puține greșeli." },
-      { name: "Software la comandă", price: "Ofertă fixă", description: "Instrumente interne făcute pentru echipa ta." },
-      { name: "Mentenanță și îmbunătățiri", price: "Abonament conform acordului", description: "Suport, modificări și îmbunătățiri lună de lună." },
+      { name: "Site cu mai multe secțiuni", price: "de la 450 €", description: "Până la 5 pagini: servicii, proiecte, cine ești." },
+      { name: "Îmbunătățiri ale site-ului", price: "de la 150 €", description: "Mesaj, mobil, viteză și contact pe site-ul actual." },
+      { name: "Redesign complet", price: "de la 450 €", description: "Site-ul refăcut ca să aducă clienți." },
+      { name: "SEO local", price: "de la 120 €", description: "Ca să te găsească cei care caută în zona ta." },
+      { name: "Automatizare cu AI și WhatsApp", price: "de la 200 €", description: "Pe flux: notificări, follow-up-uri, date între aplicații." },
+      { name: "Software la comandă", price: "de la 1.500 €", description: "Instrumente interne făcute pentru echipa ta." },
+      { name: "Mentenanță site", price: "de la 25 €/lună", description: "Actualizări, copii de siguranță, modificări mici și suport." },
+      { name: "Suport pentru automatizări și software", price: "de la 40 €/lună", description: "Ca totul să funcționeze și să se îmbunătățească." },
+      { name: "Modificări punctuale", price: "25 €/oră", description: "Fără abonament: plătești doar timpul lucrat." },
     ],
     alwaysTitle: "Mereu inclus",
     always: [
@@ -1318,8 +1306,8 @@ const ro: Dictionary = {
       "Vorbești mereu cu cine construiește",
       "Poți începe cu un singur lucru",
     ],
-    noteTitle: "De ce aproape totul e „în funcție de proiect”?",
-    note: "Pentru că un site de 3 pagini nu costă cât unul de 20, iar automatizarea unei notificări nu e cât a unui proces întreg. După ce vorbim îți trimit un preț fix: înainte să începem, nu la jumătate.",
+    noteTitle: "De ce „de la”?",
+    note: "Pentru că un site de 3 pagini nu costă cât unul de 10, iar automatizarea unei notificări nu e cât a unui proces întreg. După ce vorbim îți trimit un preț fix: înainte să începem, nu la jumătate.",
     cta: "Cere o ofertă",
   },
   process: {
@@ -1372,7 +1360,7 @@ const ro: Dictionary = {
       {
         question: "Cât costă un site?",
         answer:
-          "Un landing page pornește de la 250 €. Proiectele mai mari se calculează după scop, termene și ce includ.",
+          "Un landing page de la 250 € și un site cu mai multe secțiuni de la 450 €, fără TVA. Sunt prețuri de lansare: îți trimit prețul fix înainte să începem.",
       },
       {
         question: "Cât durează un proiect?",

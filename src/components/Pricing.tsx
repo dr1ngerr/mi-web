@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import { ArrowRight, Check, ChevronRight } from "lucide-react";
+import { ArrowRight, Check, ChevronRight, Sparkles } from "lucide-react";
 import { prefillContact } from "@/lib/contactPrefill";
 import { cn } from "@/lib/utils";
 import { Button } from "./Button";
@@ -32,8 +32,17 @@ export function Pricing() {
           subtitle={t.pricing.subtitle}
         />
 
+        {/* Aviso de precios de lanzamiento: bajos al empezar, subirán con los primeros clientes */}
+        <div className="mt-10 flex flex-col gap-3 rounded-2xl border border-wine/25 bg-wine-soft p-5 sm:flex-row sm:items-start sm:gap-5 sm:p-6">
+          <span className="inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-wine px-3 py-1 text-xs font-bold tracking-wide text-white uppercase">
+            <Sparkles className="h-3.5 w-3.5" aria-hidden />
+            {t.pricing.launchTitle}
+          </span>
+          <p className="text-sm leading-relaxed text-wine-dark sm:text-base">{t.pricing.launchText}</p>
+        </div>
+
         {/* Selector de situación */}
-        <p className="mt-12 text-sm font-semibold text-ink">{t.pricing.situationLabel}</p>
+        <p className="mt-10 text-sm font-semibold text-ink">{t.pricing.situationLabel}</p>
         <div
           role="tablist"
           aria-label={t.pricing.situationLabel}

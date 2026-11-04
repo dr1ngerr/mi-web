@@ -41,7 +41,7 @@ export function JsonLd() {
       addressCountry: "ES",
     },
     founder: { "@id": `${siteUrl}/#person` },
-    priceRange: "€€",
+    priceRange: "€",
     knowsAbout: [
       "Desarrollo web",
       "Automatización con IA",
