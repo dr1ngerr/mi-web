@@ -1,10 +1,11 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/content";
 import { trackEvent } from "@/lib/analytics";
+import { CONTACT_PREFILL_EVENT, type ContactPrefill } from "@/lib/contactPrefill";
 import type { NeedKey } from "@/lib/i18n/dictionaries";
 import { cn } from "@/lib/utils";
 import { WhatsAppIcon } from "./WhatsAppIcon";
@@ -25,6 +26,28 @@ export function Contact() {
   const { t } = useLanguage();
   const [form, setForm] = useState(emptyForm);
   const [status, setStatus] = useState<Status>("idle");
+  const lastPrefill = useRef("");
+
+  // Precios u otras secciones pueden dejar elegida la necesidad y un mensaje inicial.
+  useEffect(() => {
+    function onPrefill(event: Event) {
+      const { need, message } = (event as CustomEvent<ContactPrefill>).detail;
+      setForm((current) => ({
+        ...current,
+        need,
+        // Solo pisamos el mensaje si está vacío o si lo escribimos nosotros antes
+        message:
+          !current.message.trim() || current.message === lastPrefill.current
+            ? message
+            : current.message,
+      }));
+      lastPrefill.current = message;
+      setStatus("idle");
+    }
+
+    window.addEventListener(CONTACT_PREFILL_EVENT, onPrefill);
+    return () => window.removeEventListener(CONTACT_PREFILL_EVENT, onPrefill);
+  }, []);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();

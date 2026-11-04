@@ -67,14 +67,24 @@ export type Dictionary = {
     eyebrow: string;
     title: string;
     subtitle: string;
-    badge: string;
-    items: {
-      name: string;
-      price: string;
-      description: string;
-      includes: string[];
-      featured?: boolean;
+    situationLabel: string;
+    stepLabels: [string, string, string];
+    startCta: string;
+    /** Mensaje que se precarga en el formulario; {situation} y {start} se sustituyen. */
+    prefill: string;
+    situations: {
+      id: string;
+      label: string;
+      need: NeedKey;
+      intro: string;
+      steps: { name: string; price: string; description: string; includes: string[] }[];
     }[];
+    catalogTitle: string;
+    catalogSubtitle: string;
+    catalog: { name: string; price: string; description: string }[];
+    alwaysTitle: string;
+    always: string[];
+    noteTitle: string;
     note: string;
     cta: string;
   };
@@ -277,54 +287,197 @@ const es: Dictionary = {
   },
   pricing: {
     eyebrow: "Precios",
-    title: "Precios claros desde el principio",
+    title: "El punto de partida depende de dónde está tu empresa",
     subtitle:
-      "Cada proyecto lleva su propuesta cerrada. Esto es para que sepas por dónde empezamos.",
-    badge: "Punto de partida",
-    items: [
+      "No todas las empresas empiezan igual. Elige tu situación y te enseño por dónde empezaríamos, qué vendría después y cuánto cuesta.",
+    situationLabel: "¿En qué situación estás?",
+    stepLabels: ["Punto de partida", "Siguiente paso", "En el tiempo"],
+    startCta: "Empezar por aquí",
+    prefill: "Hola Andrei. Mi situación: «{situation}». Me gustaría empezar por: {start}.",
+    situations: [
       {
-        name: "Landing para captar clientes",
-        price: "desde 250 €",
-        description: "Una página que explica tu oferta y convierte visitas en contactos.",
-        includes: [
-          "Diseño a medida en móvil y escritorio",
-          "Formulario o WhatsApp",
-          "Publicación y puesta en marcha",
+        id: "sin-web",
+        label: "No tengo web",
+        need: "web",
+        intro: "Empezamos por lo básico: que te encuentren y sepan cómo contactarte.",
+        steps: [
+          {
+            name: "Landing page",
+            price: "desde 250 €",
+            description: "Una página clara con tu oferta y el contacto siempre a mano.",
+            includes: [
+              "Diseño a medida en móvil y escritorio",
+              "Formulario o WhatsApp",
+              "Publicación y puesta en marcha",
+            ],
+          },
+          {
+            name: "Web de varias secciones",
+            price: "Según alcance",
+            description: "Cuando necesitas contar más: servicios, proyectos, quién eres.",
+            includes: [
+              "Más páginas y secciones",
+              "SEO local para aparecer en tu zona",
+              "Precio cerrado antes de empezar",
+            ],
+          },
+          {
+            name: "Mantenimiento y mejoras",
+            price: "Según acuerdo",
+            description: "Cambios, mejoras y soporte cuando los necesites.",
+            includes: ["Soporte y cambios", "Mejoras con el uso real", "SEO e integraciones bajo demanda"],
+          },
         ],
-        featured: true,
+      },
+      {
+        id: "web-sin-clientes",
+        label: "Tengo web, pero no me trae clientes",
+        need: "web",
+        intro:
+          "No hace falta empezar de cero. Primero vemos qué falla y arreglamos lo que más impacto tiene.",
+        steps: [
+          {
+            name: "Auditoría de tu web",
+            price: "Gratis",
+            description: "Reviso tu web y te digo por escrito qué está frenando los contactos.",
+            includes: ["Mensaje y estructura", "Móvil y velocidad", "Contacto y presencia en Google"],
+          },
+          {
+            name: "Mejoras o rediseño",
+            price: "Presupuesto cerrado",
+            description:
+              "Aplicamos las mejoras con más impacto, o rehacemos la web si compensa más.",
+            includes: [
+              "Solo lo que la auditoría justifica",
+              "Conservando lo que ya funciona",
+              "Precio y plazos por escrito",
+            ],
+          },
+          {
+            name: "Mantenimiento y mejoras",
+            price: "Según acuerdo",
+            description: "Seguimos afinando con los datos reales de quién te contacta.",
+            includes: ["Soporte y cambios", "Mejoras de conversión", "SEO e integraciones bajo demanda"],
+          },
+        ],
+      },
+      {
+        id: "tareas-manuales",
+        label: "Perdemos tiempo en tareas manuales",
+        need: "automatizacion",
+        intro: "Miramos cómo trabajáis hoy y automatizamos primero lo que más horas os quita.",
+        steps: [
+          {
+            name: "Análisis del proceso",
+            price: "Gratis",
+            description:
+              "Me explicas el proceso y te digo qué se puede automatizar y qué ganaríais.",
+            includes: [
+              "Tareas repetitivas detectadas",
+              "Herramientas que ya usáis",
+              "Estimación de precio y plazos",
+            ],
+          },
+          {
+            name: "Automatización",
+            price: "Presupuesto cerrado",
+            description:
+              "Conecto vuestras herramientas y quito el trabajo repetitivo, con IA solo si aporta.",
+            includes: [
+              "Avisos y seguimientos automáticos",
+              "Datos entre herramientas sin copiar",
+              "Pruebas con vuestros casos reales",
+            ],
+          },
+          {
+            name: "Nuevas automatizaciones",
+            price: "Según acuerdo",
+            description: "Cuando aparece otro proceso que ordenar, seguimos con él.",
+            includes: ["Soporte y ajustes", "Mejoras con el uso real", "Nuevos flujos bajo demanda"],
+          },
+        ],
+      },
+      {
+        id: "herramientas",
+        label: "Nuestras herramientas se quedan cortas",
+        need: "software",
+        intro: "Cuando Excel y los chats ya no dan más de sí: una herramienta hecha a vuestra medida.",
+        steps: [
+          {
+            name: "Análisis de la operativa",
+            price: "Gratis",
+            description:
+              "Entiendo cómo trabajáis, quién necesita ver qué y dónde se pierde el tiempo.",
+            includes: ["Roles y permisos", "Procesos clave", "Propuesta de alcance"],
+          },
+          {
+            name: "Software a medida",
+            price: "Presupuesto cerrado",
+            description: "Una aplicación para vuestro día a día, por fases si hace falta.",
+            includes: ["Paneles por rol", "Informes sin hojas a mano", "Entregas por fases"],
+          },
+          {
+            name: "Soporte y evolución",
+            price: "Según acuerdo",
+            description: "La herramienta crece con la empresa: nuevos módulos, centros o usuarios.",
+            includes: ["Soporte y correcciones", "Nuevas funciones", "Acompañamiento al equipo"],
+          },
+        ],
+      },
+    ],
+    catalogTitle: "Todos los servicios",
+    catalogSubtitle: "Puedes contratar cualquiera por separado.",
+    catalog: [
+      {
+        name: "Auditoría de web o de procesos",
+        price: "Gratis",
+        description: "Qué mejorar primero, por escrito y sin compromiso.",
+      },
+      {
+        name: "Landing page",
+        price: "desde 250 €",
+        description: "Una página para captar contactos o lanzar un servicio.",
       },
       {
         name: "Web de varias secciones",
         price: "Según alcance",
-        description: "Servicios, proyectos, sobre ti… Para empresas que necesitan contar más.",
-        includes: [
-          "Propuesta tras la primera conversación",
-          "Precio y plazos antes de empezar",
-          "Sin sorpresas de última hora",
-        ],
+        description: "Para empresas que necesitan contar más.",
       },
       {
-        name: "Automatización y software",
+        name: "Mejora o rediseño de tu web",
+        price: "Presupuesto cerrado",
+        description: "Para webs que existen pero no traen clientes.",
+      },
+      {
+        name: "SEO local",
         price: "Según alcance",
-        description: "De procesos manuales y hojas sueltas a un sistema que trabaja por vosotros.",
-        includes: [
-          "Análisis de cómo trabajáis hoy",
-          "Propuesta con alcance cerrado",
-          "Soporte después de lanzar",
-        ],
+        description: "Para que te encuentren quienes buscan en tu zona.",
+      },
+      {
+        name: "Automatización con IA y WhatsApp",
+        price: "Presupuesto cerrado",
+        description: "Menos tareas a mano, menos errores y olvidos.",
+      },
+      {
+        name: "Software a medida",
+        price: "Presupuesto cerrado",
+        description: "Herramientas internas hechas para tu equipo.",
       },
       {
         name: "Mantenimiento y mejoras",
-        price: "Según acuerdo",
-        description: "Para no quedarte solo tras el lanzamiento.",
-        includes: [
-          "Soporte y cambios",
-          "Mejoras con el uso real",
-          "SEO e integraciones bajo demanda",
-        ],
+        price: "Cuota según acuerdo",
+        description: "Soporte, cambios y mejoras mes a mes.",
       },
     ],
-    note: "Tras hablar te mando una propuesta con precio, plazos y qué incluye. Tú decides si seguimos.",
+    alwaysTitle: "Siempre incluido",
+    always: [
+      "Propuesta por escrito con precio, plazos y qué incluye",
+      "Sin extras inventados a mitad de camino",
+      "Hablas siempre con quien lo construye",
+      "Puedes empezar por una sola cosa",
+    ],
+    noteTitle: "¿Por qué casi todo es «según alcance»?",
+    note: "Porque no cuesta lo mismo una web de 3 páginas que una de 20, ni automatizar un aviso que un proceso entero. Tras hablar te mando un precio cerrado: antes de empezar, no a mitad.",
     cta: "Pedir propuesta",
   },
   process: {
@@ -600,53 +753,152 @@ const en: Dictionary = {
   },
   pricing: {
     eyebrow: "Pricing",
-    title: "Clear prices from the start",
-    subtitle: "Every project gets a fixed proposal. This is so you know where we start.",
-    badge: "Starting point",
-    items: [
+    title: "Where we start depends on where your business is",
+    subtitle:
+      "Not every business starts in the same place. Pick your situation and I'll show you where we'd begin, what comes next and what it costs.",
+    situationLabel: "What's your situation?",
+    stepLabels: ["Starting point", "Next step", "Over time"],
+    startCta: "Start here",
+    prefill: "Hi Andrei. My situation: “{situation}”. I'd like to start with: {start}.",
+    situations: [
       {
-        name: "Landing page to win clients",
-        price: "from €250",
-        description: "One page that explains your offer and turns visits into enquiries.",
-        includes: [
-          "Custom design for mobile and desktop",
-          "Form or WhatsApp",
-          "Launch and setup",
+        id: "sin-web",
+        label: "I don't have a website",
+        need: "web",
+        intro: "We start with the basics: being found and making it easy to contact you.",
+        steps: [
+          {
+            name: "Landing page",
+            price: "from €250",
+            description: "One clear page with your offer and contact always at hand.",
+            includes: ["Custom design for mobile and desktop", "Form or WhatsApp", "Launch and setup"],
+          },
+          {
+            name: "Multi-section website",
+            price: "Depends on scope",
+            description: "When you need to say more: services, projects, who you are.",
+            includes: [
+              "More pages and sections",
+              "Local SEO to show up in your area",
+              "Fixed price before we start",
+            ],
+          },
+          {
+            name: "Maintenance and improvements",
+            price: "By agreement",
+            description: "Changes, improvements and support whenever you need them.",
+            includes: ["Support and changes", "Improvements based on real use", "SEO and integrations on demand"],
+          },
         ],
-        featured: true,
       },
       {
-        name: "Multi-section website",
-        price: "Depends on scope",
-        description: "Services, projects, about you… For businesses with more to tell.",
-        includes: [
-          "Proposal after our first conversation",
-          "Price and timeline before we start",
-          "No last-minute surprises",
+        id: "web-sin-clientes",
+        label: "I have a website, but it brings no clients",
+        need: "web",
+        intro: "No need to start from scratch. First we find what's failing and fix what matters most.",
+        steps: [
+          {
+            name: "Website audit",
+            price: "Free",
+            description: "I review your site and tell you in writing what's holding back enquiries.",
+            includes: ["Message and structure", "Mobile and speed", "Contact and presence on Google"],
+          },
+          {
+            name: "Improvements or redesign",
+            price: "Fixed quote",
+            description: "We apply the changes with the most impact, or rebuild if that pays off more.",
+            includes: [
+              "Only what the audit justifies",
+              "Keeping what already works",
+              "Price and timeline in writing",
+            ],
+          },
+          {
+            name: "Maintenance and improvements",
+            price: "By agreement",
+            description: "We keep refining with real data on who gets in touch.",
+            includes: ["Support and changes", "Conversion improvements", "SEO and integrations on demand"],
+          },
         ],
       },
       {
-        name: "Automation and software",
-        price: "Depends on scope",
-        description: "From manual processes and loose spreadsheets to a system that works for you.",
-        includes: [
-          "Analysis of how you work today",
-          "Proposal with fixed scope",
-          "Support after launch",
+        id: "tareas-manuales",
+        label: "We lose time on manual tasks",
+        need: "automatizacion",
+        intro: "We look at how you work today and automate what costs you the most hours first.",
+        steps: [
+          {
+            name: "Process review",
+            price: "Free",
+            description: "You walk me through the process and I tell you what can be automated and what you'd gain.",
+            includes: ["Repetitive tasks identified", "Tools you already use", "Price and timeline estimate"],
+          },
+          {
+            name: "Automation",
+            price: "Fixed quote",
+            description: "I connect your tools and remove repetitive work, using AI only when it helps.",
+            includes: [
+              "Automatic reminders and follow-ups",
+              "Data between tools without copying",
+              "Tested on your real cases",
+            ],
+          },
+          {
+            name: "New automations",
+            price: "By agreement",
+            description: "When another process needs sorting out, we carry on.",
+            includes: ["Support and tweaks", "Improvements based on real use", "New workflows on demand"],
+          },
         ],
       },
       {
-        name: "Maintenance and improvements",
-        price: "By agreement",
-        description: "So you're not left alone after launch.",
-        includes: [
-          "Support and changes",
-          "Improvements based on real use",
-          "SEO and integrations on demand",
+        id: "herramientas",
+        label: "Our tools can't keep up",
+        need: "software",
+        intro: "When spreadsheets and chats can't cope: a tool built around your team.",
+        steps: [
+          {
+            name: "Operations review",
+            price: "Free",
+            description: "I learn how you work, who needs to see what and where time gets lost.",
+            includes: ["Roles and permissions", "Key processes", "Scope proposal"],
+          },
+          {
+            name: "Custom software",
+            price: "Fixed quote",
+            description: "An application for your day-to-day, in phases if needed.",
+            includes: ["Role-based dashboards", "Reports without manual spreadsheets", "Delivered in phases"],
+          },
+          {
+            name: "Support and evolution",
+            price: "By agreement",
+            description: "The tool grows with the business: new modules, sites or users.",
+            includes: ["Support and fixes", "New features", "Help for your team"],
+          },
         ],
       },
     ],
-    note: "After we talk, I send a proposal with price, timeline and what's included. You decide whether to go ahead.",
+    catalogTitle: "All services",
+    catalogSubtitle: "You can hire any of them on its own.",
+    catalog: [
+      { name: "Website or process audit", price: "Free", description: "What to improve first, in writing and with no commitment." },
+      { name: "Landing page", price: "from €250", description: "One page to win enquiries or launch a service." },
+      { name: "Multi-section website", price: "Depends on scope", description: "For businesses with more to tell." },
+      { name: "Website improvement or redesign", price: "Fixed quote", description: "For sites that exist but bring no clients." },
+      { name: "Local SEO", price: "Depends on scope", description: "So people searching in your area find you." },
+      { name: "AI and WhatsApp automation", price: "Fixed quote", description: "Fewer manual tasks, fewer errors and things forgotten." },
+      { name: "Custom software", price: "Fixed quote", description: "Internal tools built for your team." },
+      { name: "Maintenance and improvements", price: "Fee by agreement", description: "Support, changes and improvements month by month." },
+    ],
+    alwaysTitle: "Always included",
+    always: [
+      "Written proposal with price, timeline and what's included",
+      "No extras invented halfway through",
+      "You always talk to the person who builds it",
+      "You can start with just one thing",
+    ],
+    noteTitle: "Why is almost everything “depends on scope”?",
+    note: "Because a 3-page site doesn't cost the same as a 20-page one, and automating one reminder isn't the same as a whole process. After we talk I send you a fixed price: before we start, not halfway through.",
     cta: "Request a proposal",
   },
   process: {
@@ -922,53 +1174,152 @@ const ro: Dictionary = {
   },
   pricing: {
     eyebrow: "Prețuri",
-    title: "Prețuri clare de la început",
-    subtitle: "Fiecare proiect primește o ofertă fixă. Asta ca să știi de unde pornim.",
-    badge: "Punct de plecare",
-    items: [
+    title: "Punctul de plecare depinde de unde se află firma ta",
+    subtitle:
+      "Nu toate firmele pornesc la fel. Alege-ți situația și îți arăt de unde am începe, ce ar urma și cât costă.",
+    situationLabel: "În ce situație ești?",
+    stepLabels: ["Punct de plecare", "Pasul următor", "În timp"],
+    startCta: "Încep de aici",
+    prefill: "Bună Andrei. Situația mea: „{situation}”. Aș vrea să încep cu: {start}.",
+    situations: [
       {
-        name: "Landing page pentru clienți",
-        price: "de la 250 €",
-        description: "O pagină care îți explică oferta și transformă vizitele în contacte.",
-        includes: [
-          "Design personalizat pe mobil și desktop",
-          "Formular sau WhatsApp",
-          "Publicare și punere în funcțiune",
+        id: "sin-web",
+        label: "Nu am site",
+        need: "web",
+        intro: "Începem cu baza: să te găsească lumea și să știe cum să te contacteze.",
+        steps: [
+          {
+            name: "Landing page",
+            price: "de la 250 €",
+            description: "O pagină clară cu oferta ta și contactul mereu la îndemână.",
+            includes: ["Design personalizat pe mobil și desktop", "Formular sau WhatsApp", "Publicare și punere în funcțiune"],
+          },
+          {
+            name: "Site cu mai multe secțiuni",
+            price: "În funcție de proiect",
+            description: "Când ai mai multe de spus: servicii, proiecte, cine ești.",
+            includes: [
+              "Mai multe pagini și secțiuni",
+              "SEO local ca să apari în zona ta",
+              "Preț fix înainte de start",
+            ],
+          },
+          {
+            name: "Mentenanță și îmbunătățiri",
+            price: "Conform acordului",
+            description: "Modificări, îmbunătățiri și suport când ai nevoie.",
+            includes: ["Suport și modificări", "Îmbunătățiri după utilizarea reală", "SEO și integrări la cerere"],
+          },
         ],
-        featured: true,
       },
       {
-        name: "Site cu mai multe secțiuni",
-        price: "În funcție de proiect",
-        description: "Servicii, proiecte, despre tine… Pentru firme care au mai multe de spus.",
-        includes: [
-          "Ofertă după prima discuție",
-          "Preț și termene înainte de start",
-          "Fără surprize de ultim moment",
+        id: "web-sin-clientes",
+        label: "Am site, dar nu-mi aduce clienți",
+        need: "web",
+        intro: "Nu trebuie să o luăm de la zero. Întâi vedem ce nu merge și reparăm ce contează cel mai mult.",
+        steps: [
+          {
+            name: "Auditul site-ului",
+            price: "Gratuit",
+            description: "Analizez site-ul și îți spun în scris ce blochează contactele.",
+            includes: ["Mesaj și structură", "Mobil și viteză", "Contact și prezență pe Google"],
+          },
+          {
+            name: "Îmbunătățiri sau redesign",
+            price: "Ofertă fixă",
+            description: "Aplicăm schimbările cu cel mai mare impact sau refacem site-ul dacă merită mai mult.",
+            includes: [
+              "Doar ce justifică auditul",
+              "Păstrând ce funcționează deja",
+              "Preț și termene în scris",
+            ],
+          },
+          {
+            name: "Mentenanță și îmbunătățiri",
+            price: "Conform acordului",
+            description: "Continuăm să ajustăm pe baza datelor reale despre cine te contactează.",
+            includes: ["Suport și modificări", "Îmbunătățiri de conversie", "SEO și integrări la cerere"],
+          },
         ],
       },
       {
-        name: "Automatizare și software",
-        price: "În funcție de proiect",
-        description: "De la procese manuale și tabele la un sistem care lucrează pentru voi.",
-        includes: [
-          "Analiza modului în care lucrați azi",
-          "Ofertă cu scop închis",
-          "Suport după lansare",
+        id: "tareas-manuales",
+        label: "Pierdem timp cu sarcini manuale",
+        need: "automatizacion",
+        intro: "Ne uităm cum lucrați azi și automatizăm întâi ce vă fură cele mai multe ore.",
+        steps: [
+          {
+            name: "Analiza procesului",
+            price: "Gratuit",
+            description: "Îmi explici procesul și îți spun ce se poate automatiza și ce ați câștiga.",
+            includes: ["Sarcini repetitive identificate", "Instrumentele pe care le folosiți", "Estimare de preț și termene"],
+          },
+          {
+            name: "Automatizare",
+            price: "Ofertă fixă",
+            description: "Conectez instrumentele voastre și elimin munca repetitivă, cu AI doar dacă ajută.",
+            includes: [
+              "Notificări și follow-up-uri automate",
+              "Date între aplicații fără copiere",
+              "Teste pe cazurile voastre reale",
+            ],
+          },
+          {
+            name: "Automatizări noi",
+            price: "Conform acordului",
+            description: "Când apare alt proces de ordonat, continuăm cu el.",
+            includes: ["Suport și ajustări", "Îmbunătățiri după utilizarea reală", "Fluxuri noi la cerere"],
+          },
         ],
       },
       {
-        name: "Mentenanță și îmbunătățiri",
-        price: "Conform acordului",
-        description: "Ca să nu rămâi singur după lansare.",
-        includes: [
-          "Suport și modificări",
-          "Îmbunătățiri după utilizarea reală",
-          "SEO și integrări la cerere",
+        id: "herramientas",
+        label: "Instrumentele noastre nu mai fac față",
+        need: "software",
+        intro: "Când Excelul și chaturile nu mai ajung: un instrument făcut pe măsura voastră.",
+        steps: [
+          {
+            name: "Analiza operațiunilor",
+            price: "Gratuit",
+            description: "Înțeleg cum lucrați, cine ce trebuie să vadă și unde se pierde timpul.",
+            includes: ["Roluri și permisiuni", "Procese-cheie", "Propunere de scop"],
+          },
+          {
+            name: "Software la comandă",
+            price: "Ofertă fixă",
+            description: "O aplicație pentru activitatea de zi cu zi, pe etape dacă e nevoie.",
+            includes: ["Panouri pe roluri", "Rapoarte fără tabele de mână", "Livrare pe etape"],
+          },
+          {
+            name: "Suport și evoluție",
+            price: "Conform acordului",
+            description: "Instrumentul crește odată cu firma: module, centre sau utilizatori noi.",
+            includes: ["Suport și corecturi", "Funcții noi", "Sprijin pentru echipă"],
+          },
         ],
       },
     ],
-    note: "După ce vorbim, îți trimit o ofertă cu preț, termene și ce include. Tu decizi dacă mergem mai departe.",
+    catalogTitle: "Toate serviciile",
+    catalogSubtitle: "Le poți contracta pe oricare separat.",
+    catalog: [
+      { name: "Audit de site sau de procese", price: "Gratuit", description: "Ce să îmbunătățești întâi, în scris și fără obligații." },
+      { name: "Landing page", price: "de la 250 €", description: "O pagină pentru contacte noi sau lansarea unui serviciu." },
+      { name: "Site cu mai multe secțiuni", price: "În funcție de proiect", description: "Pentru firme care au mai multe de spus." },
+      { name: "Îmbunătățire sau redesign de site", price: "Ofertă fixă", description: "Pentru site-uri care există, dar nu aduc clienți." },
+      { name: "SEO local", price: "În funcție de proiect", description: "Ca să te găsească cei care caută în zona ta." },
+      { name: "Automatizare cu AI și WhatsApp", price: "Ofertă fixă", description: "Mai puțină muncă manuală, mai puține greșeli." },
+      { name: "Software la comandă", price: "Ofertă fixă", description: "Instrumente interne făcute pentru echipa ta." },
+      { name: "Mentenanță și îmbunătățiri", price: "Abonament conform acordului", description: "Suport, modificări și îmbunătățiri lună de lună." },
+    ],
+    alwaysTitle: "Mereu inclus",
+    always: [
+      "Ofertă în scris cu preț, termene și ce include",
+      "Fără costuri inventate pe parcurs",
+      "Vorbești mereu cu cine construiește",
+      "Poți începe cu un singur lucru",
+    ],
+    noteTitle: "De ce aproape totul e „în funcție de proiect”?",
+    note: "Pentru că un site de 3 pagini nu costă cât unul de 20, iar automatizarea unei notificări nu e cât a unui proces întreg. După ce vorbim îți trimit un preț fix: înainte să începem, nu la jumătate.",
     cta: "Cere o ofertă",
   },
   process: {
