@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { CookieConsent } from "@/components/CookieConsent";
 import { JsonLd } from "@/components/JsonLd";
@@ -12,6 +12,13 @@ const inter = Inter({
   display: "swap",
   preload: true,
   adjustFontFallback: true,
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  display: "swap",
+  style: ["normal", "italic"],
 });
 
 const siteUrl = "https://www.andreibenedec.com";
@@ -71,9 +78,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="es" className={`${inter.variable}`} suppressHydrationWarning>
+    <html lang="es" className={`${inter.variable} ${fraunces.variable}`} suppressHydrationWarning>
       <body
-        className="min-h-screen overflow-x-clip pb-20 font-sans text-slate-950 antialiased md:pb-0"
+        className="min-h-screen overflow-x-clip bg-paper pb-20 font-sans text-ink antialiased md:pb-0"
         suppressHydrationWarning
       >
         <JsonLd />

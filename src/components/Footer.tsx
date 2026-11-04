@@ -21,31 +21,59 @@ function GitHubIcon({ className }: { className?: string }) {
   );
 }
 
+const linkClasses = "text-sm text-paper/60 transition-colors hover:text-blush";
+
 export function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="border-t-2 border-slate-900 bg-slate-950 py-10 text-slate-300">
+    <footer className="border-t border-paper/10 bg-ink pt-16 pb-10 text-paper">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <p className="text-lg font-bold text-white">{siteConfig.name}</p>
-            <p className="mt-1 text-sm font-semibold text-sky-300">{t.positioning}</p>
-            <p className="mt-3 text-sm text-slate-400">
-              © {siteConfig.year} {siteConfig.name}. {t.footer.rights}
+            <Link href="/" className="flex items-center gap-2.5">
+              <span
+                aria-hidden
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-paper font-display text-sm font-semibold text-ink"
+              >
+                AB
+              </span>
+              <span className="text-base font-semibold">{siteConfig.name}</span>
+            </Link>
+            <p className="mt-5 max-w-xs font-display text-xl leading-snug text-paper/85 italic">
+              {t.footer.tagline}
             </p>
-            <p className="mt-2 text-sm text-slate-400">{t.footer.basedIn}</p>
+            <p className="mt-4 text-sm text-paper/60">{t.footer.basedIn}</p>
+            <div className="mt-5 flex items-center gap-1">
+              <a
+                href={siteConfig.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full p-2 text-paper/70 transition-colors hover:bg-paper/10 hover:text-blush"
+                aria-label="LinkedIn"
+              >
+                <LinkedInIcon className="h-5 w-5" />
+              </a>
+              <a
+                href={siteConfig.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full p-2 text-paper/70 transition-colors hover:bg-paper/10 hover:text-blush"
+                aria-label="GitHub"
+              >
+                <GitHubIcon className="h-5 w-5" />
+              </a>
+            </div>
           </div>
 
           <div>
-            <p className="text-sm font-semibold text-white">{t.footer.servicesTitle}</p>
-            <ul className="mt-3 space-y-2">
+            <p className="text-xs font-bold tracking-[0.18em] text-paper/45 uppercase">
+              {t.footer.servicesTitle}
+            </p>
+            <ul className="mt-4 space-y-2.5">
               {navServicePages.map((page) => (
                 <li key={page.slug}>
-                  <Link
-                    href={`/${page.slug}`}
-                    className="text-sm text-slate-400 transition-colors hover:text-sky-300"
-                  >
+                  <Link href={`/${page.slug}`} className={linkClasses}>
                     {page.title}
                   </Link>
                 </li>
@@ -54,14 +82,13 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="text-sm font-semibold text-white">{t.footer.localLinksTitle}</p>
-            <ul className="mt-3 space-y-2">
+            <p className="text-xs font-bold tracking-[0.18em] text-paper/45 uppercase">
+              {t.footer.localLinksTitle}
+            </p>
+            <ul className="mt-4 space-y-2.5">
               {localLandings.map((page) => (
                 <li key={page.slug}>
-                  <Link
-                    href={`/${page.slug}`}
-                    className="text-sm text-slate-400 transition-colors hover:text-sky-300"
-                  >
+                  <Link href={`/${page.slug}`} className={linkClasses}>
                     {page.title}
                   </Link>
                 </li>
@@ -70,54 +97,40 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="text-sm font-semibold text-white">{t.footer.legalTitle}</p>
-            <ul className="mt-3 space-y-2 text-sm text-slate-400">
+            <p className="text-xs font-bold tracking-[0.18em] text-paper/45 uppercase">
+              {t.footer.legalTitle}
+            </p>
+            <ul className="mt-4 space-y-2.5">
               <li>
-                <Link href="/aviso-legal" className="transition-colors hover:text-sky-300">
+                <Link href="/aviso-legal" className={linkClasses}>
                   {t.footer.legalNotice}
                 </Link>
               </li>
               <li>
-                <Link href="/privacidad" className="transition-colors hover:text-sky-300">
+                <Link href="/privacidad" className={linkClasses}>
                   {t.footer.privacy}
                 </Link>
               </li>
               <li>
-                <Link href="/cookies" className="transition-colors hover:text-sky-300">
+                <Link href="/cookies" className={linkClasses}>
                   {t.footer.cookies}
                 </Link>
               </li>
               <li>
-                <CookieSettingsButton className="transition-colors hover:text-sky-300" />
+                <CookieSettingsButton className={linkClasses} />
               </li>
               <li>
-                <a href={`mailto:${siteConfig.email}`} className="transition-colors hover:text-sky-300">
+                <a href={`mailto:${siteConfig.email}`} className={linkClasses}>
                   {siteConfig.email}
                 </a>
               </li>
             </ul>
-            <div className="mt-3 flex items-start gap-2">
-            <a
-              href={siteConfig.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg p-2 text-slate-300 transition-colors hover:bg-white/10 hover:text-sky-300"
-              aria-label="LinkedIn"
-            >
-              <LinkedInIcon className="h-5 w-5" />
-            </a>
-            <a
-              href={siteConfig.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg p-2 text-slate-300 transition-colors hover:bg-white/10 hover:text-sky-300"
-              aria-label="GitHub"
-            >
-              <GitHubIcon className="h-5 w-5" />
-            </a>
-            </div>
           </div>
         </div>
+
+        <p className="mt-14 border-t border-paper/10 pt-6 text-xs text-paper/45">
+          © {siteConfig.year} {siteConfig.name}. {t.footer.rights}
+        </p>
       </div>
     </footer>
   );

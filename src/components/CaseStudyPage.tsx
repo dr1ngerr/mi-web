@@ -19,7 +19,7 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
   return (
     <>
       <Navbar />
-      <main className="border-b border-slate-200 bg-white pt-28 pb-16 sm:pt-32 sm:pb-20">
+      <main className="bg-paper pt-28 pb-16 sm:pt-32 sm:pb-20">
         <CaseStudyContent
           study={study}
           availableScreenshotSrcs={availableScreenshotSrcs(study)}

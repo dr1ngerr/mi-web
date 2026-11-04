@@ -7,22 +7,28 @@ import { siteConfig } from "@/lib/content";
 const Services = dynamic(() =>
   import("@/components/Services").then((mod) => mod.Services),
 );
-const Differentiation = dynamic(() =>
-  import("@/components/Differentiation").then((mod) => mod.Differentiation),
-);
 const Portfolio = dynamic(() =>
   import("@/components/Portfolio").then((mod) => mod.Portfolio),
+);
+const Calculator = dynamic(() =>
+  import("@/components/Calculator").then((mod) => mod.Calculator),
+);
+const Differentiation = dynamic(() =>
+  import("@/components/Differentiation").then((mod) => mod.Differentiation),
 );
 const Process = dynamic(() =>
   import("@/components/Process").then((mod) => mod.Process),
 );
+const Pricing = dynamic(() =>
+  import("@/components/Pricing").then((mod) => mod.Pricing),
+);
 const Testimonials = dynamic(() =>
   import("@/components/Testimonials").then((mod) => mod.Testimonials),
 );
-const FAQ = dynamic(() => import("@/components/FAQ").then((mod) => mod.FAQ));
 const AboutAndrei = dynamic(() =>
   import("@/components/AboutAndrei").then((mod) => mod.AboutAndrei),
 );
+const FAQ = dynamic(() => import("@/components/FAQ").then((mod) => mod.FAQ));
 const Contact = dynamic(() =>
   import("@/components/Contact").then((mod) => mod.Contact),
 );
@@ -33,19 +39,19 @@ const WhatsAppFloat = dynamic(() =>
   import("@/components/WhatsAppFloat").then((mod) => mod.WhatsAppFloat),
 );
 
+const title = "Andrei Benedec | Desarrollo web y automatización con IA para empresas";
+const description =
+  "Webs que consiguen clientes y automatizaciones que ahorran horas a tu equipo. Auditoría gratis, precio cerrado y trato directo. La Rioja y toda España.";
+
 export const metadata: Metadata = {
-  title:
-    "Andrei Benedec | Desarrollo web y automatización con IA para empresas",
-  description:
-    "Webs pensadas para conseguir clientes y automatizaciones que ahorran horas a tu equipo. Trato directo y precio cerrado. La Rioja y toda España.",
+  title,
+  description,
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title:
-      "Andrei Benedec | Desarrollo web y automatización con IA para empresas",
-    description:
-      "Webs pensadas para conseguir clientes y automatizaciones que ahorran horas a tu equipo. Trato directo y precio cerrado. La Rioja y toda España.",
+    title,
+    description,
     url: "/",
     type: "website",
   },
@@ -59,8 +65,10 @@ export default function Home() {
         <Hero />
         <Services />
         <Portfolio />
+        <Calculator />
         <Differentiation />
         <Process />
+        <Pricing />
         {siteConfig.showTestimonials && <Testimonials />}
         <AboutAndrei />
         <FAQ />

@@ -6,11 +6,11 @@ export function LegalPage({ title, children }: { title: string; children: React.
   return (
     <>
       <Navbar />
-      <main className="border-b border-slate-200 bg-white pt-28 pb-16 sm:pt-32 sm:pb-20">
+      <main className="bg-paper pt-28 pb-16 sm:pt-32 sm:pb-20">
         <article className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">{title}</h1>
-          <p className="mt-2 text-sm text-slate-600">Última actualización: {legalConfig.updated}</p>
-          <div className="mt-8 space-y-4 text-base leading-relaxed text-slate-700 [&_a]:font-medium [&_a]:text-sky-900 [&_a]:underline [&_h2]:mt-10 [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-slate-950 [&_li]:ml-5 [&_li]:list-disc">
+          <h1 className="font-display text-4xl font-medium tracking-tight text-ink sm:text-5xl">{title}</h1>
+          <p className="mt-2 text-sm text-ink-mute">Última actualización: {legalConfig.updated}</p>
+          <div className="mt-8 space-y-4 text-base leading-relaxed text-ink-soft [&_a]:font-medium [&_a]:text-wine [&_a]:underline [&_h2]:mt-10 [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-ink [&_li]:ml-5 [&_li]:list-disc">
             {children}
           </div>
         </article>

@@ -16,7 +16,7 @@ export default function ProyectosPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-8">
+      <main className="pt-16">
         <Portfolio />
         <Contact />
       </main>

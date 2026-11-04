@@ -49,29 +49,29 @@ export function SeoLandingPage({ page }: { page: SeoLanding }) {
     <>
       <Navbar />
       <main>
-        <section className="border-b border-slate-200/70 pt-28 pb-16 sm:pt-32 sm:pb-20">
+        <section className="border-b border-line pt-28 pb-16 sm:pt-32 sm:pb-20">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
             <p className="text-sm">
-              <Link href="/" className="font-medium text-indigo-800 hover:underline">
+              <Link href="/" className="font-medium text-wine hover:underline">
                 ← Inicio
               </Link>
             </p>
             {page.eyebrow && (
-              <p className="mt-6 text-sm font-bold uppercase tracking-wider text-indigo-800">
+              <p className="mt-6 text-sm font-bold uppercase tracking-[0.18em] text-wine">
                 {page.eyebrow}
               </p>
             )}
             <h1
-              className={`${page.eyebrow ? "mt-3" : "mt-6"} text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl`}
+              className={`${page.eyebrow ? "mt-3" : "mt-6"} font-display text-4xl leading-[1.05] font-medium tracking-tight text-ink sm:text-6xl`}
             >
               {page.headline}
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-slate-700">{page.intro}</p>
+            <p className="mt-6 text-lg leading-relaxed text-ink-soft">{page.intro}</p>
 
             <ul className="mt-8 space-y-3">
               {page.points.map((point) => (
-                <li key={point} className="flex gap-3 text-slate-800">
-                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-indigo-700" aria-hidden />
+                <li key={point} className="flex gap-3 text-ink">
+                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-wine" aria-hidden />
                   <span>{point}</span>
                 </li>
               ))}
@@ -93,12 +93,12 @@ export function SeoLandingPage({ page }: { page: SeoLanding }) {
               </Button>
             </div>
 
-            <p className="mt-10 text-sm leading-relaxed text-slate-600">
+            <p className="mt-10 text-sm leading-relaxed text-ink-mute">
               Estoy en {siteConfig.location}. Trabajo con empresas de aquí y de toda España,
               independientemente del tamaño. Mi referencia:{" "}
               <Link
                 href="/proyectos/gestion-personal"
-                className="font-medium text-indigo-800 underline-offset-2 hover:underline"
+                className="font-medium text-wine underline-offset-2 hover:underline"
               >
                 un sistema de personal en producción con 191 personas
               </Link>
@@ -108,19 +108,19 @@ export function SeoLandingPage({ page }: { page: SeoLanding }) {
         </section>
 
         {(page.relatedHref || relatedProjects.length > 0 || relatedServices.length > 0) && (
-          <section className="border-t border-slate-200/70 bg-slate-50/80 py-14 sm:py-16">
+          <section className="border-t border-line bg-paper-deep py-14 sm:py-16">
             <div className="mx-auto grid max-w-3xl gap-10 px-4 sm:px-6 lg:px-8">
               {(page.relatedHref || relatedProjects.length > 0) && (
                 <div>
-                  <h2 className="text-base font-bold tracking-tight text-slate-950">
+                  <h2 className="text-xs font-bold tracking-[0.18em] text-ink-mute uppercase">
                     Relacionado
                   </h2>
-                  <ul className="mt-4 divide-y divide-slate-200 border-y border-slate-200">
+                  <ul className="mt-4 divide-y divide-line border-y border-line">
                     {page.relatedHref && page.relatedLabel && (
                       <li>
                         <Link
                           href={page.relatedHref}
-                          className="flex items-center justify-between gap-4 py-3.5 text-sm font-medium text-indigo-800 underline-offset-2 hover:underline"
+                          className="flex items-center justify-between gap-4 py-3.5 text-sm font-medium text-wine underline-offset-2 hover:underline"
                         >
                           <span>{page.relatedLabel}</span>
                           <ArrowRight className="h-4 w-4 shrink-0 opacity-60" aria-hidden />
@@ -131,7 +131,7 @@ export function SeoLandingPage({ page }: { page: SeoLanding }) {
                       <li key={item.href}>
                         <Link
                           href={item.href}
-                          className="flex items-center justify-between gap-4 py-3.5 text-sm font-medium text-indigo-800 underline-offset-2 hover:underline"
+                          className="flex items-center justify-between gap-4 py-3.5 text-sm font-medium text-wine underline-offset-2 hover:underline"
                         >
                           <span>{item.label}</span>
                           <ArrowRight className="h-4 w-4 shrink-0 opacity-60" aria-hidden />
@@ -144,15 +144,15 @@ export function SeoLandingPage({ page }: { page: SeoLanding }) {
 
               {relatedServices.length > 0 && (
                 <div>
-                  <h2 className="text-base font-bold tracking-tight text-slate-950">
+                  <h2 className="text-xs font-bold tracking-[0.18em] text-ink-mute uppercase">
                     Otros servicios
                   </h2>
-                  <ul className="mt-4 divide-y divide-slate-200 border-y border-slate-200">
+                  <ul className="mt-4 divide-y divide-line border-y border-line">
                     {relatedServices.map((item) => (
                       <li key={item.slug}>
                         <Link
                           href={`/${item.slug}`}
-                          className="flex items-center justify-between gap-4 py-3.5 text-sm font-medium text-indigo-800 underline-offset-2 hover:underline"
+                          className="flex items-center justify-between gap-4 py-3.5 text-sm font-medium text-wine underline-offset-2 hover:underline"
                         >
                           <span>{item.title}</span>
                           <ArrowRight className="h-4 w-4 shrink-0 opacity-60" aria-hidden />

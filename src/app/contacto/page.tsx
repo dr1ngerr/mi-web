@@ -9,7 +9,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata = buildPageMetadata({
   title: "Contacto | Andrei Benedec",
   description:
-    "Cuéntame qué te frena y te envío una propuesta con precio, plazos y qué incluye. Web, automatización o software a medida.",
+    "Pide tu auditoría gratis o cuéntame qué te frena. Te envío una propuesta con precio, plazos y qué incluye.",
   path: "/contacto",
 });
 

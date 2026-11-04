@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-type ButtonVariant = "primary" | "secondary" | "ghost";
+type ButtonVariant = "primary" | "secondary" | "ghost" | "light";
 
 interface ButtonProps {
   href: string;
@@ -17,10 +17,11 @@ interface ButtonProps {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-indigo-700 text-white hover:bg-indigo-800 shadow-md shadow-indigo-900/15",
-  secondary:
-    "border-2 border-slate-300 bg-white text-slate-950 hover:border-slate-400 hover:bg-slate-50",
-  ghost: "text-slate-700 hover:text-slate-950 hover:bg-slate-100",
+    "bg-wine text-white hover:bg-wine-dark shadow-[0_10px_24px_-12px_rgb(140_29_47/0.8)]",
+  secondary: "border border-ink/20 bg-card text-ink hover:border-ink/50",
+  ghost: "text-ink-soft hover:text-ink hover:bg-paper-deep",
+  /** Sobre fondos oscuros */
+  light: "bg-paper text-ink hover:bg-white",
 };
 
 export function Button({
@@ -33,7 +34,7 @@ export function Button({
   onClick,
 }: ButtonProps) {
   const classes = cn(
-    "inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold transition-colors duration-150",
+    "group inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-wine",
     variants[variant],
     className,
   );
@@ -44,9 +45,7 @@ export function Button({
         href={href}
         className={classes}
         onClick={onClick}
-        {...(newTab
-          ? { target: "_blank", rel: "noopener noreferrer" }
-          : {})}
+        {...(newTab ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       >
         {children}
       </a>

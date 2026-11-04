@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { SectionHeading } from "./SectionHeading";
 import { useLanguage } from "./LanguageProvider";
 
 export function FAQ() {
@@ -10,39 +11,38 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="border-b-2 border-slate-200 bg-sky-50 py-14 sm:py-20">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl">
-            {t.faq.title}
-          </h2>
-          <p className="mt-2 text-base text-slate-700">{t.faq.subtitle}</p>
-        </div>
+    <section id="faq" className="py-20 sm:py-28">
+      <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 lg:px-8">
+        <SectionHeading eyebrow={t.faq.eyebrow} title={t.faq.title} subtitle={t.faq.subtitle} />
 
-        <div className="mt-8 divide-y-2 divide-slate-200 border-y-2 border-slate-200 bg-white sm:mt-10">
+        <div className="divide-y divide-line border-y border-line">
           {t.faq.items.map((item, index) => {
             const isOpen = openIndex === index;
+            const panelId = `faq-panel-${index}`;
 
             return (
-              <div key={item.question} className="px-4 sm:px-5">
+              <div key={item.question}>
                 <button
                   type="button"
-                  className="flex min-h-14 w-full items-center justify-between gap-3 py-4 text-left sm:gap-4 sm:py-5"
+                  className="flex min-h-16 w-full items-center justify-between gap-4 py-5 text-left"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   aria-expanded={isOpen}
+                  aria-controls={panelId}
                 >
-                  <span className="text-base font-bold text-slate-950 sm:text-lg">
+                  <span className="font-display text-lg font-medium text-ink sm:text-xl">
                     {item.question}
                   </span>
-                  <ChevronDown
+                  <span
                     className={cn(
-                      "h-5 w-5 shrink-0 text-sky-900 motion-safe:transition-transform",
-                      isOpen && "rotate-180",
+                      "inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all",
+                      isOpen ? "rotate-45 border-wine bg-wine text-white" : "border-line text-ink",
                     )}
-                  />
+                  >
+                    <Plus className="h-4 w-4" />
+                  </span>
                 </button>
                 {isOpen && (
-                  <p className="pb-5 text-sm leading-relaxed text-slate-700 sm:text-base">
+                  <p id={panelId} className="pr-12 pb-6 text-base leading-relaxed text-ink-soft">
                     {item.answer}
                   </p>
                 )}

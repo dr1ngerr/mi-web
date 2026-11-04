@@ -8,6 +8,8 @@ type ContactBody = {
   email?: string;
   message?: string;
   website?: string;
+  need?: string;
+  site?: string;
 };
 
 const DEFAULT_CONTACT_TO = "contacto@andreibenedec.com";
@@ -102,9 +104,11 @@ export async function POST(request: Request) {
 
     const name = body.name?.trim() ?? "";
     const email = body.email?.trim() ?? "";
-    const message = body.message?.trim() ?? "";
+    const need = body.need?.trim().slice(0, 100) ?? "";
+    const site = body.site?.trim().slice(0, 200) ?? "";
+    const text = body.message?.trim() ?? "";
 
-    if (!name || !email || !message) {
+    if (!name || !email || !text) {
       return NextResponse.json(
         { error: "Faltan campos obligatorios." },
         { status: 400 },
@@ -115,9 +119,13 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Email no válido." }, { status: 400 });
     }
 
-    if (name.length > 100 || email.length > 200 || message.length > 5000) {
+    if (name.length > 100 || email.length > 200 || text.length > 5000) {
       return NextResponse.json({ error: "Mensaje demasiado largo." }, { status: 400 });
     }
+
+    // Lo que necesita y su web van delante del mensaje para leerlo de un vistazo.
+    const header = [need && `Necesita: ${need}`, site && `Web actual: ${site}`].filter(Boolean);
+    const message = header.length ? `${header.join("\n")}\n\n${text}` : text;
 
     const smtpUser = process.env.SMTP_USER ?? DEFAULT_CONTACT_TO;
     const smtpPass = process.env.SMTP_PASS;

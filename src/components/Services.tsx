@@ -1,55 +1,73 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Building2, Globe, Workflow, type LucideIcon } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
+import type { ServiceKey } from "@/lib/i18n/dictionaries";
+import { SectionHeading } from "./SectionHeading";
 import { useLanguage } from "./LanguageProvider";
 
-const serviceMeta = [
-  { id: "web" as const, icon: Globe, href: "/desarrollo-web" },
-  { id: "automatizacion" as const, icon: Workflow, href: "/automatizacion" },
-  { id: "software" as const, icon: Building2, href: "/desarrollo-software" },
+const serviceOrder: { key: ServiceKey; href: string }[] = [
+  { key: "web", href: "/desarrollo-web" },
+  { key: "automatizacion", href: "/automatizacion" },
+  { key: "software", href: "/desarrollo-software" },
 ];
 
 export function Services() {
   const { t } = useLanguage();
 
   return (
-    <section id="servicios" className="border-b-2 border-slate-200 bg-white py-14 sm:py-20">
+    <section id="servicios" className="py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-            {t.services.title}
-          </h2>
-          <p className="mt-3 text-base text-slate-700 sm:text-lg">{t.services.subtitle}</p>
-        </div>
+        <SectionHeading
+          eyebrow={t.services.eyebrow}
+          title={t.services.title}
+          subtitle={t.services.subtitle}
+        />
 
-        <div className="mt-8 grid gap-4 sm:mt-12 md:grid-cols-3">
-          {serviceMeta.map((service) => {
-            const Icon = service.icon as LucideIcon;
-            const copy = t.services.items[service.id];
+        <ol className="mt-14 grid gap-5 lg:grid-cols-3">
+          {serviceOrder.map(({ key, href }, index) => {
+            const item = t.services.items[key];
 
             return (
-              <Link
-                key={service.id}
-                href={service.href}
-                className="group flex flex-col rounded-2xl border-2 border-slate-200 bg-white p-5 shadow-sm transition-all sm:p-6 sm:hover:-translate-y-0.5 sm:hover:border-sky-400 sm:hover:shadow-md"
-              >
-                <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-sky-100 text-sky-900">
-                  <Icon className="h-5 w-5" />
-                </div>
-                <h3 className="mt-4 text-lg leading-snug font-bold text-slate-950 sm:text-xl">
-                  “{copy.title}”
-                </h3>
-                <p className="mt-2 text-sm font-semibold text-indigo-800">{copy.offer}</p>
-                <p className="mt-2 text-sm leading-relaxed text-slate-700">{copy.description}</p>
-                <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-sky-900">
-                  {t.services.see}
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-                </span>
-              </Link>
+              <li key={key}>
+                <Link
+                  href={href}
+                  className="group flex h-full flex-col rounded-3xl border border-line bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:border-wine/40 hover:shadow-[0_24px_48px_-28px_rgb(23_20_15/0.35)] sm:p-8"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <span className="font-display text-5xl leading-none font-light text-wine/30 transition-colors group-hover:text-wine">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line text-ink transition-colors group-hover:border-wine group-hover:bg-wine group-hover:text-white">
+                      <ArrowUpRight className="h-4 w-4" />
+                    </span>
+                  </div>
+
+                  <h3 className="mt-8 font-display text-2xl leading-snug font-medium text-ink">
+                    {item.pain}
+                  </h3>
+                  <p className="mt-2 text-sm font-bold tracking-wide text-wine uppercase">
+                    {item.offer}
+                  </p>
+                  <p className="mt-4 text-base leading-relaxed text-ink-soft">{item.description}</p>
+
+                  <ul className="mt-6 space-y-2.5 border-t border-line pt-6">
+                    {item.bullets.map((bullet) => (
+                      <li key={bullet} className="flex gap-2.5 text-sm text-ink">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-wine" strokeWidth={2.5} aria-hidden />
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <span className="mt-auto pt-8 text-sm font-semibold text-ink underline decoration-wine/40 decoration-2 underline-offset-4 group-hover:decoration-wine">
+                    {t.services.see}
+                  </span>
+                </Link>
+              </li>
             );
           })}
-        </div>
+        </ol>
       </div>
     </section>
   );

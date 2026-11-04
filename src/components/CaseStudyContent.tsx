@@ -19,8 +19,8 @@ function Section({
 }) {
   return (
     <section className="mt-12">
-      <h2 className="text-xl font-bold tracking-tight text-slate-950 sm:text-2xl">{title}</h2>
-      <div className="mt-4 text-base leading-relaxed text-slate-700">{children}</div>
+      <h2 className="font-display text-2xl font-medium tracking-tight text-ink sm:text-3xl">{title}</h2>
+      <div className="mt-4 text-base leading-relaxed text-ink-soft">{children}</div>
     </section>
   );
 }
@@ -51,31 +51,31 @@ export function CaseStudyContent({
   return (
     <article className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
       <p className="text-sm">
-        <Link href="/" className="font-medium text-indigo-800 hover:underline">
+        <Link href="/" className="font-medium text-wine hover:underline">
           {t.caseStudy.backToHome}
         </Link>
-        <span className="mx-2 text-slate-300" aria-hidden>
+        <span className="mx-2 text-line" aria-hidden>
           /
         </span>
-        <Link href="/proyectos" className="font-medium text-indigo-800 hover:underline">
+        <Link href="/proyectos" className="font-medium text-wine hover:underline">
           {t.caseStudy.backToProjects.replace(/^←\s*/, "")}
         </Link>
       </p>
 
-      <p className="mt-6 text-sm font-bold uppercase tracking-wider text-indigo-800">
+      <p className="mt-6 text-sm font-bold uppercase tracking-[0.18em] text-wine">
         {copy.category}
       </p>
-      <h1 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl">
+      <h1 className="mt-3 font-display text-4xl leading-[1.05] font-medium tracking-tight text-ink sm:text-6xl">
         {copy.headline}
       </h1>
-      <p className="mt-4 text-sm font-medium text-slate-600">{copy.client}</p>
+      <p className="mt-4 text-sm font-medium text-ink-mute">{copy.client}</p>
       {copy.proof && (
-        <p className="mt-4 inline-flex rounded-lg border border-emerald-300 bg-emerald-50 px-3 py-2 text-xs font-bold text-emerald-900">
+        <p className="mt-4 inline-flex rounded-full border border-wine/20 bg-wine-soft px-3 py-1.5 text-xs font-bold text-wine-dark">
           {copy.proof}
         </p>
       )}
 
-      <div className="relative mt-10 aspect-[16/10] overflow-hidden rounded-2xl border-2 border-slate-200 bg-slate-100">
+      <div className="relative mt-10 aspect-[16/10] overflow-hidden rounded-2xl border border-line bg-paper-deep">
         <Image
           src={study.coverImage}
           alt={copy.coverImageAlt}
@@ -88,9 +88,9 @@ export function CaseStudyContent({
 
       <dl className="mt-8 grid grid-cols-3 gap-3">
         {copy.stats.map((stat) => (
-          <div key={stat.label} className="rounded-xl border-2 border-slate-200 bg-slate-50 p-3 text-center sm:p-4">
-            <dd className="text-2xl font-bold text-slate-950 sm:text-3xl">{stat.value}</dd>
-            <dt className="mt-1 text-xs font-medium text-slate-600 sm:text-sm">{stat.label}</dt>
+          <div key={stat.label} className="rounded-xl border border-line bg-paper-deep p-3 text-center sm:p-4">
+            <dd className="text-2xl font-bold text-ink sm:text-3xl">{stat.value}</dd>
+            <dt className="mt-1 text-xs font-medium text-ink-mute sm:text-sm">{stat.label}</dt>
           </div>
         ))}
       </dl>
@@ -112,7 +112,7 @@ export function CaseStudyContent({
           <ul className="space-y-2">
             {copy.architecture.map((item) => (
               <li key={item} className="flex gap-3">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-700" aria-hidden />
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-wine" aria-hidden />
                 <span>{item}</span>
               </li>
             ))}
@@ -125,7 +125,7 @@ export function CaseStudyContent({
           {copy.stack.map((item) => (
             <span
               key={item}
-              className="rounded-full border border-slate-300 bg-slate-50 px-3 py-1 text-sm font-semibold text-slate-800"
+              className="rounded-full border border-line bg-paper-deep px-3 py-1 text-sm font-semibold text-ink"
             >
               {item}
             </span>
@@ -150,15 +150,15 @@ export function CaseStudyContent({
         <ul className="space-y-3">
           {copy.learnings.map((item) => (
             <li key={item} className="flex gap-3">
-              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-700" aria-hidden />
+              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-wine" aria-hidden />
               <span>{item}</span>
             </li>
           ))}
         </ul>
       </Section>
 
-      <div className="mt-14 mb-4 rounded-2xl border-2 border-indigo-200 bg-indigo-50 px-6 pt-8 pb-10 text-center sm:px-8 sm:pt-10 sm:pb-12">
-        <p className="text-lg font-semibold text-indigo-950 sm:text-xl">{copy.cta}</p>
+      <div className="mt-14 mb-4 rounded-2xl border border-wine/20 bg-wine-soft px-6 pt-8 pb-10 text-center sm:px-8 sm:pt-10 sm:pb-12">
+        <p className="text-lg font-semibold text-wine sm:text-xl">{copy.cta}</p>
         <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Button href="/contacto" variant="primary" className="px-8 py-3 text-base">
             {t.nav.cta}

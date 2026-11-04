@@ -2,19 +2,28 @@
 
 import { FormEvent, useState } from "react";
 import Link from "next/link";
-import { siteConfig } from "@/lib/content";
+import { ArrowRight, Check } from "lucide-react";
+import { getWhatsAppUrl } from "@/lib/content";
 import { trackEvent } from "@/lib/analytics";
+import type { NeedKey } from "@/lib/i18n/dictionaries";
+import { cn } from "@/lib/utils";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import { useLanguage } from "./LanguageProvider";
 
 type Status = "idle" | "loading" | "success" | "error";
 
+const needKeys: NeedKey[] = ["web", "automatizacion", "software", "unsure"];
+
+const emptyForm = { need: "" as NeedKey | "", site: "", name: "", email: "", message: "", website: "" };
+
 const inputClasses =
-  "mt-1.5 min-h-12 w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base text-slate-950 placeholder:text-slate-500 focus:border-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-600/25";
+  "mt-2 min-h-12 w-full rounded-xl border border-line bg-paper px-4 py-3 text-base text-ink placeholder:text-ink-mute focus:border-wine focus:bg-card focus:outline-none focus:ring-2 focus:ring-wine/20";
+
+const labelClasses = "block text-sm font-semibold text-ink";
 
 export function Contact() {
   const { t } = useLanguage();
-  const [form, setForm] = useState({ name: "", email: "", message: "", website: "" });
+  const [form, setForm] = useState(emptyForm);
   const [status, setStatus] = useState<Status>("idle");
 
   async function handleSubmit(e: FormEvent) {
@@ -25,7 +34,10 @@ export function Contact() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          need: form.need ? t.contact.needs[form.need] : "",
+        }),
       });
 
       if (!response.ok) {
@@ -35,76 +47,135 @@ export function Contact() {
 
       setStatus("success");
       trackEvent("generate_lead");
-      setForm({ name: "", email: "", message: "", website: "" });
+      setForm(emptyForm);
     } catch {
       setStatus("error");
     }
   }
 
-  const whatsappUrl = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(t.whatsappMessage)}`;
-
   return (
-    <section id="contacto" className="border-t-2 border-slate-300 bg-slate-100 py-14 pb-28 sm:py-20 sm:pb-28">
-      <div className="mx-auto grid max-w-5xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_1.15fr] lg:gap-14 lg:px-8">
+    <section id="contacto" className="bg-ink py-20 pb-28 text-paper sm:py-28">
+      <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-8">
         <div>
-          <h2 className="text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+          <p className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.18em] text-blush uppercase">
+            <span aria-hidden className="h-px w-6 bg-blush" />
+            {t.contact.eyebrow}
+          </p>
+          <h2 className="mt-4 font-display text-4xl leading-[1.05] font-medium tracking-tight sm:text-5xl">
             {t.contact.title}
           </h2>
-          <p className="mt-3 text-base text-slate-700 sm:text-lg">{t.contact.subtitle}</p>
+          <p className="mt-5 text-lg leading-relaxed text-paper/75">{t.contact.subtitle}</p>
 
-          <h3 className="mt-8 text-sm font-bold tracking-wider text-sky-900 uppercase">
-            {t.contact.nextTitle}
+          <h3 className="mt-10 text-xs font-bold tracking-[0.18em] text-paper/50 uppercase">
+            {t.contact.auditTitle}
           </h3>
-          <ol className="mt-3 space-y-3">
-            {t.contact.nextSteps.map((step, index) => (
-              <li key={step} className="flex gap-3 text-base text-slate-800">
-                <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-indigo-700 text-xs font-bold text-white">
-                  {index + 1}
+          <ul className="mt-4 space-y-3">
+            {t.contact.auditItems.map((item) => (
+              <li key={item} className="flex gap-3 text-base text-paper/90">
+                <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-wine">
+                  <Check className="h-3 w-3 text-white" strokeWidth={3} aria-hidden />
                 </span>
-                <span>{step}</span>
+                {item}
               </li>
             ))}
-          </ol>
+          </ul>
+
+          <div className="mt-10 border-t border-paper/15 pt-8">
+            <p className="text-sm text-paper/60">{t.contact.preferChat}</p>
+            <a
+              href={getWhatsAppUrl(t.whatsappMessage)}
+              onClick={() => trackEvent("whatsapp_click")}
+              className="mt-3 inline-flex min-h-12 items-center gap-2 rounded-full border border-paper/25 px-5 py-3 text-base font-semibold text-paper transition-colors hover:border-[#25D366] hover:bg-[#25D366]/10"
+            >
+              <WhatsAppIcon className="h-5 w-5 text-[#25D366]" />
+              {t.contact.whatsapp}
+            </a>
+          </div>
         </div>
 
-        <div className="rounded-2xl border-2 border-slate-200 bg-white p-5 shadow-sm sm:p-7">
-          <form onSubmit={handleSubmit} className="space-y-5">
+        <div className="rounded-3xl bg-card p-6 text-ink sm:p-9">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <fieldset>
+              <legend className={labelClasses}>{t.contact.needLabel}</legend>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {needKeys.map((key) => {
+                  const active = form.need === key;
+                  return (
+                    <button
+                      key={key}
+                      type="button"
+                      aria-pressed={active}
+                      onClick={() => setForm({ ...form, need: active ? "" : key })}
+                      className={cn(
+                        "min-h-10 rounded-full border px-4 py-2 text-sm font-medium transition-colors",
+                        active
+                          ? "border-wine bg-wine text-white"
+                          : "border-line bg-paper text-ink hover:border-ink/40",
+                      )}
+                    >
+                      {t.contact.needs[key]}
+                    </button>
+                  );
+                })}
+              </div>
+            </fieldset>
+
+            <div className="grid gap-6 sm:grid-cols-2">
+              <div>
+                <label htmlFor="name" className={labelClasses}>
+                  {t.contact.name}
+                </label>
+                <input
+                  id="name"
+                  type="text"
+                  required
+                  autoComplete="name"
+                  maxLength={100}
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  className={inputClasses}
+                  placeholder={t.contact.namePlaceholder}
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className={labelClasses}>
+                  {t.contact.email}
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  required
+                  autoComplete="email"
+                  maxLength={200}
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  className={inputClasses}
+                  placeholder={t.contact.emailPlaceholder}
+                />
+              </div>
+            </div>
+
             <div>
-              <label htmlFor="name" className="block text-sm font-semibold text-slate-900">
-                {t.contact.name}
+              <label htmlFor="site" className={labelClasses}>
+                {t.contact.site}{" "}
+                <span className="font-normal text-ink-mute">({t.contact.optional})</span>
               </label>
               <input
-                id="name"
+                id="site"
                 type="text"
-                required
-                autoComplete="name"
-                maxLength={100}
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className={inputClasses}
-                placeholder={t.contact.namePlaceholder}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="block text-sm font-semibold text-slate-900">
-                {t.contact.email}
-              </label>
-              <input
-                id="email"
-                type="email"
-                required
-                autoComplete="email"
+                inputMode="url"
+                autoComplete="url"
                 maxLength={200}
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                value={form.site}
+                onChange={(e) => setForm({ ...form, site: e.target.value })}
                 className={inputClasses}
-                placeholder={t.contact.emailPlaceholder}
+                placeholder={t.contact.sitePlaceholder}
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-semibold text-slate-900">
+              <label htmlFor="message" className={labelClasses}>
                 {t.contact.message}
               </label>
               <textarea
@@ -135,43 +206,40 @@ export function Contact() {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="min-h-12 w-full rounded-lg bg-indigo-700 px-5 py-3.5 text-base font-semibold text-white hover:bg-indigo-800 disabled:cursor-not-allowed disabled:opacity-70"
+              className="group inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-wine px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-wine-dark disabled:cursor-not-allowed disabled:opacity-70"
             >
               {status === "loading" ? t.contact.sending : t.contact.submit}
+              {status !== "loading" && (
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              )}
             </button>
 
-            <p className="text-xs leading-relaxed text-slate-600">
+            <p className="text-xs leading-relaxed text-ink-mute">
               {t.contact.privacy}{" "}
-              <Link href="/privacidad" className="font-medium text-sky-900 underline underline-offset-2">
+              <Link href="/privacidad" className="font-medium text-wine underline underline-offset-2">
                 {t.contact.privacyLink}
               </Link>
               .
             </p>
 
             {status === "success" && (
-              <p role="status" className="rounded-lg border-2 border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800">
+              <p
+                role="status"
+                className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-900"
+              >
                 {t.contact.success}
               </p>
             )}
 
             {status === "error" && (
-              <p role="alert" className="rounded-lg border-2 border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-800">
+              <p
+                role="alert"
+                className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-900"
+              >
                 {t.contact.error}
               </p>
             )}
           </form>
-
-          <div className="mt-6 border-t border-slate-200 pt-5">
-            <p className="mb-3 text-center text-sm text-slate-600">{t.contact.preferChat}</p>
-            <a
-              href={whatsappUrl}
-              onClick={() => trackEvent("whatsapp_click")}
-              className="flex min-h-12 w-full items-center justify-center gap-2 rounded-lg border-2 border-slate-300 bg-white px-5 py-3.5 text-base font-semibold text-slate-950 hover:border-emerald-400 hover:bg-emerald-50"
-            >
-              <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
-              {t.contact.whatsapp}
-            </a>
-          </div>
         </div>
       </div>
     </section>

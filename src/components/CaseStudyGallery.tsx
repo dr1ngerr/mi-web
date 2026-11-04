@@ -22,17 +22,17 @@ export function CaseStudyGallery({
         return (
           <figure
             key={shot.src}
-            className="overflow-hidden rounded-2xl border-2 border-slate-200 bg-white shadow-sm"
+            className="overflow-hidden rounded-2xl border border-line bg-card shadow-sm"
           >
-            <div className="border-b border-slate-200 bg-slate-50 px-5 py-4 sm:px-6">
-              <p className="text-xs font-bold uppercase tracking-wider text-sky-900">
+            <div className="border-b border-line bg-paper-deep px-5 py-4 sm:px-6">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-wine">
                 {screenshotLabel} {number}
               </p>
-              <h3 className="mt-1 text-lg font-bold text-slate-950">{shot.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-700">{shot.explanation}</p>
+              <h3 className="mt-1 text-lg font-bold text-ink">{shot.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-ink-soft">{shot.explanation}</p>
             </div>
 
-            <div className="bg-slate-100">
+            <div className="bg-paper-deep">
               <Image
                 src={shot.src}
                 alt={shot.alt}

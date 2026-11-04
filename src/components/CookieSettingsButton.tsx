@@ -10,7 +10,7 @@ export function CookieSettingsButton({ className }: { className?: string }) {
     <button
       type="button"
       onClick={resetConsent}
-      className={className ?? "font-medium text-sky-900 underline underline-offset-2"}
+      className={className ?? "font-medium text-wine underline underline-offset-2"}
     >
       {t.footer.cookieSettings}
     </button>

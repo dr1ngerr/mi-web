@@ -32,11 +32,11 @@ export function CookieConsent() {
         <div
           role="region"
           aria-label={t.footer.cookies}
-          className="fixed inset-x-3 bottom-20 z-[60] rounded-xl border-2 border-slate-200 bg-white p-4 shadow-xl md:right-4 md:bottom-4 md:left-auto md:max-w-md"
+          className="fixed inset-x-3 bottom-20 z-[60] rounded-2xl border border-line bg-card p-5 shadow-xl md:right-4 md:bottom-4 md:left-auto md:max-w-md"
         >
-          <p className="text-sm leading-relaxed text-slate-800">
+          <p className="text-sm leading-relaxed text-ink">
             {t.cookies.text}{" "}
-            <Link href="/cookies" className="font-medium text-sky-900 underline underline-offset-2">
+            <Link href="/cookies" className="font-medium text-wine underline underline-offset-2">
               {t.cookies.more}
             </Link>
           </p>
@@ -44,14 +44,14 @@ export function CookieConsent() {
             <button
               type="button"
               onClick={() => saveConsent("rejected")}
-              className="min-h-11 rounded-lg border-2 border-slate-300 bg-white px-4 text-sm font-semibold text-slate-950 hover:bg-slate-50"
+              className="min-h-11 rounded-full border border-line bg-card px-4 text-sm font-semibold text-ink hover:bg-paper-deep"
             >
               {t.cookies.reject}
             </button>
             <button
               type="button"
               onClick={() => saveConsent("accepted")}
-              className="min-h-11 rounded-lg border-2 border-slate-300 bg-white px-4 text-sm font-semibold text-slate-950 hover:bg-slate-50"
+              className="min-h-11 rounded-full border border-line bg-card px-4 text-sm font-semibold text-ink hover:bg-paper-deep"
             >
               {t.cookies.accept}
             </button>
