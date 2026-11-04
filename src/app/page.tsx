@@ -10,9 +10,6 @@ const Services = dynamic(() =>
 const Portfolio = dynamic(() =>
   import("@/components/Portfolio").then((mod) => mod.Portfolio),
 );
-const Calculator = dynamic(() =>
-  import("@/components/Calculator").then((mod) => mod.Calculator),
-);
 const Differentiation = dynamic(() =>
   import("@/components/Differentiation").then((mod) => mod.Differentiation),
 );
@@ -65,7 +62,6 @@ export default function Home() {
         <Hero />
         <Services />
         <Portfolio />
-        <Calculator />
         <Differentiation />
         <Process />
         <Pricing />

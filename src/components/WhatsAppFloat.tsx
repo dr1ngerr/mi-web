@@ -13,7 +13,7 @@ export function WhatsAppFloat() {
     <a
       href={whatsappUrl}
       onClick={() => trackEvent("whatsapp_click")}
-      className="fixed right-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-50 inline-flex min-h-12 items-center gap-2 rounded-full bg-[#25D366] px-5 py-3.5 text-base font-semibold text-white shadow-lg shadow-emerald-900/25 md:hidden"
+      className="fixed right-3 bottom-[calc(3.5rem_+_max(0.75rem,env(safe-area-inset-bottom)))] z-50 inline-flex min-h-12 items-center gap-2 rounded-full bg-[#25D366] px-5 py-3.5 text-base font-semibold text-white shadow-lg shadow-emerald-900/25 md:hidden"
       aria-label={t.whatsappFloat}
     >
       <WhatsAppIcon className="h-5 w-5" />

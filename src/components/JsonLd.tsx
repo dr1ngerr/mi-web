@@ -13,7 +13,6 @@ export function JsonLd() {
     url: siteUrl,
     email: siteConfig.email,
     jobTitle: "Desarrollo web y automatización con IA para empresas",
-    image: `${siteUrl}/about/andrei.jpg`,
     address: {
       "@type": "PostalAddress",
       addressRegion: "La Rioja",
@@ -27,7 +26,6 @@ export function JsonLd() {
     "@id": `${siteUrl}/#business`,
     name: "Andrei Benedec — Desarrollo web y automatización con IA para empresas",
     url: siteUrl,
-    image: `${siteUrl}/about/andrei.jpg`,
     logo: `${siteUrl}/icon`,
     email: siteConfig.email,
     telephone: `+${siteConfig.whatsapp}`,

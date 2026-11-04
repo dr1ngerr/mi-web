@@ -35,6 +35,7 @@ export type Dictionary = {
     cardLabel: string;
     cardCta: string;
     ticker: string[];
+    scrollHint: string;
   };
   services: {
     eyebrow: string;
@@ -56,20 +57,6 @@ export type Dictionary = {
     after: string;
     cta: string;
     note: string;
-  };
-  calculator: {
-    eyebrow: string;
-    title: string;
-    subtitle: string;
-    people: string;
-    hours: string;
-    cost: string;
-    hoursResult: string;
-    moneyResult: string;
-    half: string;
-    method: string;
-    cta: string;
-    whatsappTemplate: string;
   };
   why: {
     eyebrow: string;
@@ -189,13 +176,16 @@ const es: Dictionary = {
       "Diseño y programo la web, las automatizaciones y el software interno de empresas que quieren vender más y trabajar con menos caos. Hablas conmigo directamente y sabes el precio antes de empezar.",
     primaryCta: "Pide tu auditoría gratis",
     secondaryCta: "Escríbeme por WhatsApp",
-    trust: ["Landing desde 600 €", "Precio y plazos por escrito", "Sin agencia ni comerciales"],
+    trust: ["Landing desde 250 €", "Precio y plazos por escrito", "Sin agencia ni comerciales"],
     cardValue: "191 personas",
     cardLabel: "gestionadas en el sistema que desarrollé, en producción",
     cardCta: "Ver el caso",
+    scrollHint: "Descubre más",
     ticker: [
+      "Presencia online",
       "Webs para empresas",
       "Landings que convierten",
+      "Ahorro de tiempo",
       "Automatización con IA",
       "WhatsApp automatizado",
       "Software a medida",
@@ -210,7 +200,7 @@ const es: Dictionary = {
     items: {
       web: {
         pain: "«Mi web no me trae clientes»",
-        offer: "Web o landing · desde 600 €",
+        offer: "Web o landing · desde 250 €",
         description:
           "Una web que explica en segundos qué haces, por qué elegirte y cómo pedirte presupuesto. Pensada para móvil y para que Google te encuentre.",
         bullets: [
@@ -255,22 +245,6 @@ const es: Dictionary = {
     cta: "Leer el caso completo",
     note: "Y esta web también la he diseñado y programado yo.",
   },
-  calculator: {
-    eyebrow: "Calculadora",
-    title: "¿Cuánto te cuesta hacer las cosas a mano?",
-    subtitle:
-      "Pon los datos de tu empresa: copiar datos, pasar pedidos, mandar avisos, montar informes… Es una estimación, pero suele sorprender.",
-    people: "Personas que hacen tareas repetitivas",
-    hours: "Horas por persona a la semana",
-    cost: "Coste por hora (€)",
-    hoursResult: "horas al año",
-    moneyResult: "al año en trabajo repetitivo",
-    half: "Automatizando solo la mitad recuperas {money} al año.",
-    method: "Cálculo: personas × horas × 46 semanas laborables × coste por hora.",
-    cta: "Quiero recuperar ese tiempo",
-    whatsappTemplate:
-      "Hola Andrei, según tu calculadora perdemos unas {hours} horas al año en tareas repetitivas. ¿Vemos qué se puede automatizar?",
-  },
   why: {
     eyebrow: "Por qué conmigo",
     title: "Sin agencia, sin humo, sin sorpresas",
@@ -310,7 +284,7 @@ const es: Dictionary = {
     items: [
       {
         name: "Landing para captar clientes",
-        price: "desde 600 €",
+        price: "desde 250 €",
         description: "Una página que explica tu oferta y convierte visitas en contactos.",
         includes: [
           "Diseño a medida en móvil y escritorio",
@@ -403,7 +377,7 @@ const es: Dictionary = {
       {
         question: "¿Cuánto cuesta una web?",
         answer:
-          "Una landing parte desde 600 €. Proyectos mayores se presupuestan según alcance, plazos y qué incluye.",
+          "Una landing parte desde 250 €. Proyectos mayores se presupuestan según alcance, plazos y qué incluye.",
       },
       {
         question: "¿Cuánto tarda un proyecto?",
@@ -525,13 +499,16 @@ const en: Dictionary = {
       "I design and build the website, automations and internal software for businesses that want to sell more and work with less chaos. You talk to me directly and know the price before we start.",
     primaryCta: "Get your free audit",
     secondaryCta: "Message me on WhatsApp",
-    trust: ["Landing pages from €600", "Fixed price and timeline in writing", "No agency, no salespeople"],
+    trust: ["Landing pages from €250", "Fixed price and timeline in writing", "No agency, no salespeople"],
     cardValue: "191 people",
     cardLabel: "managed in the system I built, in production",
     cardCta: "See the case",
+    scrollHint: "Discover more",
     ticker: [
+      "Online presence",
       "Business websites",
       "Landing pages that convert",
+      "Time saved",
       "AI automation",
       "Automated WhatsApp",
       "Custom software",
@@ -546,7 +523,7 @@ const en: Dictionary = {
     items: {
       web: {
         pain: "“My website doesn't bring in clients”",
-        offer: "Website or landing page · from €600",
+        offer: "Website or landing page · from €250",
         description:
           "A site that explains in seconds what you do, why choose you and how to ask for a quote. Built for mobile and for Google.",
         bullets: [
@@ -591,22 +568,6 @@ const en: Dictionary = {
     cta: "Read the full case",
     note: "And I designed and built this website too.",
   },
-  calculator: {
-    eyebrow: "Calculator",
-    title: "How much does manual work cost you?",
-    subtitle:
-      "Enter your company's numbers: copying data, entering orders, sending reminders, building reports… It's an estimate, but it's usually eye-opening.",
-    people: "People doing repetitive tasks",
-    hours: "Hours per person per week",
-    cost: "Cost per hour (€)",
-    hoursResult: "hours a year",
-    moneyResult: "a year on repetitive work",
-    half: "Automating just half gives you back {money} a year.",
-    method: "Calculation: people × hours × 46 working weeks × hourly cost.",
-    cta: "I want that time back",
-    whatsappTemplate:
-      "Hi Andrei, according to your calculator we lose around {hours} hours a year on repetitive tasks. Can we look at what could be automated?",
-  },
   why: {
     eyebrow: "Why me",
     title: "No agency, no fluff, no surprises",
@@ -645,7 +606,7 @@ const en: Dictionary = {
     items: [
       {
         name: "Landing page to win clients",
-        price: "from €600",
+        price: "from €250",
         description: "One page that explains your offer and turns visits into enquiries.",
         includes: [
           "Custom design for mobile and desktop",
@@ -738,7 +699,7 @@ const en: Dictionary = {
       {
         question: "How much does a website cost?",
         answer:
-          "A landing page starts from €600. Larger projects are quoted by scope, timeline and what's included.",
+          "A landing page starts from €250. Larger projects are quoted by scope, timeline and what's included.",
       },
       {
         question: "How long does a project take?",
@@ -860,13 +821,16 @@ const ro: Dictionary = {
       "Proiectez și programez site-ul, automatizările și software-ul intern pentru firme care vor să vândă mai mult și să lucreze cu mai puțin haos. Vorbești direct cu mine și știi prețul înainte să începem.",
     primaryCta: "Cere auditul gratuit",
     secondaryCta: "Scrie-mi pe WhatsApp",
-    trust: ["Landing page de la 600 €", "Preț și termene în scris", "Fără agenție, fără agenți de vânzări"],
+    trust: ["Landing page de la 250 €", "Preț și termene în scris", "Fără agenție, fără agenți de vânzări"],
     cardValue: "191 de persoane",
     cardLabel: "gestionate în sistemul pe care l-am dezvoltat, în producție",
     cardCta: "Vezi cazul",
+    scrollHint: "Descoperă mai mult",
     ticker: [
+      "Prezență online",
       "Site-uri pentru firme",
       "Landing pages care convertesc",
+      "Timp economisit",
       "Automatizare cu AI",
       "WhatsApp automatizat",
       "Software la comandă",
@@ -881,7 +845,7 @@ const ro: Dictionary = {
     items: {
       web: {
         pain: "„Site-ul meu nu-mi aduce clienți”",
-        offer: "Site sau landing · de la 600 €",
+        offer: "Site sau landing · de la 250 €",
         description:
           "Un site care explică în câteva secunde ce faci, de ce să te aleagă și cum să-ți ceară o ofertă. Gândit pentru mobil și pentru Google.",
         bullets: [
@@ -926,22 +890,6 @@ const ro: Dictionary = {
     cta: "Citește cazul complet",
     note: "Și acest site l-am proiectat și programat tot eu.",
   },
-  calculator: {
-    eyebrow: "Calculator",
-    title: "Cât te costă munca făcută de mână?",
-    subtitle:
-      "Pune datele firmei tale: copiat date, introdus comenzi, trimis notificări, făcut rapoarte… E o estimare, dar de obicei surprinde.",
-    people: "Persoane care fac sarcini repetitive",
-    hours: "Ore pe persoană pe săptămână",
-    cost: "Cost pe oră (€)",
-    hoursResult: "ore pe an",
-    moneyResult: "pe an pe muncă repetitivă",
-    half: "Automatizând doar jumătate, recuperezi {money} pe an.",
-    method: "Calcul: persoane × ore × 46 de săptămâni lucrătoare × cost pe oră.",
-    cta: "Vreau timpul ăsta înapoi",
-    whatsappTemplate:
-      "Bună Andrei, după calculatorul tău pierdem în jur de {hours} ore pe an cu sarcini repetitive. Vedem ce se poate automatiza?",
-  },
   why: {
     eyebrow: "De ce eu",
     title: "Fără agenție, fără vorbe goale, fără surprize",
@@ -980,7 +928,7 @@ const ro: Dictionary = {
     items: [
       {
         name: "Landing page pentru clienți",
-        price: "de la 600 €",
+        price: "de la 250 €",
         description: "O pagină care îți explică oferta și transformă vizitele în contacte.",
         includes: [
           "Design personalizat pe mobil și desktop",
@@ -1073,7 +1021,7 @@ const ro: Dictionary = {
       {
         question: "Cât costă un site?",
         answer:
-          "Un landing page pornește de la 600 €. Proiectele mai mari se calculează după scop, termene și ce includ.",
+          "Un landing page pornește de la 250 €. Proiectele mai mari se calculează după scop, termene și ce includ.",
       },
       {
         question: "Cât durează un proiect?",

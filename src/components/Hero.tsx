@@ -1,10 +1,12 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
-import { aboutAndreiContent, getWhatsAppUrl, siteConfig } from "@/lib/content";
+import { ArrowRight, ArrowUpRight, Check, ChevronDown } from "lucide-react";
+import { getWhatsAppUrl, siteConfig } from "@/lib/content";
 import { trackEvent } from "@/lib/analytics";
+import { cn } from "@/lib/utils";
 import { Button } from "./Button";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import { useLanguage } from "./LanguageProvider";
@@ -14,25 +16,17 @@ export function Hero() {
 
   return (
     <section className="relative overflow-x-clip">
-      <div className="mx-auto grid max-w-6xl items-center gap-16 px-4 pt-28 pb-20 sm:px-6 sm:pt-36 lg:grid-cols-[1.15fr_1fr] lg:gap-10 lg:px-8 lg:pb-28">
+      <div className="mx-auto grid max-w-6xl items-center gap-16 px-4 pt-28 pb-20 sm:px-6 sm:pt-32 lg:grid-cols-[1.15fr_1fr] lg:gap-10 lg:px-8 lg:pb-24">
         <div>
-          <div className="animate-rise flex items-center gap-3">
-            <Image
-              src={aboutAndreiContent.photo}
-              alt={aboutAndreiContent.photoAlt}
-              width={44}
-              height={44}
-              priority
-              className="h-11 w-11 shrink-0 rounded-full object-cover ring-2 ring-card"
-            />
-            <p className="text-sm leading-snug text-ink-soft">
-              <span className="block font-semibold text-ink">{siteConfig.name}</span>
-              {t.hero.eyebrow}
-            </p>
-          </div>
+          <p className="animate-rise inline-flex items-center gap-2.5 text-sm leading-snug text-ink-soft">
+            <span aria-hidden className="h-2 w-2 shrink-0 rounded-full bg-wine" />
+            <span>
+              <span className="font-semibold text-ink">{siteConfig.name}</span> · {t.hero.eyebrow}
+            </span>
+          </p>
 
           <h1
-            className="animate-rise mt-8 font-display text-[2.6rem] leading-[1.03] font-medium tracking-tight text-ink sm:text-6xl lg:text-[4.1rem]"
+            className="animate-rise mt-6 font-display text-[2.6rem] leading-[1.03] font-medium tracking-tight text-ink sm:text-6xl lg:text-[4.1rem]"
             style={{ animationDelay: "80ms" }}
           >
             {t.hero.titleA} <em className="font-normal text-wine italic">{t.hero.titleB}</em>
@@ -121,28 +115,54 @@ export function Hero() {
         </div>
       </div>
 
-      <Ticker items={t.hero.ticker} />
+      <Ticker items={t.hero.ticker} scrollHint={t.hero.scrollHint} />
     </section>
   );
 }
 
-function Ticker({ items }: { items: string[] }) {
+function Ticker({ items, scrollHint }: { items: string[]; scrollHint: string }) {
   const loop = [...items, ...items];
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <div className="overflow-hidden bg-ink py-4 text-paper">
-      <p className="sr-only">{items.join(", ")}</p>
-      <ul aria-hidden className="animate-ticker flex w-max items-center">
-        {loop.map((item, index) => (
-          <li
-            key={`${item}-${index}`}
-            className="flex items-center gap-8 pr-8 font-display text-xl whitespace-nowrap italic sm:text-2xl"
-          >
-            {item}
-            <span className="text-blush not-italic">✦</span>
-          </li>
-        ))}
-      </ul>
+    // Pegada al borde inferior de la pantalla hasta llegar a su sitio bajo la portada
+    <div className="sticky bottom-0 z-40">
+      {/* Pista de que hay más contenido; desaparece al empezar a bajar */}
+      <Link
+        href="/#servicios"
+        aria-hidden={scrolled}
+        tabIndex={scrolled ? -1 : 0}
+        className={cn(
+          "absolute bottom-full left-4 mb-3 inline-flex items-center gap-2 rounded-full border border-line bg-card/95 px-3 py-2 text-sm font-medium text-ink shadow-sm backdrop-blur transition-opacity duration-300 sm:left-1/2 sm:-translate-x-1/2 sm:px-4",
+          scrolled && "pointer-events-none opacity-0",
+        )}
+      >
+        <ChevronDown className="h-4 w-4 animate-bounce text-wine" aria-hidden />
+        <span className="hidden sm:inline">{scrollHint}</span>
+        <span className="sr-only sm:hidden">{scrollHint}</span>
+      </Link>
+
+      <div className="overflow-hidden bg-ink py-2.5 text-paper sm:py-4">
+        <p className="sr-only">{items.join(", ")}</p>
+        <ul aria-hidden className="animate-ticker flex w-max items-center">
+          {loop.map((item, index) => (
+            <li
+              key={`${item}-${index}`}
+              className="flex items-center gap-6 pr-6 font-display text-lg whitespace-nowrap italic sm:gap-8 sm:pr-8 sm:text-2xl"
+            >
+              {item}
+              <span className="text-blush not-italic">✦</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

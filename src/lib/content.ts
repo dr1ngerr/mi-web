@@ -137,8 +137,6 @@ export const aboutAndreiContent = {
     "Software en producción, usado a diario",
   ],
   linkedinCta: "LinkedIn",
-  photo: "/about/andrei.jpg",
-  photoAlt: "Andrei Benedec",
   cta: "Hablemos",
 };
 
@@ -196,7 +194,7 @@ export const pricingContent = {
   items: [
     {
       name: "Landing para conseguir contactos",
-      price: "desde 600 €",
+      price: "desde 250 €",
       description:
         "Una página clara: quién eres, qué ofreces y cómo escribirte. Pensada para empresas que necesitan que les contacten — del tamaño que sean.",
       includes: [
@@ -336,7 +334,7 @@ export const faqContent = {
     {
       question: "¿Cuánto cuesta una web?",
       answer:
-        "Una landing parte desde 600 €. Proyectos mayores se presupuestan según alcance.",
+        "Una landing parte desde 250 €. Proyectos mayores se presupuestan según alcance.",
     },
     {
       question: "¿Cuánto tarda?",
@@ -408,7 +406,7 @@ export const servicePages: SeoLanding[] = [
     intro:
       "Si alguien llega desde Google o desde un enlace, en pocos segundos debería saber qué ofreces y cómo pedirte presupuesto. Diseño la página alrededor de ese contacto — no alrededor de relleno genérico.",
     points: [
-      "Landing desde 600 €, con formulario o WhatsApp",
+      "Landing desde 250 €, con formulario o WhatsApp",
       "Web de varias secciones si tu empresa lo necesita",
       "Mensaje, estructura y llamada a la acción claros",
       "Publicación y dominio si lo necesitas",
@@ -488,7 +486,7 @@ export const servicePages: SeoLanding[] = [
     points: [
       "Una página, un mensaje, una llamada a la acción",
       "Formulario o WhatsApp visibles desde el primer scroll",
-      "Desde 600 €, con publicación si la necesitas",
+      "Desde 250 €, con publicación si la necesitas",
       "Enfocada en contactos, no en relleno",
     ],
     cta: "Pedir presupuesto para tu landing",

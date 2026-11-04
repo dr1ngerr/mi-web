@@ -1,8 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { ArrowRight, Check } from "lucide-react";
-import { aboutAndreiContent, siteConfig } from "@/lib/content";
+import { siteConfig } from "@/lib/content";
 import { Button } from "./Button";
 import { useLanguage } from "./LanguageProvider";
 
@@ -14,14 +13,24 @@ export function AboutAndrei() {
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 lg:px-8">
         <div className="relative mx-auto w-full max-w-sm">
           <div aria-hidden className="absolute inset-0 translate-x-4 translate-y-4 rounded-[2rem] bg-wine" />
-          <Image
-            src={aboutAndreiContent.photo}
-            alt={aboutAndreiContent.photoAlt}
-            width={400}
-            height={400}
-            sizes="(max-width: 1024px) 384px, 400px"
-            className="relative aspect-square w-full rounded-[2rem] object-cover grayscale-[15%]"
-          />
+          <div className="relative rounded-[2rem] bg-ink p-8 text-paper sm:p-10">
+            <span
+              aria-hidden
+              className="flex h-16 w-16 items-center justify-center rounded-full bg-paper font-display text-2xl font-semibold text-ink"
+            >
+              AB
+            </span>
+            <p className="mt-6 font-display text-2xl font-medium">{siteConfig.name}</p>
+            <p className="mt-1 text-sm text-paper/70">{t.positioning}</p>
+            <ul className="mt-8 space-y-3 border-t border-paper/15 pt-6">
+              {t.about.credentials.map((item) => (
+                <li key={item} className="flex gap-2.5 text-sm text-paper/90">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-blush" strokeWidth={2.5} aria-hidden />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div>
@@ -34,18 +43,6 @@ export function AboutAndrei() {
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-ink-soft">{t.about.story}</p>
           <p className="mt-4 text-lg leading-relaxed text-ink-soft">{t.about.story2}</p>
-
-          <ul className="mt-8 flex flex-wrap gap-2">
-            {t.about.credentials.map((item) => (
-              <li
-                key={item}
-                className="inline-flex items-center gap-2 rounded-full border border-line bg-card px-4 py-2 text-sm font-medium text-ink"
-              >
-                <Check className="h-4 w-4 text-wine" strokeWidth={2.5} aria-hidden />
-                {item}
-              </li>
-            ))}
-          </ul>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Button href="/#contacto" className="px-6 text-base">

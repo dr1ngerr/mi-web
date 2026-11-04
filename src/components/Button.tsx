@@ -16,8 +16,7 @@ interface ButtonProps {
 }
 
 const variants: Record<ButtonVariant, string> = {
-  primary:
-    "bg-wine text-white hover:bg-wine-dark shadow-[0_10px_24px_-12px_rgb(140_29_47/0.8)]",
+  primary: "bg-wine text-white hover:bg-wine-dark",
   secondary: "border border-ink/20 bg-card text-ink hover:border-ink/50",
   ghost: "text-ink-soft hover:text-ink hover:bg-paper-deep",
   /** Sobre fondos oscuros */
