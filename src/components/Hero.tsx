@@ -16,7 +16,7 @@ export function Hero() {
 
   return (
     <section className="relative overflow-x-clip">
-      <div className="mx-auto grid max-w-6xl items-center gap-16 px-4 pt-28 pb-20 sm:px-6 sm:pt-32 lg:grid-cols-[1.15fr_1fr] lg:gap-10 lg:px-8 lg:pb-24">
+      <div className="mx-auto grid max-w-6xl items-center gap-16 px-4 pt-24 pb-20 sm:px-6 sm:pt-24 lg:grid-cols-[1.15fr_1fr] lg:gap-10 lg:px-8 lg:pb-20">
         <div>
           <p className="animate-rise inline-flex items-center gap-2.5 text-sm leading-snug text-ink-soft">
             <span aria-hidden className="h-2 w-2 shrink-0 rounded-full bg-wine" />
